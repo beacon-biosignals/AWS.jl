@@ -11,13 +11,13 @@ Associates an Identity and Access Management (IAM) role from an Amazon Aurora DB
 
 # Required Parameters
 - `DBClusterIdentifier`: The name of the DB cluster to associate the IAM role with.
-- `RoleArn`: The Amazon Resource Name (ARN) of the IAM role to associate with the Aurora DB cluster, for example arn:aws:iam::123456789012:role/AuroraAccessRole.
+- `RoleArn`: The Amazon Resource Name (ARN) of the IAM role to associate with the Aurora DB cluster, for example, arn:aws:iam::123456789012:role/AuroraAccessRole.
 
 # Optional Parameters
 - `FeatureName`: The name of the feature for the DB cluster that the IAM role is to be associated with. For the list of supported feature names, see DBEngineVersion.
 """
-add_role_to_dbcluster(DBClusterIdentifier, RoleArn; aws_config::AWSConfig=global_aws_config()) = rds("AddRoleToDBCluster", Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier, "RoleArn"=>RoleArn); aws_config=aws_config)
-add_role_to_dbcluster(DBClusterIdentifier, RoleArn, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("AddRoleToDBCluster", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier, "RoleArn"=>RoleArn), args)); aws_config=aws_config)
+add_role_to_dbcluster(DBClusterIdentifier, RoleArn; aws_config::AbstractAWSConfig=global_aws_config()) = rds("AddRoleToDBCluster", Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier, "RoleArn"=>RoleArn); aws_config=aws_config)
+add_role_to_dbcluster(DBClusterIdentifier, RoleArn, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("AddRoleToDBCluster", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier, "RoleArn"=>RoleArn), args)); aws_config=aws_config)
 
 """
     AddRoleToDBInstance()
@@ -30,8 +30,8 @@ Associates an AWS Identity and Access Management (IAM) role with a DB instance. 
 - `RoleArn`: The Amazon Resource Name (ARN) of the IAM role to associate with the DB instance, for example arn:aws:iam::123456789012:role/AccessRole. 
 
 """
-add_role_to_dbinstance(DBInstanceIdentifier, FeatureName, RoleArn; aws_config::AWSConfig=global_aws_config()) = rds("AddRoleToDBInstance", Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier, "FeatureName"=>FeatureName, "RoleArn"=>RoleArn); aws_config=aws_config)
-add_role_to_dbinstance(DBInstanceIdentifier, FeatureName, RoleArn, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("AddRoleToDBInstance", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier, "FeatureName"=>FeatureName, "RoleArn"=>RoleArn), args)); aws_config=aws_config)
+add_role_to_dbinstance(DBInstanceIdentifier, FeatureName, RoleArn; aws_config::AbstractAWSConfig=global_aws_config()) = rds("AddRoleToDBInstance", Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier, "FeatureName"=>FeatureName, "RoleArn"=>RoleArn); aws_config=aws_config)
+add_role_to_dbinstance(DBInstanceIdentifier, FeatureName, RoleArn, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("AddRoleToDBInstance", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier, "FeatureName"=>FeatureName, "RoleArn"=>RoleArn), args)); aws_config=aws_config)
 
 """
     AddSourceIdentifierToSubscription()
@@ -43,8 +43,8 @@ Adds a source identifier to an existing RDS event notification subscription.
 - `SubscriptionName`: The name of the RDS event notification subscription you want to add a source identifier to.
 
 """
-add_source_identifier_to_subscription(SourceIdentifier, SubscriptionName; aws_config::AWSConfig=global_aws_config()) = rds("AddSourceIdentifierToSubscription", Dict{String, Any}("SourceIdentifier"=>SourceIdentifier, "SubscriptionName"=>SubscriptionName); aws_config=aws_config)
-add_source_identifier_to_subscription(SourceIdentifier, SubscriptionName, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("AddSourceIdentifierToSubscription", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("SourceIdentifier"=>SourceIdentifier, "SubscriptionName"=>SubscriptionName), args)); aws_config=aws_config)
+add_source_identifier_to_subscription(SourceIdentifier, SubscriptionName; aws_config::AbstractAWSConfig=global_aws_config()) = rds("AddSourceIdentifierToSubscription", Dict{String, Any}("SourceIdentifier"=>SourceIdentifier, "SubscriptionName"=>SubscriptionName); aws_config=aws_config)
+add_source_identifier_to_subscription(SourceIdentifier, SubscriptionName, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("AddSourceIdentifierToSubscription", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("SourceIdentifier"=>SourceIdentifier, "SubscriptionName"=>SubscriptionName), args)); aws_config=aws_config)
 
 """
     AddTagsToResource()
@@ -58,8 +58,8 @@ Adds metadata tags to an Amazon RDS resource. These tags can also be used with c
 # Optional Parameters
 - `Tags`: The tags to be assigned to the Amazon RDS resource.
 """
-add_tags_to_resource(ResourceName, Tag; aws_config::AWSConfig=global_aws_config()) = rds("AddTagsToResource", Dict{String, Any}("ResourceName"=>ResourceName, "Tag"=>Tag); aws_config=aws_config)
-add_tags_to_resource(ResourceName, Tag, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("AddTagsToResource", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("ResourceName"=>ResourceName, "Tag"=>Tag), args)); aws_config=aws_config)
+add_tags_to_resource(ResourceName, Tag; aws_config::AbstractAWSConfig=global_aws_config()) = rds("AddTagsToResource", Dict{String, Any}("ResourceName"=>ResourceName, "Tag"=>Tag); aws_config=aws_config)
+add_tags_to_resource(ResourceName, Tag, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("AddTagsToResource", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("ResourceName"=>ResourceName, "Tag"=>Tag), args)); aws_config=aws_config)
 
 """
     ApplyPendingMaintenanceAction()
@@ -72,8 +72,8 @@ Applies a pending maintenance action to a resource (for example, to a DB instanc
 - `ResourceIdentifier`: The RDS Amazon Resource Name (ARN) of the resource that the pending maintenance action applies to. For information about creating an ARN, see  Constructing an RDS Amazon Resource Name (ARN).
 
 """
-apply_pending_maintenance_action(ApplyAction, OptInType, ResourceIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("ApplyPendingMaintenanceAction", Dict{String, Any}("ApplyAction"=>ApplyAction, "OptInType"=>OptInType, "ResourceIdentifier"=>ResourceIdentifier); aws_config=aws_config)
-apply_pending_maintenance_action(ApplyAction, OptInType, ResourceIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("ApplyPendingMaintenanceAction", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("ApplyAction"=>ApplyAction, "OptInType"=>OptInType, "ResourceIdentifier"=>ResourceIdentifier), args)); aws_config=aws_config)
+apply_pending_maintenance_action(ApplyAction, OptInType, ResourceIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ApplyPendingMaintenanceAction", Dict{String, Any}("ApplyAction"=>ApplyAction, "OptInType"=>OptInType, "ResourceIdentifier"=>ResourceIdentifier); aws_config=aws_config)
+apply_pending_maintenance_action(ApplyAction, OptInType, ResourceIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ApplyPendingMaintenanceAction", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("ApplyAction"=>ApplyAction, "OptInType"=>OptInType, "ResourceIdentifier"=>ResourceIdentifier), args)); aws_config=aws_config)
 
 """
     AuthorizeDBSecurityGroupIngress()
@@ -89,8 +89,8 @@ Enables ingress to a DBSecurityGroup using one of two forms of authorization. Fi
 - `EC2SecurityGroupName`:  Name of the EC2 security group to authorize. For VPC DB security groups, EC2SecurityGroupId must be provided. Otherwise, EC2SecurityGroupOwnerId and either EC2SecurityGroupName or EC2SecurityGroupId must be provided. 
 - `EC2SecurityGroupOwnerId`:  AWS account number of the owner of the EC2 security group specified in the EC2SecurityGroupName parameter. The AWS access key ID isn't an acceptable value. For VPC DB security groups, EC2SecurityGroupId must be provided. Otherwise, EC2SecurityGroupOwnerId and either EC2SecurityGroupName or EC2SecurityGroupId must be provided. 
 """
-authorize_dbsecurity_group_ingress(DBSecurityGroupName; aws_config::AWSConfig=global_aws_config()) = rds("AuthorizeDBSecurityGroupIngress", Dict{String, Any}("DBSecurityGroupName"=>DBSecurityGroupName); aws_config=aws_config)
-authorize_dbsecurity_group_ingress(DBSecurityGroupName, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("AuthorizeDBSecurityGroupIngress", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBSecurityGroupName"=>DBSecurityGroupName), args)); aws_config=aws_config)
+authorize_dbsecurity_group_ingress(DBSecurityGroupName; aws_config::AbstractAWSConfig=global_aws_config()) = rds("AuthorizeDBSecurityGroupIngress", Dict{String, Any}("DBSecurityGroupName"=>DBSecurityGroupName); aws_config=aws_config)
+authorize_dbsecurity_group_ingress(DBSecurityGroupName, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("AuthorizeDBSecurityGroupIngress", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBSecurityGroupName"=>DBSecurityGroupName), args)); aws_config=aws_config)
 
 """
     BacktrackDBCluster()
@@ -105,8 +105,8 @@ Backtracks a DB cluster to a specific time, without creating a new DB cluster. F
 - `Force`: A value that indicates whether to force the DB cluster to backtrack when binary logging is enabled. Otherwise, an error occurs when binary logging is enabled.
 - `UseEarliestTimeOnPointInTimeUnavailable`: A value that indicates whether to backtrack the DB cluster to the earliest possible backtrack time when BacktrackTo is set to a timestamp earlier than the earliest backtrack time. When this parameter is disabled and BacktrackTo is set to a timestamp earlier than the earliest backtrack time, an error occurs.
 """
-backtrack_dbcluster(BacktrackTo, DBClusterIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("BacktrackDBCluster", Dict{String, Any}("BacktrackTo"=>BacktrackTo, "DBClusterIdentifier"=>DBClusterIdentifier); aws_config=aws_config)
-backtrack_dbcluster(BacktrackTo, DBClusterIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("BacktrackDBCluster", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("BacktrackTo"=>BacktrackTo, "DBClusterIdentifier"=>DBClusterIdentifier), args)); aws_config=aws_config)
+backtrack_dbcluster(BacktrackTo, DBClusterIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("BacktrackDBCluster", Dict{String, Any}("BacktrackTo"=>BacktrackTo, "DBClusterIdentifier"=>DBClusterIdentifier); aws_config=aws_config)
+backtrack_dbcluster(BacktrackTo, DBClusterIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("BacktrackDBCluster", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("BacktrackTo"=>BacktrackTo, "DBClusterIdentifier"=>DBClusterIdentifier), args)); aws_config=aws_config)
 
 """
     CancelExportTask()
@@ -117,8 +117,8 @@ Cancels an export task in progress that is exporting a snapshot to Amazon S3. An
 - `ExportTaskIdentifier`: The identifier of the snapshot export task to cancel.
 
 """
-cancel_export_task(ExportTaskIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("CancelExportTask", Dict{String, Any}("ExportTaskIdentifier"=>ExportTaskIdentifier); aws_config=aws_config)
-cancel_export_task(ExportTaskIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("CancelExportTask", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("ExportTaskIdentifier"=>ExportTaskIdentifier), args)); aws_config=aws_config)
+cancel_export_task(ExportTaskIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CancelExportTask", Dict{String, Any}("ExportTaskIdentifier"=>ExportTaskIdentifier); aws_config=aws_config)
+cancel_export_task(ExportTaskIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CancelExportTask", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("ExportTaskIdentifier"=>ExportTaskIdentifier), args)); aws_config=aws_config)
 
 """
     CopyDBClusterParameterGroup()
@@ -133,13 +133,13 @@ Copies the specified DB cluster parameter group.  This action only applies to Au
 # Optional Parameters
 - `Tags`: 
 """
-copy_dbcluster_parameter_group(SourceDBClusterParameterGroupIdentifier, TargetDBClusterParameterGroupDescription, TargetDBClusterParameterGroupIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("CopyDBClusterParameterGroup", Dict{String, Any}("SourceDBClusterParameterGroupIdentifier"=>SourceDBClusterParameterGroupIdentifier, "TargetDBClusterParameterGroupDescription"=>TargetDBClusterParameterGroupDescription, "TargetDBClusterParameterGroupIdentifier"=>TargetDBClusterParameterGroupIdentifier); aws_config=aws_config)
-copy_dbcluster_parameter_group(SourceDBClusterParameterGroupIdentifier, TargetDBClusterParameterGroupDescription, TargetDBClusterParameterGroupIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("CopyDBClusterParameterGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("SourceDBClusterParameterGroupIdentifier"=>SourceDBClusterParameterGroupIdentifier, "TargetDBClusterParameterGroupDescription"=>TargetDBClusterParameterGroupDescription, "TargetDBClusterParameterGroupIdentifier"=>TargetDBClusterParameterGroupIdentifier), args)); aws_config=aws_config)
+copy_dbcluster_parameter_group(SourceDBClusterParameterGroupIdentifier, TargetDBClusterParameterGroupDescription, TargetDBClusterParameterGroupIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CopyDBClusterParameterGroup", Dict{String, Any}("SourceDBClusterParameterGroupIdentifier"=>SourceDBClusterParameterGroupIdentifier, "TargetDBClusterParameterGroupDescription"=>TargetDBClusterParameterGroupDescription, "TargetDBClusterParameterGroupIdentifier"=>TargetDBClusterParameterGroupIdentifier); aws_config=aws_config)
+copy_dbcluster_parameter_group(SourceDBClusterParameterGroupIdentifier, TargetDBClusterParameterGroupDescription, TargetDBClusterParameterGroupIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CopyDBClusterParameterGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("SourceDBClusterParameterGroupIdentifier"=>SourceDBClusterParameterGroupIdentifier, "TargetDBClusterParameterGroupDescription"=>TargetDBClusterParameterGroupDescription, "TargetDBClusterParameterGroupIdentifier"=>TargetDBClusterParameterGroupIdentifier), args)); aws_config=aws_config)
 
 """
     CopyDBClusterSnapshot()
 
-Copies a snapshot of a DB cluster. To copy a DB cluster snapshot from a shared manual DB cluster snapshot, SourceDBClusterSnapshotIdentifier must be the Amazon Resource Name (ARN) of the shared DB cluster snapshot. You can copy an encrypted DB cluster snapshot from another AWS Region. In that case, the AWS Region where you call the CopyDBClusterSnapshot action is the destination AWS Region for the encrypted DB cluster snapshot to be copied to. To copy an encrypted DB cluster snapshot from another AWS Region, you must provide the following values:    KmsKeyId - The AWS Key Management System (AWS KMS) key identifier for the key to use to encrypt the copy of the DB cluster snapshot in the destination AWS Region.    PreSignedUrl - A URL that contains a Signature Version 4 signed request for the CopyDBClusterSnapshot action to be called in the source AWS Region where the DB cluster snapshot is copied from. The pre-signed URL must be a valid request for the CopyDBClusterSnapshot API action that can be executed in the source AWS Region that contains the encrypted DB cluster snapshot to be copied. The pre-signed URL request must contain the following parameter values:    KmsKeyId - The KMS key identifier for the key to use to encrypt the copy of the DB cluster snapshot in the destination AWS Region. This is the same identifier for both the CopyDBClusterSnapshot action that is called in the destination AWS Region, and the action contained in the pre-signed URL.    DestinationRegion - The name of the AWS Region that the DB cluster snapshot is to be created in.    SourceDBClusterSnapshotIdentifier - The DB cluster snapshot identifier for the encrypted DB cluster snapshot to be copied. This identifier must be in the Amazon Resource Name (ARN) format for the source AWS Region. For example, if you are copying an encrypted DB cluster snapshot from the us-west-2 AWS Region, then your SourceDBClusterSnapshotIdentifier looks like the following example: arn:aws:rds:us-west-2:123456789012:cluster-snapshot:aurora-cluster1-snapshot-20161115.   To learn how to generate a Signature Version 4 signed request, see  Authenticating Requests: Using Query Parameters (AWS Signature Version 4) and  Signature Version 4 Signing Process.  If you are using an AWS SDK tool or the AWS CLI, you can specify SourceRegion (or --source-region for the AWS CLI) instead of specifying PreSignedUrl manually. Specifying SourceRegion autogenerates a pre-signed URL that is a valid request for the operation that can be executed in the source AWS Region.     TargetDBClusterSnapshotIdentifier - The identifier for the new copy of the DB cluster snapshot in the destination AWS Region.    SourceDBClusterSnapshotIdentifier - The DB cluster snapshot identifier for the encrypted DB cluster snapshot to be copied. This identifier must be in the ARN format for the source AWS Region and is the same value as the SourceDBClusterSnapshotIdentifier in the pre-signed URL.    To cancel the copy operation once it is in progress, delete the target DB cluster snapshot identified by TargetDBClusterSnapshotIdentifier while that DB cluster snapshot is in \"copying\" status. For more information on copying encrypted DB cluster snapshots from one AWS Region to another, see  Copying a Snapshot in the Amazon Aurora User Guide.  For more information on Amazon Aurora, see  What Is Amazon Aurora? in the Amazon Aurora User Guide.   This action only applies to Aurora DB clusters. 
+Copies a snapshot of a DB cluster. To copy a DB cluster snapshot from a shared manual DB cluster snapshot, SourceDBClusterSnapshotIdentifier must be the Amazon Resource Name (ARN) of the shared DB cluster snapshot. You can copy an encrypted DB cluster snapshot from another AWS Region. In that case, the AWS Region where you call the CopyDBClusterSnapshot action is the destination AWS Region for the encrypted DB cluster snapshot to be copied to. To copy an encrypted DB cluster snapshot from another AWS Region, you must provide the following values:    KmsKeyId - The AWS Key Management System (AWS KMS) key identifier for the key to use to encrypt the copy of the DB cluster snapshot in the destination AWS Region.    PreSignedUrl - A URL that contains a Signature Version 4 signed request for the CopyDBClusterSnapshot action to be called in the source AWS Region where the DB cluster snapshot is copied from. The pre-signed URL must be a valid request for the CopyDBClusterSnapshot API action that can be executed in the source AWS Region that contains the encrypted DB cluster snapshot to be copied. The pre-signed URL request must contain the following parameter values:    KmsKeyId - The AWS KMS key identifier for the customer master key (CMK) to use to encrypt the copy of the DB cluster snapshot in the destination AWS Region. This is the same identifier for both the CopyDBClusterSnapshot action that is called in the destination AWS Region, and the action contained in the pre-signed URL.    DestinationRegion - The name of the AWS Region that the DB cluster snapshot is to be created in.    SourceDBClusterSnapshotIdentifier - The DB cluster snapshot identifier for the encrypted DB cluster snapshot to be copied. This identifier must be in the Amazon Resource Name (ARN) format for the source AWS Region. For example, if you are copying an encrypted DB cluster snapshot from the us-west-2 AWS Region, then your SourceDBClusterSnapshotIdentifier looks like the following example: arn:aws:rds:us-west-2:123456789012:cluster-snapshot:aurora-cluster1-snapshot-20161115.   To learn how to generate a Signature Version 4 signed request, see  Authenticating Requests: Using Query Parameters (AWS Signature Version 4) and  Signature Version 4 Signing Process.  If you are using an AWS SDK tool or the AWS CLI, you can specify SourceRegion (or --source-region for the AWS CLI) instead of specifying PreSignedUrl manually. Specifying SourceRegion autogenerates a pre-signed URL that is a valid request for the operation that can be executed in the source AWS Region.     TargetDBClusterSnapshotIdentifier - The identifier for the new copy of the DB cluster snapshot in the destination AWS Region.    SourceDBClusterSnapshotIdentifier - The DB cluster snapshot identifier for the encrypted DB cluster snapshot to be copied. This identifier must be in the ARN format for the source AWS Region and is the same value as the SourceDBClusterSnapshotIdentifier in the pre-signed URL.    To cancel the copy operation once it is in progress, delete the target DB cluster snapshot identified by TargetDBClusterSnapshotIdentifier while that DB cluster snapshot is in \"copying\" status. For more information on copying encrypted DB cluster snapshots from one AWS Region to another, see  Copying a Snapshot in the Amazon Aurora User Guide.  For more information on Amazon Aurora, see  What Is Amazon Aurora? in the Amazon Aurora User Guide.   This action only applies to Aurora DB clusters. 
 
 # Required Parameters
 - `SourceDBClusterSnapshotIdentifier`: The identifier of the DB cluster snapshot to copy. This parameter isn't case-sensitive. You can't copy an encrypted, shared DB cluster snapshot from one AWS Region to another. Constraints:   Must specify a valid system snapshot in the \"available\" state.   If the source snapshot is in the same AWS Region as the copy, specify a valid DB snapshot identifier.   If the source snapshot is in a different AWS Region than the copy, specify a valid DB cluster snapshot ARN. For more information, go to  Copying Snapshots Across AWS Regions in the Amazon Aurora User Guide.    Example: my-cluster-snapshot1 
@@ -147,13 +147,13 @@ Copies a snapshot of a DB cluster. To copy a DB cluster snapshot from a shared m
 
 # Optional Parameters
 - `CopyTags`: A value that indicates whether to copy all tags from the source DB cluster snapshot to the target DB cluster snapshot. By default, tags are not copied.
-- `KmsKeyId`: The AWS KMS key ID for an encrypted DB cluster snapshot. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.  If you copy an encrypted DB cluster snapshot from your AWS account, you can specify a value for KmsKeyId to encrypt the copy with a new KMS encryption key. If you don't specify a value for KmsKeyId, then the copy of the DB cluster snapshot is encrypted with the same KMS key as the source DB cluster snapshot.  If you copy an encrypted DB cluster snapshot that is shared from another AWS account, then you must specify a value for KmsKeyId.  To copy an encrypted DB cluster snapshot to another AWS Region, you must set KmsKeyId to the KMS key ID you want to use to encrypt the copy of the DB cluster snapshot in the destination AWS Region. KMS encryption keys are specific to the AWS Region that they are created in, and you can't use encryption keys from one AWS Region in another AWS Region. If you copy an unencrypted DB cluster snapshot and specify a value for the KmsKeyId parameter, an error is returned.
-- `PreSignedUrl`: The URL that contains a Signature Version 4 signed request for the CopyDBClusterSnapshot API action in the AWS Region that contains the source DB cluster snapshot to copy. The PreSignedUrl parameter must be used when copying an encrypted DB cluster snapshot from another AWS Region. Don't specify PreSignedUrl when you are copying an encrypted DB cluster snapshot in the same AWS Region. The pre-signed URL must be a valid request for the CopyDBClusterSnapshot API action that can be executed in the source AWS Region that contains the encrypted DB cluster snapshot to be copied. The pre-signed URL request must contain the following parameter values:    KmsKeyId - The AWS KMS key identifier for the key to use to encrypt the copy of the DB cluster snapshot in the destination AWS Region. This is the same identifier for both the CopyDBClusterSnapshot action that is called in the destination AWS Region, and the action contained in the pre-signed URL.    DestinationRegion - The name of the AWS Region that the DB cluster snapshot is to be created in.    SourceDBClusterSnapshotIdentifier - The DB cluster snapshot identifier for the encrypted DB cluster snapshot to be copied. This identifier must be in the Amazon Resource Name (ARN) format for the source AWS Region. For example, if you are copying an encrypted DB cluster snapshot from the us-west-2 AWS Region, then your SourceDBClusterSnapshotIdentifier looks like the following example: arn:aws:rds:us-west-2:123456789012:cluster-snapshot:aurora-cluster1-snapshot-20161115.   To learn how to generate a Signature Version 4 signed request, see  Authenticating Requests: Using Query Parameters (AWS Signature Version 4) and  Signature Version 4 Signing Process.  If you are using an AWS SDK tool or the AWS CLI, you can specify SourceRegion (or --source-region for the AWS CLI) instead of specifying PreSignedUrl manually. Specifying SourceRegion autogenerates a pre-signed URL that is a valid request for the operation that can be executed in the source AWS Region. If you supply a value for this operation's SourceRegion parameter, a pre-signed URL will be calculated on your behalf.
+- `KmsKeyId`: The AWS KMS key identifier for an encrypted DB cluster snapshot. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK). If you copy an encrypted DB cluster snapshot from your AWS account, you can specify a value for KmsKeyId to encrypt the copy with a new AWS KMS CMK. If you don't specify a value for KmsKeyId, then the copy of the DB cluster snapshot is encrypted with the same AWS KMS key as the source DB cluster snapshot.  If you copy an encrypted DB cluster snapshot that is shared from another AWS account, then you must specify a value for KmsKeyId.  To copy an encrypted DB cluster snapshot to another AWS Region, you must set KmsKeyId to the AWS KMS key identifier you want to use to encrypt the copy of the DB cluster snapshot in the destination AWS Region. AWS KMS CMKs are specific to the AWS Region that they are created in, and you can't use CMKs from one AWS Region in another AWS Region. If you copy an unencrypted DB cluster snapshot and specify a value for the KmsKeyId parameter, an error is returned.
+- `PreSignedUrl`: The URL that contains a Signature Version 4 signed request for the CopyDBClusterSnapshot API action in the AWS Region that contains the source DB cluster snapshot to copy. The PreSignedUrl parameter must be used when copying an encrypted DB cluster snapshot from another AWS Region. Don't specify PreSignedUrl when you are copying an encrypted DB cluster snapshot in the same AWS Region. The pre-signed URL must be a valid request for the CopyDBClusterSnapshot API action that can be executed in the source AWS Region that contains the encrypted DB cluster snapshot to be copied. The pre-signed URL request must contain the following parameter values:    KmsKeyId - The AWS KMS key identifier for the customer master key (CMK) to use to encrypt the copy of the DB cluster snapshot in the destination AWS Region. This is the same identifier for both the CopyDBClusterSnapshot action that is called in the destination AWS Region, and the action contained in the pre-signed URL.    DestinationRegion - The name of the AWS Region that the DB cluster snapshot is to be created in.    SourceDBClusterSnapshotIdentifier - The DB cluster snapshot identifier for the encrypted DB cluster snapshot to be copied. This identifier must be in the Amazon Resource Name (ARN) format for the source AWS Region. For example, if you are copying an encrypted DB cluster snapshot from the us-west-2 AWS Region, then your SourceDBClusterSnapshotIdentifier looks like the following example: arn:aws:rds:us-west-2:123456789012:cluster-snapshot:aurora-cluster1-snapshot-20161115.   To learn how to generate a Signature Version 4 signed request, see  Authenticating Requests: Using Query Parameters (AWS Signature Version 4) and  Signature Version 4 Signing Process.  If you are using an AWS SDK tool or the AWS CLI, you can specify SourceRegion (or --source-region for the AWS CLI) instead of specifying PreSignedUrl manually. Specifying SourceRegion autogenerates a pre-signed URL that is a valid request for the operation that can be executed in the source AWS Region. If you supply a value for this operation's SourceRegion parameter, a pre-signed URL will be calculated on your behalf.
 - `SourceRegion`: The ID of the region that contains the snapshot to be copied.
 - `Tags`: 
 """
-copy_dbcluster_snapshot(SourceDBClusterSnapshotIdentifier, TargetDBClusterSnapshotIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("CopyDBClusterSnapshot", Dict{String, Any}("SourceDBClusterSnapshotIdentifier"=>SourceDBClusterSnapshotIdentifier, "TargetDBClusterSnapshotIdentifier"=>TargetDBClusterSnapshotIdentifier); aws_config=aws_config)
-copy_dbcluster_snapshot(SourceDBClusterSnapshotIdentifier, TargetDBClusterSnapshotIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("CopyDBClusterSnapshot", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("SourceDBClusterSnapshotIdentifier"=>SourceDBClusterSnapshotIdentifier, "TargetDBClusterSnapshotIdentifier"=>TargetDBClusterSnapshotIdentifier), args)); aws_config=aws_config)
+copy_dbcluster_snapshot(SourceDBClusterSnapshotIdentifier, TargetDBClusterSnapshotIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CopyDBClusterSnapshot", Dict{String, Any}("SourceDBClusterSnapshotIdentifier"=>SourceDBClusterSnapshotIdentifier, "TargetDBClusterSnapshotIdentifier"=>TargetDBClusterSnapshotIdentifier); aws_config=aws_config)
+copy_dbcluster_snapshot(SourceDBClusterSnapshotIdentifier, TargetDBClusterSnapshotIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CopyDBClusterSnapshot", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("SourceDBClusterSnapshotIdentifier"=>SourceDBClusterSnapshotIdentifier, "TargetDBClusterSnapshotIdentifier"=>TargetDBClusterSnapshotIdentifier), args)); aws_config=aws_config)
 
 """
     CopyDBParameterGroup()
@@ -168,8 +168,8 @@ Copies the specified DB parameter group.
 # Optional Parameters
 - `Tags`: 
 """
-copy_dbparameter_group(SourceDBParameterGroupIdentifier, TargetDBParameterGroupDescription, TargetDBParameterGroupIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("CopyDBParameterGroup", Dict{String, Any}("SourceDBParameterGroupIdentifier"=>SourceDBParameterGroupIdentifier, "TargetDBParameterGroupDescription"=>TargetDBParameterGroupDescription, "TargetDBParameterGroupIdentifier"=>TargetDBParameterGroupIdentifier); aws_config=aws_config)
-copy_dbparameter_group(SourceDBParameterGroupIdentifier, TargetDBParameterGroupDescription, TargetDBParameterGroupIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("CopyDBParameterGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("SourceDBParameterGroupIdentifier"=>SourceDBParameterGroupIdentifier, "TargetDBParameterGroupDescription"=>TargetDBParameterGroupDescription, "TargetDBParameterGroupIdentifier"=>TargetDBParameterGroupIdentifier), args)); aws_config=aws_config)
+copy_dbparameter_group(SourceDBParameterGroupIdentifier, TargetDBParameterGroupDescription, TargetDBParameterGroupIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CopyDBParameterGroup", Dict{String, Any}("SourceDBParameterGroupIdentifier"=>SourceDBParameterGroupIdentifier, "TargetDBParameterGroupDescription"=>TargetDBParameterGroupDescription, "TargetDBParameterGroupIdentifier"=>TargetDBParameterGroupIdentifier); aws_config=aws_config)
+copy_dbparameter_group(SourceDBParameterGroupIdentifier, TargetDBParameterGroupDescription, TargetDBParameterGroupIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CopyDBParameterGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("SourceDBParameterGroupIdentifier"=>SourceDBParameterGroupIdentifier, "TargetDBParameterGroupDescription"=>TargetDBParameterGroupDescription, "TargetDBParameterGroupIdentifier"=>TargetDBParameterGroupIdentifier), args)); aws_config=aws_config)
 
 """
     CopyDBSnapshot()
@@ -182,15 +182,15 @@ Copies the specified DB snapshot. The source DB snapshot must be in the availabl
 
 # Optional Parameters
 - `CopyTags`: A value that indicates whether to copy all tags from the source DB snapshot to the target DB snapshot. By default, tags are not copied.
-- `KmsKeyId`: The AWS KMS key ID for an encrypted DB snapshot. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.  If you copy an encrypted DB snapshot from your AWS account, you can specify a value for this parameter to encrypt the copy with a new KMS encryption key. If you don't specify a value for this parameter, then the copy of the DB snapshot is encrypted with the same KMS key as the source DB snapshot.  If you copy an encrypted DB snapshot that is shared from another AWS account, then you must specify a value for this parameter.  If you specify this parameter when you copy an unencrypted snapshot, the copy is encrypted.  If you copy an encrypted snapshot to a different AWS Region, then you must specify a KMS key for the destination AWS Region. KMS encryption keys are specific to the AWS Region that they are created in, and you can't use encryption keys from one AWS Region in another AWS Region. 
+- `KmsKeyId`: The AWS KMS key identifier for an encrypted DB snapshot. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).  If you copy an encrypted DB snapshot from your AWS account, you can specify a value for this parameter to encrypt the copy with a new AWS KMS CMK. If you don't specify a value for this parameter, then the copy of the DB snapshot is encrypted with the same AWS KMS key as the source DB snapshot.  If you copy an encrypted DB snapshot that is shared from another AWS account, then you must specify a value for this parameter.  If you specify this parameter when you copy an unencrypted snapshot, the copy is encrypted.  If you copy an encrypted snapshot to a different AWS Region, then you must specify a AWS KMS key identifier for the destination AWS Region. AWS KMS CMKs are specific to the AWS Region that they are created in, and you can't use CMKs from one AWS Region in another AWS Region. 
 - `OptionGroupName`: The name of an option group to associate with the copy of the snapshot. Specify this option if you are copying a snapshot from one AWS Region to another, and your DB instance uses a nondefault option group. If your source DB instance uses Transparent Data Encryption for Oracle or Microsoft SQL Server, you must specify this option when copying across AWS Regions. For more information, see Option Group Considerations in the Amazon RDS User Guide. 
-- `PreSignedUrl`: The URL that contains a Signature Version 4 signed request for the CopyDBSnapshot API action in the source AWS Region that contains the source DB snapshot to copy.  You must specify this parameter when you copy an encrypted DB snapshot from another AWS Region by using the Amazon RDS API. Don't specify PreSignedUrl when you are copying an encrypted DB snapshot in the same AWS Region. The presigned URL must be a valid request for the CopyDBSnapshot API action that can be executed in the source AWS Region that contains the encrypted DB snapshot to be copied. The presigned URL request must contain the following parameter values:     DestinationRegion - The AWS Region that the encrypted DB snapshot is copied to. This AWS Region is the same one where the CopyDBSnapshot action is called that contains this presigned URL.  For example, if you copy an encrypted DB snapshot from the us-west-2 AWS Region to the us-east-1 AWS Region, then you call the CopyDBSnapshot action in the us-east-1 AWS Region and provide a presigned URL that contains a call to the CopyDBSnapshot action in the us-west-2 AWS Region. For this example, the DestinationRegion in the presigned URL must be set to the us-east-1 AWS Region.     KmsKeyId - The AWS KMS key identifier for the key to use to encrypt the copy of the DB snapshot in the destination AWS Region. This is the same identifier for both the CopyDBSnapshot action that is called in the destination AWS Region, and the action contained in the presigned URL.     SourceDBSnapshotIdentifier - The DB snapshot identifier for the encrypted snapshot to be copied. This identifier must be in the Amazon Resource Name (ARN) format for the source AWS Region. For example, if you are copying an encrypted DB snapshot from the us-west-2 AWS Region, then your SourceDBSnapshotIdentifier looks like the following example: arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20161115.    To learn how to generate a Signature Version 4 signed request, see Authenticating Requests: Using Query Parameters (AWS Signature Version 4) and Signature Version 4 Signing Process.   If you are using an AWS SDK tool or the AWS CLI, you can specify SourceRegion (or --source-region for the AWS CLI) instead of specifying PreSignedUrl manually. Specifying SourceRegion autogenerates a pre-signed URL that is a valid request for the operation that can be executed in the source AWS Region. If you supply a value for this operation's SourceRegion parameter, a pre-signed URL will be calculated on your behalf.
+- `PreSignedUrl`: The URL that contains a Signature Version 4 signed request for the CopyDBSnapshot API action in the source AWS Region that contains the source DB snapshot to copy.  You must specify this parameter when you copy an encrypted DB snapshot from another AWS Region by using the Amazon RDS API. Don't specify PreSignedUrl when you are copying an encrypted DB snapshot in the same AWS Region. The presigned URL must be a valid request for the CopyDBSnapshot API action that can be executed in the source AWS Region that contains the encrypted DB snapshot to be copied. The presigned URL request must contain the following parameter values:     DestinationRegion - The AWS Region that the encrypted DB snapshot is copied to. This AWS Region is the same one where the CopyDBSnapshot action is called that contains this presigned URL.  For example, if you copy an encrypted DB snapshot from the us-west-2 AWS Region to the us-east-1 AWS Region, then you call the CopyDBSnapshot action in the us-east-1 AWS Region and provide a presigned URL that contains a call to the CopyDBSnapshot action in the us-west-2 AWS Region. For this example, the DestinationRegion in the presigned URL must be set to the us-east-1 AWS Region.     KmsKeyId - The AWS KMS key identifier for the customer master key (CMK) to use to encrypt the copy of the DB snapshot in the destination AWS Region. This is the same identifier for both the CopyDBSnapshot action that is called in the destination AWS Region, and the action contained in the presigned URL.     SourceDBSnapshotIdentifier - The DB snapshot identifier for the encrypted snapshot to be copied. This identifier must be in the Amazon Resource Name (ARN) format for the source AWS Region. For example, if you are copying an encrypted DB snapshot from the us-west-2 AWS Region, then your SourceDBSnapshotIdentifier looks like the following example: arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20161115.    To learn how to generate a Signature Version 4 signed request, see Authenticating Requests: Using Query Parameters (AWS Signature Version 4) and Signature Version 4 Signing Process.   If you are using an AWS SDK tool or the AWS CLI, you can specify SourceRegion (or --source-region for the AWS CLI) instead of specifying PreSignedUrl manually. Specifying SourceRegion autogenerates a pre-signed URL that is a valid request for the operation that can be executed in the source AWS Region. If you supply a value for this operation's SourceRegion parameter, a pre-signed URL will be calculated on your behalf.
 - `SourceRegion`: The ID of the region that contains the snapshot to be copied.
 - `Tags`: 
 - `TargetCustomAvailabilityZone`: The external custom Availability Zone (CAZ) identifier for the target CAZ. Example: rds-caz-aiqhTgQv.
 """
-copy_dbsnapshot(SourceDBSnapshotIdentifier, TargetDBSnapshotIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("CopyDBSnapshot", Dict{String, Any}("SourceDBSnapshotIdentifier"=>SourceDBSnapshotIdentifier, "TargetDBSnapshotIdentifier"=>TargetDBSnapshotIdentifier); aws_config=aws_config)
-copy_dbsnapshot(SourceDBSnapshotIdentifier, TargetDBSnapshotIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("CopyDBSnapshot", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("SourceDBSnapshotIdentifier"=>SourceDBSnapshotIdentifier, "TargetDBSnapshotIdentifier"=>TargetDBSnapshotIdentifier), args)); aws_config=aws_config)
+copy_dbsnapshot(SourceDBSnapshotIdentifier, TargetDBSnapshotIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CopyDBSnapshot", Dict{String, Any}("SourceDBSnapshotIdentifier"=>SourceDBSnapshotIdentifier, "TargetDBSnapshotIdentifier"=>TargetDBSnapshotIdentifier); aws_config=aws_config)
+copy_dbsnapshot(SourceDBSnapshotIdentifier, TargetDBSnapshotIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CopyDBSnapshot", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("SourceDBSnapshotIdentifier"=>SourceDBSnapshotIdentifier, "TargetDBSnapshotIdentifier"=>TargetDBSnapshotIdentifier), args)); aws_config=aws_config)
 
 """
     CopyOptionGroup()
@@ -205,8 +205,8 @@ Copies the specified option group.
 # Optional Parameters
 - `Tags`: 
 """
-copy_option_group(SourceOptionGroupIdentifier, TargetOptionGroupDescription, TargetOptionGroupIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("CopyOptionGroup", Dict{String, Any}("SourceOptionGroupIdentifier"=>SourceOptionGroupIdentifier, "TargetOptionGroupDescription"=>TargetOptionGroupDescription, "TargetOptionGroupIdentifier"=>TargetOptionGroupIdentifier); aws_config=aws_config)
-copy_option_group(SourceOptionGroupIdentifier, TargetOptionGroupDescription, TargetOptionGroupIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("CopyOptionGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("SourceOptionGroupIdentifier"=>SourceOptionGroupIdentifier, "TargetOptionGroupDescription"=>TargetOptionGroupDescription, "TargetOptionGroupIdentifier"=>TargetOptionGroupIdentifier), args)); aws_config=aws_config)
+copy_option_group(SourceOptionGroupIdentifier, TargetOptionGroupDescription, TargetOptionGroupIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CopyOptionGroup", Dict{String, Any}("SourceOptionGroupIdentifier"=>SourceOptionGroupIdentifier, "TargetOptionGroupDescription"=>TargetOptionGroupDescription, "TargetOptionGroupIdentifier"=>TargetOptionGroupIdentifier); aws_config=aws_config)
+copy_option_group(SourceOptionGroupIdentifier, TargetOptionGroupDescription, TargetOptionGroupIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CopyOptionGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("SourceOptionGroupIdentifier"=>SourceOptionGroupIdentifier, "TargetOptionGroupDescription"=>TargetOptionGroupDescription, "TargetOptionGroupIdentifier"=>TargetOptionGroupIdentifier), args)); aws_config=aws_config)
 
 """
     CreateCustomAvailabilityZone()
@@ -221,8 +221,8 @@ Creates a custom Availability Zone (AZ). A custom AZ is an on-premises AZ that i
 - `NewVpnTunnelName`: The name of a new VPN tunnel between the Amazon RDS website and the VMware vSphere cluster. Specify this parameter only if ExistingVpnId isn't specified.
 - `VpnTunnelOriginatorIP`: The IP address of network traffic from your on-premises data center. A custom AZ receives the network traffic. Specify this parameter only if ExistingVpnId isn't specified.
 """
-create_custom_availability_zone(CustomAvailabilityZoneName; aws_config::AWSConfig=global_aws_config()) = rds("CreateCustomAvailabilityZone", Dict{String, Any}("CustomAvailabilityZoneName"=>CustomAvailabilityZoneName); aws_config=aws_config)
-create_custom_availability_zone(CustomAvailabilityZoneName, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("CreateCustomAvailabilityZone", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("CustomAvailabilityZoneName"=>CustomAvailabilityZoneName), args)); aws_config=aws_config)
+create_custom_availability_zone(CustomAvailabilityZoneName; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CreateCustomAvailabilityZone", Dict{String, Any}("CustomAvailabilityZoneName"=>CustomAvailabilityZoneName); aws_config=aws_config)
+create_custom_availability_zone(CustomAvailabilityZoneName, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CreateCustomAvailabilityZone", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("CustomAvailabilityZoneName"=>CustomAvailabilityZoneName), args)); aws_config=aws_config)
 
 """
     CreateDBCluster()
@@ -252,12 +252,12 @@ Creates a new Amazon Aurora DB cluster. You can use the ReplicationSourceIdentif
 - `EngineMode`: The DB engine mode of the DB cluster, either provisioned serverless, parallelquery, global, or multimaster. The parallelquery engine mode isn't required for Aurora MySQL version 1.23 and higher 1.x versions, and version 2.09 and higher 2.x versions. The global engine mode isn't required for Aurora MySQL version 1.22 and higher 1.x versions, and global engine mode isn't required for any 2.x versions. The multimaster engine mode only applies for DB clusters created with Aurora MySQL version 5.6.10a. For Aurora PostgreSQL, the global engine mode isn't required, and both the parallelquery and the multimaster engine modes currently aren't supported. Limitations and requirements apply to some DB engine modes. For more information, see the following sections in the Amazon Aurora User Guide:     Limitations of Aurora Serverless      Limitations of Parallel Query      Limitations of Aurora Global Databases      Limitations of Multi-Master Clusters   
 - `EngineVersion`: The version number of the database engine to use. To list all of the available engine versions for aurora (for MySQL 5.6-compatible Aurora), use the following command:  aws rds describe-db-engine-versions --engine aurora --query \"DBEngineVersions[].EngineVersion\"  To list all of the available engine versions for aurora-mysql (for MySQL 5.7-compatible Aurora), use the following command:  aws rds describe-db-engine-versions --engine aurora-mysql --query \"DBEngineVersions[].EngineVersion\"  To list all of the available engine versions for aurora-postgresql, use the following command:  aws rds describe-db-engine-versions --engine aurora-postgresql --query \"DBEngineVersions[].EngineVersion\"   Aurora MySQL  Example: 5.6.10a, 5.6.mysql_aurora.1.19.2, 5.7.12, 5.7.mysql_aurora.2.04.5   Aurora PostgreSQL  Example: 9.6.3, 10.7 
 - `GlobalClusterIdentifier`:  The global cluster ID of an Aurora cluster that becomes the primary cluster in the new global database cluster. 
-- `KmsKeyId`: The AWS KMS key identifier for an encrypted DB cluster. The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a DB cluster with the same AWS account that owns the KMS encryption key used to encrypt the new DB cluster, then you can use the KMS key alias instead of the ARN for the KMS encryption key. If an encryption key isn't specified in KmsKeyId:   If ReplicationSourceIdentifier identifies an encrypted source, then Amazon RDS will use the encryption key used to encrypt the source. Otherwise, Amazon RDS will use your default encryption key.    If the StorageEncrypted parameter is enabled and ReplicationSourceIdentifier isn't specified, then Amazon RDS will use your default encryption key.   AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region. If you create a read replica of an encrypted DB cluster in another AWS Region, you must set KmsKeyId to a KMS key ID that is valid in the destination AWS Region. This key is used to encrypt the read replica in that AWS Region.
+- `KmsKeyId`: The AWS KMS key identifier for an encrypted DB cluster. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK). To use a CMK in a different AWS account, specify the key ARN or alias ARN. When a CMK isn't specified in KmsKeyId:   If ReplicationSourceIdentifier identifies an encrypted source, then Amazon RDS will use the CMK used to encrypt the source. Otherwise, Amazon RDS will use your default CMK.    If the StorageEncrypted parameter is enabled and ReplicationSourceIdentifier isn't specified, then Amazon RDS will use your default CMK.   There is a default CMK for your AWS account. Your AWS account has a different default CMK for each AWS Region. If you create a read replica of an encrypted DB cluster in another AWS Region, you must set KmsKeyId to a AWS KMS key identifier that is valid in the destination AWS Region. This CMK is used to encrypt the read replica in that AWS Region.
 - `MasterUserPassword`: The password for the master database user. This password can contain any printable ASCII character except \"/\", \"\"\", or \"@\". Constraints: Must contain from 8 to 41 characters.
 - `MasterUsername`: The name of the master user for the DB cluster. Constraints:   Must be 1 to 16 letters or numbers.   First character must be a letter.   Can't be a reserved word for the chosen database engine.  
 - `OptionGroupName`: A value that indicates that the DB cluster should be associated with the specified option group. Permanent options can't be removed from an option group. The option group can't be removed from a DB cluster once it is associated with a DB cluster.
 - `Port`: The port number on which the instances in the DB cluster accept connections.  Default: 3306 if engine is set as aurora or 5432 if set to aurora-postgresql. 
-- `PreSignedUrl`: A URL that contains a Signature Version 4 signed request for the CreateDBCluster action to be called in the source AWS Region where the DB cluster is replicated from. You only need to specify PreSignedUrl when you are performing cross-region replication from an encrypted DB cluster. The pre-signed URL must be a valid request for the CreateDBCluster API action that can be executed in the source AWS Region that contains the encrypted DB cluster to be copied. The pre-signed URL request must contain the following parameter values:    KmsKeyId - The AWS KMS key identifier for the key to use to encrypt the copy of the DB cluster in the destination AWS Region. This should refer to the same KMS key for both the CreateDBCluster action that is called in the destination AWS Region, and the action contained in the pre-signed URL.    DestinationRegion - The name of the AWS Region that Aurora read replica will be created in.    ReplicationSourceIdentifier - The DB cluster identifier for the encrypted DB cluster to be copied. This identifier must be in the Amazon Resource Name (ARN) format for the source AWS Region. For example, if you are copying an encrypted DB cluster from the us-west-2 AWS Region, then your ReplicationSourceIdentifier would look like Example: arn:aws:rds:us-west-2:123456789012:cluster:aurora-cluster1.   To learn how to generate a Signature Version 4 signed request, see  Authenticating Requests: Using Query Parameters (AWS Signature Version 4) and  Signature Version 4 Signing Process.  If you are using an AWS SDK tool or the AWS CLI, you can specify SourceRegion (or --source-region for the AWS CLI) instead of specifying PreSignedUrl manually. Specifying SourceRegion autogenerates a pre-signed URL that is a valid request for the operation that can be executed in the source AWS Region. If you supply a value for this operation's SourceRegion parameter, a pre-signed URL will be calculated on your behalf.
+- `PreSignedUrl`: A URL that contains a Signature Version 4 signed request for the CreateDBCluster action to be called in the source AWS Region where the DB cluster is replicated from. You only need to specify PreSignedUrl when you are performing cross-region replication from an encrypted DB cluster. The pre-signed URL must be a valid request for the CreateDBCluster API action that can be executed in the source AWS Region that contains the encrypted DB cluster to be copied. The pre-signed URL request must contain the following parameter values:    KmsKeyId - The AWS KMS key identifier for the key to use to encrypt the copy of the DB cluster in the destination AWS Region. This should refer to the same AWS KMS CMK for both the CreateDBCluster action that is called in the destination AWS Region, and the action contained in the pre-signed URL.    DestinationRegion - The name of the AWS Region that Aurora read replica will be created in.    ReplicationSourceIdentifier - The DB cluster identifier for the encrypted DB cluster to be copied. This identifier must be in the Amazon Resource Name (ARN) format for the source AWS Region. For example, if you are copying an encrypted DB cluster from the us-west-2 AWS Region, then your ReplicationSourceIdentifier would look like Example: arn:aws:rds:us-west-2:123456789012:cluster:aurora-cluster1.   To learn how to generate a Signature Version 4 signed request, see  Authenticating Requests: Using Query Parameters (AWS Signature Version 4) and  Signature Version 4 Signing Process.  If you are using an AWS SDK tool or the AWS CLI, you can specify SourceRegion (or --source-region for the AWS CLI) instead of specifying PreSignedUrl manually. Specifying SourceRegion autogenerates a pre-signed URL that is a valid request for the operation that can be executed in the source AWS Region. If you supply a value for this operation's SourceRegion parameter, a pre-signed URL will be calculated on your behalf.
 - `PreferredBackupWindow`: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.  The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the time blocks available, see  Adjusting the Preferred DB Cluster Maintenance Window in the Amazon Aurora User Guide.  Constraints:   Must be in the format hh24:mi-hh24:mi.   Must be in Universal Coordinated Time (UTC).   Must not conflict with the preferred maintenance window.   Must be at least 30 minutes.  
 - `PreferredMaintenanceWindow`: The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC). Format: ddd:hh24:mi-ddd:hh24:mi  The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see  Adjusting the Preferred DB Cluster Maintenance Window in the Amazon Aurora User Guide.  Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun. Constraints: Minimum 30-minute window.
 - `ReplicationSourceIdentifier`: The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a read replica.
@@ -267,8 +267,8 @@ Creates a new Amazon Aurora DB cluster. You can use the ReplicationSourceIdentif
 - `Tags`: Tags to assign to the DB cluster.
 - `VpcSecurityGroupIds`: A list of EC2 VPC security groups to associate with this DB cluster.
 """
-create_dbcluster(DBClusterIdentifier, Engine; aws_config::AWSConfig=global_aws_config()) = rds("CreateDBCluster", Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier, "Engine"=>Engine); aws_config=aws_config)
-create_dbcluster(DBClusterIdentifier, Engine, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("CreateDBCluster", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier, "Engine"=>Engine), args)); aws_config=aws_config)
+create_dbcluster(DBClusterIdentifier, Engine; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CreateDBCluster", Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier, "Engine"=>Engine); aws_config=aws_config)
+create_dbcluster(DBClusterIdentifier, Engine, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CreateDBCluster", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier, "Engine"=>Engine), args)); aws_config=aws_config)
 
 """
     CreateDBClusterEndpoint()
@@ -285,8 +285,8 @@ Creates a new custom endpoint and associates it with an Amazon Aurora DB cluster
 - `StaticMembers`: List of DB instance identifiers that are part of the custom endpoint group.
 - `Tags`: The tags to be assigned to the Amazon RDS resource.
 """
-create_dbcluster_endpoint(DBClusterEndpointIdentifier, DBClusterIdentifier, EndpointType; aws_config::AWSConfig=global_aws_config()) = rds("CreateDBClusterEndpoint", Dict{String, Any}("DBClusterEndpointIdentifier"=>DBClusterEndpointIdentifier, "DBClusterIdentifier"=>DBClusterIdentifier, "EndpointType"=>EndpointType); aws_config=aws_config)
-create_dbcluster_endpoint(DBClusterEndpointIdentifier, DBClusterIdentifier, EndpointType, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("CreateDBClusterEndpoint", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterEndpointIdentifier"=>DBClusterEndpointIdentifier, "DBClusterIdentifier"=>DBClusterIdentifier, "EndpointType"=>EndpointType), args)); aws_config=aws_config)
+create_dbcluster_endpoint(DBClusterEndpointIdentifier, DBClusterIdentifier, EndpointType; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CreateDBClusterEndpoint", Dict{String, Any}("DBClusterEndpointIdentifier"=>DBClusterEndpointIdentifier, "DBClusterIdentifier"=>DBClusterIdentifier, "EndpointType"=>EndpointType); aws_config=aws_config)
+create_dbcluster_endpoint(DBClusterEndpointIdentifier, DBClusterIdentifier, EndpointType, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CreateDBClusterEndpoint", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterEndpointIdentifier"=>DBClusterEndpointIdentifier, "DBClusterIdentifier"=>DBClusterIdentifier, "EndpointType"=>EndpointType), args)); aws_config=aws_config)
 
 """
     CreateDBClusterParameterGroup()
@@ -301,8 +301,8 @@ Creates a new DB cluster parameter group. Parameters in a DB cluster parameter g
 # Optional Parameters
 - `Tags`: Tags to assign to the DB cluster parameter group.
 """
-create_dbcluster_parameter_group(DBClusterParameterGroupName, DBParameterGroupFamily, Description; aws_config::AWSConfig=global_aws_config()) = rds("CreateDBClusterParameterGroup", Dict{String, Any}("DBClusterParameterGroupName"=>DBClusterParameterGroupName, "DBParameterGroupFamily"=>DBParameterGroupFamily, "Description"=>Description); aws_config=aws_config)
-create_dbcluster_parameter_group(DBClusterParameterGroupName, DBParameterGroupFamily, Description, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("CreateDBClusterParameterGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterParameterGroupName"=>DBClusterParameterGroupName, "DBParameterGroupFamily"=>DBParameterGroupFamily, "Description"=>Description), args)); aws_config=aws_config)
+create_dbcluster_parameter_group(DBClusterParameterGroupName, DBParameterGroupFamily, Description; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CreateDBClusterParameterGroup", Dict{String, Any}("DBClusterParameterGroupName"=>DBClusterParameterGroupName, "DBParameterGroupFamily"=>DBParameterGroupFamily, "Description"=>Description); aws_config=aws_config)
+create_dbcluster_parameter_group(DBClusterParameterGroupName, DBParameterGroupFamily, Description, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CreateDBClusterParameterGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterParameterGroupName"=>DBClusterParameterGroupName, "DBParameterGroupFamily"=>DBParameterGroupFamily, "Description"=>Description), args)); aws_config=aws_config)
 
 """
     CreateDBClusterSnapshot()
@@ -316,8 +316,8 @@ Creates a snapshot of a DB cluster. For more information on Amazon Aurora, see  
 # Optional Parameters
 - `Tags`: The tags to be assigned to the DB cluster snapshot.
 """
-create_dbcluster_snapshot(DBClusterIdentifier, DBClusterSnapshotIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("CreateDBClusterSnapshot", Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier, "DBClusterSnapshotIdentifier"=>DBClusterSnapshotIdentifier); aws_config=aws_config)
-create_dbcluster_snapshot(DBClusterIdentifier, DBClusterSnapshotIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("CreateDBClusterSnapshot", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier, "DBClusterSnapshotIdentifier"=>DBClusterSnapshotIdentifier), args)); aws_config=aws_config)
+create_dbcluster_snapshot(DBClusterIdentifier, DBClusterSnapshotIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CreateDBClusterSnapshot", Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier, "DBClusterSnapshotIdentifier"=>DBClusterSnapshotIdentifier); aws_config=aws_config)
+create_dbcluster_snapshot(DBClusterIdentifier, DBClusterSnapshotIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CreateDBClusterSnapshot", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier, "DBClusterSnapshotIdentifier"=>DBClusterSnapshotIdentifier), args)); aws_config=aws_config)
 
 """
     CreateDBInstance()
@@ -349,7 +349,7 @@ Creates a new DB instance.
 - `EnablePerformanceInsights`: A value that indicates whether to enable Performance Insights for the DB instance.  For more information, see Using Amazon Performance Insights in the Amazon Relational Database Service User Guide. 
 - `EngineVersion`: The version number of the database engine to use. For a list of valid engine versions, use the DescribeDBEngineVersions action. The following are the database engines and links to information about the major and minor versions that are available with Amazon RDS. Not every database engine is available for every AWS Region.  Amazon Aurora  Not applicable. The version number of the database engine to be used by the DB instance is managed by the DB cluster.  MariaDB  See MariaDB on Amazon RDS Versions in the Amazon RDS User Guide.   Microsoft SQL Server  See Microsoft SQL Server Versions on Amazon RDS in the Amazon RDS User Guide.   MySQL  See MySQL on Amazon RDS Versions in the Amazon RDS User Guide.   Oracle  See Oracle Database Engine Release Notes in the Amazon RDS User Guide.   PostgreSQL  See Supported PostgreSQL Database Versions in the Amazon RDS User Guide. 
 - `Iops`: The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for the DB instance. For information about valid Iops values, see Amazon RDS Provisioned IOPS Storage to Improve Performance in the Amazon RDS User Guide.  Constraints: For MariaDB, MySQL, Oracle, and PostgreSQL DB instances, must be a multiple between .5 and 50 of the storage amount for the DB instance. For SQL Server DB instances, must be a multiple between 1 and 50 of the storage amount for the DB instance. 
-- `KmsKeyId`: The AWS KMS key identifier for an encrypted DB instance. The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a DB instance with the same AWS account that owns the KMS encryption key used to encrypt the new DB instance, then you can use the KMS key alias instead of the ARN for the KM encryption key.  Amazon Aurora  Not applicable. The KMS key identifier is managed by the DB cluster. For more information, see CreateDBCluster. If StorageEncrypted is enabled, and you do not specify a value for the KmsKeyId parameter, then Amazon RDS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region.
+- `KmsKeyId`: The AWS KMS key identifier for an encrypted DB instance. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK). To use a CMK in a different AWS account, specify the key ARN or alias ARN.  Amazon Aurora  Not applicable. The AWS KMS key identifier is managed by the DB cluster. For more information, see CreateDBCluster. If StorageEncrypted is enabled, and you do not specify a value for the KmsKeyId parameter, then Amazon RDS uses your default CMK. There is a default CMK for your AWS account. Your AWS account has a different default CMK for each AWS Region.
 - `LicenseModel`: License model information for this DB instance.  Valid values: license-included | bring-your-own-license | general-public-license 
 - `MasterUserPassword`: The password for the master user. The password can include any printable ASCII character except \"/\", \"\"\", or \"@\".  Amazon Aurora  Not applicable. The password for the master user is managed by the DB cluster.  MariaDB  Constraints: Must contain from 8 to 41 characters.  Microsoft SQL Server  Constraints: Must contain from 8 to 128 characters.  MySQL  Constraints: Must contain from 8 to 41 characters.  Oracle  Constraints: Must contain from 8 to 30 characters.  PostgreSQL  Constraints: Must contain from 8 to 128 characters.
 - `MasterUsername`: The name for the master user.  Amazon Aurora  Not applicable. The name for the master user is managed by the DB cluster.   MariaDB  Constraints:   Required for MariaDB.   Must be 1 to 16 letters or numbers.   Can't be a reserved word for the chosen database engine.    Microsoft SQL Server  Constraints:   Required for SQL Server.   Must be 1 to 128 letters or numbers.   The first character must be a letter.   Can't be a reserved word for the chosen database engine.    MySQL  Constraints:   Required for MySQL.   Must be 1 to 16 letters or numbers.   First character must be a letter.   Can't be a reserved word for the chosen database engine.    Oracle  Constraints:   Required for Oracle.   Must be 1 to 30 letters or numbers.   First character must be a letter.   Can't be a reserved word for the chosen database engine.    PostgreSQL  Constraints:   Required for PostgreSQL.   Must be 1 to 63 letters or numbers.   First character must be a letter.   Can't be a reserved word for the chosen database engine.  
@@ -359,7 +359,7 @@ Creates a new DB instance.
 - `MultiAZ`: A value that indicates whether the DB instance is a Multi-AZ deployment. You can't set the AvailabilityZone parameter if the DB instance is a Multi-AZ deployment.
 - `NcharCharacterSetName`: The name of the NCHAR character set for the Oracle DB instance.
 - `OptionGroupName`: Indicates that the DB instance should be associated with the specified option group. Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group. Also, that option group can't be removed from a DB instance once it is associated with a DB instance
-- `PerformanceInsightsKMSKeyId`: The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon RDS uses your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region.
+- `PerformanceInsightsKMSKeyId`: The AWS KMS key identifier for encryption of Performance Insights data. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK). If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon RDS uses your default CMK. There is a default CMK for your AWS account. Your AWS account has a different default CMK for each AWS Region.
 - `PerformanceInsightsRetentionPeriod`: The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years). 
 - `Port`: The port number on which the database accepts connections.  MySQL   Default: 3306   Valid values: 1150-65535  Type: Integer  MariaDB   Default: 3306   Valid values: 1150-65535  Type: Integer  PostgreSQL   Default: 5432   Valid values: 1150-65535  Type: Integer  Oracle   Default: 1521   Valid values: 1150-65535   SQL Server   Default: 1433   Valid values: 1150-65535 except 1234, 1434, 3260, 3343, 3389, 47001, and 49152-49156.  Amazon Aurora   Default: 3306   Valid values: 1150-65535  Type: Integer
 - `PreferredBackupWindow`:  The daily time range during which automated backups are created if automated backups are enabled, using the BackupRetentionPeriod parameter. For more information, see The Backup Window in the Amazon RDS User Guide.   Amazon Aurora  Not applicable. The daily time range for creating automated backups is managed by the DB cluster.  The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the time blocks available, see  Adjusting the Preferred DB Instance Maintenance Window in the Amazon RDS User Guide.  Constraints:   Must be in the format hh24:mi-hh24:mi.   Must be in Universal Coordinated Time (UTC).   Must not conflict with the preferred maintenance window.   Must be at least 30 minutes.  
@@ -375,8 +375,8 @@ Creates a new DB instance.
 - `Timezone`: The time zone of the DB instance. The time zone parameter is currently supported only by Microsoft SQL Server. 
 - `VpcSecurityGroupIds`: A list of Amazon EC2 VPC security groups to associate with this DB instance.  Amazon Aurora  Not applicable. The associated list of EC2 VPC security groups is managed by the DB cluster. Default: The default EC2 VPC security group for the DB subnet group's VPC.
 """
-create_dbinstance(DBInstanceClass, DBInstanceIdentifier, Engine; aws_config::AWSConfig=global_aws_config()) = rds("CreateDBInstance", Dict{String, Any}("DBInstanceClass"=>DBInstanceClass, "DBInstanceIdentifier"=>DBInstanceIdentifier, "Engine"=>Engine); aws_config=aws_config)
-create_dbinstance(DBInstanceClass, DBInstanceIdentifier, Engine, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("CreateDBInstance", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBInstanceClass"=>DBInstanceClass, "DBInstanceIdentifier"=>DBInstanceIdentifier, "Engine"=>Engine), args)); aws_config=aws_config)
+create_dbinstance(DBInstanceClass, DBInstanceIdentifier, Engine; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CreateDBInstance", Dict{String, Any}("DBInstanceClass"=>DBInstanceClass, "DBInstanceIdentifier"=>DBInstanceIdentifier, "Engine"=>Engine); aws_config=aws_config)
+create_dbinstance(DBInstanceClass, DBInstanceIdentifier, Engine, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CreateDBInstance", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBInstanceClass"=>DBInstanceClass, "DBInstanceIdentifier"=>DBInstanceIdentifier, "Engine"=>Engine), args)); aws_config=aws_config)
 
 """
     CreateDBInstanceReadReplica()
@@ -401,13 +401,13 @@ Creates a new DB instance that acts as a read replica for an existing source DB 
 - `EnableIAMDatabaseAuthentication`: A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled. For more information about IAM database authentication, see  IAM Database Authentication for MySQL and PostgreSQL in the Amazon RDS User Guide. 
 - `EnablePerformanceInsights`: A value that indicates whether to enable Performance Insights for the read replica.  For more information, see Using Amazon Performance Insights in the Amazon RDS User Guide. 
 - `Iops`: The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for the DB instance.
-- `KmsKeyId`: The AWS KMS key ID for an encrypted read replica. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key. If you create an encrypted read replica in the same AWS Region as the source DB instance, then you do not have to specify a value for this parameter. The read replica is encrypted with the same KMS key as the source DB instance. If you create an encrypted read replica in a different AWS Region, then you must specify a KMS key for the destination AWS Region. KMS encryption keys are specific to the AWS Region that they are created in, and you can't use encryption keys from one AWS Region in another AWS Region. You can't create an encrypted read replica from an unencrypted DB instance.
+- `KmsKeyId`: The AWS KMS key identifier for an encrypted read replica. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS CMK. If you create an encrypted read replica in the same AWS Region as the source DB instance, then you do not have to specify a value for this parameter. The read replica is encrypted with the same AWS KMS CMK as the source DB instance. If you create an encrypted read replica in a different AWS Region, then you must specify a AWS KMS key identifier for the destination AWS Region. AWS KMS CMKs are specific to the AWS Region that they are created in, and you can't use CMKs from one AWS Region in another AWS Region. You can't create an encrypted read replica from an unencrypted DB instance.
 - `MaxAllocatedStorage`: The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
 - `MonitoringInterval`: The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the read replica. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. If MonitoringRoleArn is specified, then you must also set MonitoringInterval to a value other than 0. Valid Values: 0, 1, 5, 10, 15, 30, 60 
 - `MonitoringRoleArn`: The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon CloudWatch Logs. For example, arn:aws:iam:123456789012:role/emaccess. For information on creating a monitoring role, go to To create an IAM role for Amazon RDS Enhanced Monitoring in the Amazon RDS User Guide. If MonitoringInterval is set to a value other than 0, then you must supply a MonitoringRoleArn value.
 - `MultiAZ`: A value that indicates whether the read replica is in a Multi-AZ deployment.  You can create a read replica as a Multi-AZ DB instance. RDS creates a standby of your replica in another Availability Zone for failover support for the replica. Creating your read replica as a Multi-AZ DB instance is independent of whether the source database is a Multi-AZ DB instance. 
 - `OptionGroupName`: The option group the DB instance is associated with. If omitted, the option group associated with the source instance is used.  For SQL Server, you must use the option group associated with the source instance. 
-- `PerformanceInsightsKMSKeyId`: The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon RDS uses your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region.
+- `PerformanceInsightsKMSKeyId`: The AWS KMS key identifier for encryption of Performance Insights data. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK). If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon RDS uses your default CMK. There is a default CMK for your AWS account. Your AWS account has a different default CMK for each AWS Region.
 - `PerformanceInsightsRetentionPeriod`: The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years). 
 - `Port`: The port number that the DB instance uses for connections. Default: Inherits from the source DB instance Valid Values: 1150-65535 
 - `PreSignedUrl`: The URL that contains a Signature Version 4 signed request for the CreateDBInstanceReadReplica API action in the source AWS Region that contains the source DB instance.  You must specify this parameter when you create an encrypted read replica from another AWS Region by using the Amazon RDS API. Don't specify PreSignedUrl when you are creating an encrypted read replica in the same AWS Region. The presigned URL must be a valid request for the CreateDBInstanceReadReplica API action that can be executed in the source AWS Region that contains the encrypted source DB instance. The presigned URL request must contain the following parameter values:     DestinationRegion - The AWS Region that the encrypted read replica is created in. This AWS Region is the same one where the CreateDBInstanceReadReplica action is called that contains this presigned URL. For example, if you create an encrypted DB instance in the us-west-1 AWS Region, from a source DB instance in the us-east-2 AWS Region, then you call the CreateDBInstanceReadReplica action in the us-east-1 AWS Region and provide a presigned URL that contains a call to the CreateDBInstanceReadReplica action in the us-west-2 AWS Region. For this example, the DestinationRegion in the presigned URL must be set to the us-east-1 AWS Region.     KmsKeyId - The AWS KMS key identifier for the key to use to encrypt the read replica in the destination AWS Region. This is the same identifier for both the CreateDBInstanceReadReplica action that is called in the destination AWS Region, and the action contained in the presigned URL.     SourceDBInstanceIdentifier - The DB instance identifier for the encrypted DB instance to be replicated. This identifier must be in the Amazon Resource Name (ARN) format for the source AWS Region. For example, if you are creating an encrypted read replica from a DB instance in the us-west-2 AWS Region, then your SourceDBInstanceIdentifier looks like the following example: arn:aws:rds:us-west-2:123456789012:instance:mysql-instance1-20161115.    To learn how to generate a Signature Version 4 signed request, see Authenticating Requests: Using Query Parameters (AWS Signature Version 4) and Signature Version 4 Signing Process.   If you are using an AWS SDK tool or the AWS CLI, you can specify SourceRegion (or --source-region for the AWS CLI) instead of specifying PreSignedUrl manually. Specifying SourceRegion autogenerates a presigned URL that is a valid request for the operation that can be executed in the source AWS Region.  SourceRegion isn't supported for SQL Server, because SQL Server on Amazon RDS doesn't support cross-region read replicas. If you supply a value for this operation's SourceRegion parameter, a pre-signed URL will be calculated on your behalf.
@@ -420,8 +420,8 @@ Creates a new DB instance that acts as a read replica for an existing source DB 
 - `UseDefaultProcessorFeatures`: A value that indicates whether the DB instance class of the DB instance uses its default processor features.
 - `VpcSecurityGroupIds`:  A list of EC2 VPC security groups to associate with the read replica.   Default: The default EC2 VPC security group for the DB subnet group's VPC. 
 """
-create_dbinstance_read_replica(DBInstanceIdentifier, SourceDBInstanceIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("CreateDBInstanceReadReplica", Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier, "SourceDBInstanceIdentifier"=>SourceDBInstanceIdentifier); aws_config=aws_config)
-create_dbinstance_read_replica(DBInstanceIdentifier, SourceDBInstanceIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("CreateDBInstanceReadReplica", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier, "SourceDBInstanceIdentifier"=>SourceDBInstanceIdentifier), args)); aws_config=aws_config)
+create_dbinstance_read_replica(DBInstanceIdentifier, SourceDBInstanceIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CreateDBInstanceReadReplica", Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier, "SourceDBInstanceIdentifier"=>SourceDBInstanceIdentifier); aws_config=aws_config)
+create_dbinstance_read_replica(DBInstanceIdentifier, SourceDBInstanceIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CreateDBInstanceReadReplica", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier, "SourceDBInstanceIdentifier"=>SourceDBInstanceIdentifier), args)); aws_config=aws_config)
 
 """
     CreateDBParameterGroup()
@@ -436,8 +436,8 @@ Creates a new DB parameter group.  A DB parameter group is initially created wit
 # Optional Parameters
 - `Tags`: Tags to assign to the DB parameter group.
 """
-create_dbparameter_group(DBParameterGroupFamily, DBParameterGroupName, Description; aws_config::AWSConfig=global_aws_config()) = rds("CreateDBParameterGroup", Dict{String, Any}("DBParameterGroupFamily"=>DBParameterGroupFamily, "DBParameterGroupName"=>DBParameterGroupName, "Description"=>Description); aws_config=aws_config)
-create_dbparameter_group(DBParameterGroupFamily, DBParameterGroupName, Description, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("CreateDBParameterGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBParameterGroupFamily"=>DBParameterGroupFamily, "DBParameterGroupName"=>DBParameterGroupName, "Description"=>Description), args)); aws_config=aws_config)
+create_dbparameter_group(DBParameterGroupFamily, DBParameterGroupName, Description; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CreateDBParameterGroup", Dict{String, Any}("DBParameterGroupFamily"=>DBParameterGroupFamily, "DBParameterGroupName"=>DBParameterGroupName, "Description"=>Description); aws_config=aws_config)
+create_dbparameter_group(DBParameterGroupFamily, DBParameterGroupName, Description, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CreateDBParameterGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBParameterGroupFamily"=>DBParameterGroupFamily, "DBParameterGroupName"=>DBParameterGroupName, "Description"=>Description), args)); aws_config=aws_config)
 
 """
     CreateDBProxy()
@@ -458,8 +458,8 @@ Creates a new DB proxy.
 - `Tags`: An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
 - `VpcSecurityGroupIds`: One or more VPC security group IDs to associate with the new proxy.
 """
-create_dbproxy(Auth, DBProxyName, EngineFamily, RoleArn, VpcSubnetIds; aws_config::AWSConfig=global_aws_config()) = rds("CreateDBProxy", Dict{String, Any}("Auth"=>Auth, "DBProxyName"=>DBProxyName, "EngineFamily"=>EngineFamily, "RoleArn"=>RoleArn, "VpcSubnetIds"=>VpcSubnetIds); aws_config=aws_config)
-create_dbproxy(Auth, DBProxyName, EngineFamily, RoleArn, VpcSubnetIds, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("CreateDBProxy", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("Auth"=>Auth, "DBProxyName"=>DBProxyName, "EngineFamily"=>EngineFamily, "RoleArn"=>RoleArn, "VpcSubnetIds"=>VpcSubnetIds), args)); aws_config=aws_config)
+create_dbproxy(Auth, DBProxyName, EngineFamily, RoleArn, VpcSubnetIds; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CreateDBProxy", Dict{String, Any}("Auth"=>Auth, "DBProxyName"=>DBProxyName, "EngineFamily"=>EngineFamily, "RoleArn"=>RoleArn, "VpcSubnetIds"=>VpcSubnetIds); aws_config=aws_config)
+create_dbproxy(Auth, DBProxyName, EngineFamily, RoleArn, VpcSubnetIds, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CreateDBProxy", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("Auth"=>Auth, "DBProxyName"=>DBProxyName, "EngineFamily"=>EngineFamily, "RoleArn"=>RoleArn, "VpcSubnetIds"=>VpcSubnetIds), args)); aws_config=aws_config)
 
 """
     CreateDBSecurityGroup()
@@ -473,13 +473,13 @@ Creates a new DB security group. DB security groups control access to a DB insta
 # Optional Parameters
 - `Tags`: Tags to assign to the DB security group.
 """
-create_dbsecurity_group(DBSecurityGroupDescription, DBSecurityGroupName; aws_config::AWSConfig=global_aws_config()) = rds("CreateDBSecurityGroup", Dict{String, Any}("DBSecurityGroupDescription"=>DBSecurityGroupDescription, "DBSecurityGroupName"=>DBSecurityGroupName); aws_config=aws_config)
-create_dbsecurity_group(DBSecurityGroupDescription, DBSecurityGroupName, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("CreateDBSecurityGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBSecurityGroupDescription"=>DBSecurityGroupDescription, "DBSecurityGroupName"=>DBSecurityGroupName), args)); aws_config=aws_config)
+create_dbsecurity_group(DBSecurityGroupDescription, DBSecurityGroupName; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CreateDBSecurityGroup", Dict{String, Any}("DBSecurityGroupDescription"=>DBSecurityGroupDescription, "DBSecurityGroupName"=>DBSecurityGroupName); aws_config=aws_config)
+create_dbsecurity_group(DBSecurityGroupDescription, DBSecurityGroupName, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CreateDBSecurityGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBSecurityGroupDescription"=>DBSecurityGroupDescription, "DBSecurityGroupName"=>DBSecurityGroupName), args)); aws_config=aws_config)
 
 """
     CreateDBSnapshot()
 
-Creates a snapshot of a DB instance. The source DB instance must be in the available or storage-optimizationstate.
+Creates a snapshot of a DB instance. The source DB instance must be in the available or storage-optimization state.
 
 # Required Parameters
 - `DBInstanceIdentifier`: The identifier of the DB instance that you want to create the snapshot of. Constraints:   Must match the identifier of an existing DBInstance.  
@@ -488,8 +488,8 @@ Creates a snapshot of a DB instance. The source DB instance must be in the avail
 # Optional Parameters
 - `Tags`: 
 """
-create_dbsnapshot(DBInstanceIdentifier, DBSnapshotIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("CreateDBSnapshot", Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier, "DBSnapshotIdentifier"=>DBSnapshotIdentifier); aws_config=aws_config)
-create_dbsnapshot(DBInstanceIdentifier, DBSnapshotIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("CreateDBSnapshot", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier, "DBSnapshotIdentifier"=>DBSnapshotIdentifier), args)); aws_config=aws_config)
+create_dbsnapshot(DBInstanceIdentifier, DBSnapshotIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CreateDBSnapshot", Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier, "DBSnapshotIdentifier"=>DBSnapshotIdentifier); aws_config=aws_config)
+create_dbsnapshot(DBInstanceIdentifier, DBSnapshotIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CreateDBSnapshot", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier, "DBSnapshotIdentifier"=>DBSnapshotIdentifier), args)); aws_config=aws_config)
 
 """
     CreateDBSubnetGroup()
@@ -505,8 +505,8 @@ Creates a new DB subnet group. DB subnet groups must contain at least one subnet
 - `SubnetIds`: The EC2 Subnet IDs for the DB subnet group.
 - `Tags`: Tags to assign to the DB subnet group.
 """
-create_dbsubnet_group(DBSubnetGroupDescription, DBSubnetGroupName, SubnetIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("CreateDBSubnetGroup", Dict{String, Any}("DBSubnetGroupDescription"=>DBSubnetGroupDescription, "DBSubnetGroupName"=>DBSubnetGroupName, "SubnetIdentifier"=>SubnetIdentifier); aws_config=aws_config)
-create_dbsubnet_group(DBSubnetGroupDescription, DBSubnetGroupName, SubnetIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("CreateDBSubnetGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBSubnetGroupDescription"=>DBSubnetGroupDescription, "DBSubnetGroupName"=>DBSubnetGroupName, "SubnetIdentifier"=>SubnetIdentifier), args)); aws_config=aws_config)
+create_dbsubnet_group(DBSubnetGroupDescription, DBSubnetGroupName, SubnetIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CreateDBSubnetGroup", Dict{String, Any}("DBSubnetGroupDescription"=>DBSubnetGroupDescription, "DBSubnetGroupName"=>DBSubnetGroupName, "SubnetIdentifier"=>SubnetIdentifier); aws_config=aws_config)
+create_dbsubnet_group(DBSubnetGroupDescription, DBSubnetGroupName, SubnetIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CreateDBSubnetGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBSubnetGroupDescription"=>DBSubnetGroupDescription, "DBSubnetGroupName"=>DBSubnetGroupName, "SubnetIdentifier"=>SubnetIdentifier), args)); aws_config=aws_config)
 
 """
     CreateEventSubscription()
@@ -524,8 +524,8 @@ Creates an RDS event notification subscription. This action requires a topic Ama
 - `SourceType`: The type of source that is generating the events. For example, if you want to be notified of events generated by a DB instance, you set this parameter to db-instance. If this value isn't specified, all events are returned. Valid values: db-instance | db-cluster | db-parameter-group | db-security-group | db-snapshot | db-cluster-snapshot 
 - `Tags`: 
 """
-create_event_subscription(SnsTopicArn, SubscriptionName; aws_config::AWSConfig=global_aws_config()) = rds("CreateEventSubscription", Dict{String, Any}("SnsTopicArn"=>SnsTopicArn, "SubscriptionName"=>SubscriptionName); aws_config=aws_config)
-create_event_subscription(SnsTopicArn, SubscriptionName, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("CreateEventSubscription", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("SnsTopicArn"=>SnsTopicArn, "SubscriptionName"=>SubscriptionName), args)); aws_config=aws_config)
+create_event_subscription(SnsTopicArn, SubscriptionName; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CreateEventSubscription", Dict{String, Any}("SnsTopicArn"=>SnsTopicArn, "SubscriptionName"=>SubscriptionName); aws_config=aws_config)
+create_event_subscription(SnsTopicArn, SubscriptionName, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CreateEventSubscription", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("SnsTopicArn"=>SnsTopicArn, "SubscriptionName"=>SubscriptionName), args)); aws_config=aws_config)
 
 """
     CreateGlobalCluster()
@@ -541,8 +541,8 @@ create_event_subscription(SnsTopicArn, SubscriptionName, args::AbstractDict{Stri
 - `SourceDBClusterIdentifier`:  The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. 
 - `StorageEncrypted`:  The storage encryption setting for the new global database cluster. 
 """
-create_global_cluster(; aws_config::AWSConfig=global_aws_config()) = rds("CreateGlobalCluster"; aws_config=aws_config)
-create_global_cluster(args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("CreateGlobalCluster", args; aws_config=aws_config)
+create_global_cluster(; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CreateGlobalCluster"; aws_config=aws_config)
+create_global_cluster(args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CreateGlobalCluster", args; aws_config=aws_config)
 
 """
     CreateOptionGroup()
@@ -558,8 +558,8 @@ Creates a new option group. You can create up to 20 option groups.
 # Optional Parameters
 - `Tags`: Tags to assign to the option group.
 """
-create_option_group(EngineName, MajorEngineVersion, OptionGroupDescription, OptionGroupName; aws_config::AWSConfig=global_aws_config()) = rds("CreateOptionGroup", Dict{String, Any}("EngineName"=>EngineName, "MajorEngineVersion"=>MajorEngineVersion, "OptionGroupDescription"=>OptionGroupDescription, "OptionGroupName"=>OptionGroupName); aws_config=aws_config)
-create_option_group(EngineName, MajorEngineVersion, OptionGroupDescription, OptionGroupName, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("CreateOptionGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("EngineName"=>EngineName, "MajorEngineVersion"=>MajorEngineVersion, "OptionGroupDescription"=>OptionGroupDescription, "OptionGroupName"=>OptionGroupName), args)); aws_config=aws_config)
+create_option_group(EngineName, MajorEngineVersion, OptionGroupDescription, OptionGroupName; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CreateOptionGroup", Dict{String, Any}("EngineName"=>EngineName, "MajorEngineVersion"=>MajorEngineVersion, "OptionGroupDescription"=>OptionGroupDescription, "OptionGroupName"=>OptionGroupName); aws_config=aws_config)
+create_option_group(EngineName, MajorEngineVersion, OptionGroupDescription, OptionGroupName, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("CreateOptionGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("EngineName"=>EngineName, "MajorEngineVersion"=>MajorEngineVersion, "OptionGroupDescription"=>OptionGroupDescription, "OptionGroupName"=>OptionGroupName), args)); aws_config=aws_config)
 
 """
     DeleteCustomAvailabilityZone()
@@ -570,8 +570,8 @@ Deletes a custom Availability Zone (AZ). A custom AZ is an on-premises AZ that i
 - `CustomAvailabilityZoneId`: The custom AZ identifier.
 
 """
-delete_custom_availability_zone(CustomAvailabilityZoneId; aws_config::AWSConfig=global_aws_config()) = rds("DeleteCustomAvailabilityZone", Dict{String, Any}("CustomAvailabilityZoneId"=>CustomAvailabilityZoneId); aws_config=aws_config)
-delete_custom_availability_zone(CustomAvailabilityZoneId, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DeleteCustomAvailabilityZone", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("CustomAvailabilityZoneId"=>CustomAvailabilityZoneId), args)); aws_config=aws_config)
+delete_custom_availability_zone(CustomAvailabilityZoneId; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DeleteCustomAvailabilityZone", Dict{String, Any}("CustomAvailabilityZoneId"=>CustomAvailabilityZoneId); aws_config=aws_config)
+delete_custom_availability_zone(CustomAvailabilityZoneId, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DeleteCustomAvailabilityZone", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("CustomAvailabilityZoneId"=>CustomAvailabilityZoneId), args)); aws_config=aws_config)
 
 """
     DeleteDBCluster()
@@ -585,8 +585,8 @@ The DeleteDBCluster action deletes a previously provisioned DB cluster. When you
 - `FinalDBSnapshotIdentifier`:  The DB cluster snapshot identifier of the new DB cluster snapshot created when SkipFinalSnapshot is disabled.    Specifying this parameter and also skipping the creation of a final DB cluster snapshot with the SkipFinalShapshot parameter results in an error.  Constraints:   Must be 1 to 255 letters, numbers, or hyphens.   First character must be a letter   Can't end with a hyphen or contain two consecutive hyphens  
 - `SkipFinalSnapshot`: A value that indicates whether to skip the creation of a final DB cluster snapshot before the DB cluster is deleted. If skip is specified, no DB cluster snapshot is created. If skip isn't specified, a DB cluster snapshot is created before the DB cluster is deleted. By default, skip isn't specified, and the DB cluster snapshot is created. By default, this parameter is disabled.  You must specify a FinalDBSnapshotIdentifier parameter if SkipFinalSnapshot is disabled. 
 """
-delete_dbcluster(DBClusterIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("DeleteDBCluster", Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier); aws_config=aws_config)
-delete_dbcluster(DBClusterIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DeleteDBCluster", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier), args)); aws_config=aws_config)
+delete_dbcluster(DBClusterIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DeleteDBCluster", Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier); aws_config=aws_config)
+delete_dbcluster(DBClusterIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DeleteDBCluster", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier), args)); aws_config=aws_config)
 
 """
     DeleteDBClusterEndpoint()
@@ -597,8 +597,8 @@ Deletes a custom endpoint and removes it from an Amazon Aurora DB cluster.  This
 - `DBClusterEndpointIdentifier`: The identifier associated with the custom endpoint. This parameter is stored as a lowercase string.
 
 """
-delete_dbcluster_endpoint(DBClusterEndpointIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("DeleteDBClusterEndpoint", Dict{String, Any}("DBClusterEndpointIdentifier"=>DBClusterEndpointIdentifier); aws_config=aws_config)
-delete_dbcluster_endpoint(DBClusterEndpointIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DeleteDBClusterEndpoint", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterEndpointIdentifier"=>DBClusterEndpointIdentifier), args)); aws_config=aws_config)
+delete_dbcluster_endpoint(DBClusterEndpointIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DeleteDBClusterEndpoint", Dict{String, Any}("DBClusterEndpointIdentifier"=>DBClusterEndpointIdentifier); aws_config=aws_config)
+delete_dbcluster_endpoint(DBClusterEndpointIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DeleteDBClusterEndpoint", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterEndpointIdentifier"=>DBClusterEndpointIdentifier), args)); aws_config=aws_config)
 
 """
     DeleteDBClusterParameterGroup()
@@ -609,8 +609,8 @@ Deletes a specified DB cluster parameter group. The DB cluster parameter group t
 - `DBClusterParameterGroupName`: The name of the DB cluster parameter group. Constraints:   Must be the name of an existing DB cluster parameter group.   You can't delete a default DB cluster parameter group.   Can't be associated with any DB clusters.  
 
 """
-delete_dbcluster_parameter_group(DBClusterParameterGroupName; aws_config::AWSConfig=global_aws_config()) = rds("DeleteDBClusterParameterGroup", Dict{String, Any}("DBClusterParameterGroupName"=>DBClusterParameterGroupName); aws_config=aws_config)
-delete_dbcluster_parameter_group(DBClusterParameterGroupName, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DeleteDBClusterParameterGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterParameterGroupName"=>DBClusterParameterGroupName), args)); aws_config=aws_config)
+delete_dbcluster_parameter_group(DBClusterParameterGroupName; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DeleteDBClusterParameterGroup", Dict{String, Any}("DBClusterParameterGroupName"=>DBClusterParameterGroupName); aws_config=aws_config)
+delete_dbcluster_parameter_group(DBClusterParameterGroupName, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DeleteDBClusterParameterGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterParameterGroupName"=>DBClusterParameterGroupName), args)); aws_config=aws_config)
 
 """
     DeleteDBClusterSnapshot()
@@ -621,8 +621,8 @@ Deletes a DB cluster snapshot. If the snapshot is being copied, the copy operati
 - `DBClusterSnapshotIdentifier`: The identifier of the DB cluster snapshot to delete. Constraints: Must be the name of an existing DB cluster snapshot in the available state.
 
 """
-delete_dbcluster_snapshot(DBClusterSnapshotIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("DeleteDBClusterSnapshot", Dict{String, Any}("DBClusterSnapshotIdentifier"=>DBClusterSnapshotIdentifier); aws_config=aws_config)
-delete_dbcluster_snapshot(DBClusterSnapshotIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DeleteDBClusterSnapshot", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterSnapshotIdentifier"=>DBClusterSnapshotIdentifier), args)); aws_config=aws_config)
+delete_dbcluster_snapshot(DBClusterSnapshotIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DeleteDBClusterSnapshot", Dict{String, Any}("DBClusterSnapshotIdentifier"=>DBClusterSnapshotIdentifier); aws_config=aws_config)
+delete_dbcluster_snapshot(DBClusterSnapshotIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DeleteDBClusterSnapshot", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterSnapshotIdentifier"=>DBClusterSnapshotIdentifier), args)); aws_config=aws_config)
 
 """
     DeleteDBInstance()
@@ -637,20 +637,20 @@ The DeleteDBInstance action deletes a previously provisioned DB instance. When y
 - `FinalDBSnapshotIdentifier`:  The DBSnapshotIdentifier of the new DBSnapshot created when the SkipFinalSnapshot parameter is disabled.   Specifying this parameter and also specifying to skip final DB snapshot creation in SkipFinalShapshot results in an error.  Constraints:   Must be 1 to 255 letters or numbers.   First character must be a letter.   Can't end with a hyphen or contain two consecutive hyphens.   Can't be specified when deleting a read replica.  
 - `SkipFinalSnapshot`: A value that indicates whether to skip the creation of a final DB snapshot before the DB instance is deleted. If skip is specified, no DB snapshot is created. If skip isn't specified, a DB snapshot is created before the DB instance is deleted. By default, skip isn't specified, and the DB snapshot is created. When a DB instance is in a failure state and has a status of 'failed', 'incompatible-restore', or 'incompatible-network', it can only be deleted when skip is specified. Specify skip when deleting a read replica.  The FinalDBSnapshotIdentifier parameter must be specified if skip isn't specified. 
 """
-delete_dbinstance(DBInstanceIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("DeleteDBInstance", Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier); aws_config=aws_config)
-delete_dbinstance(DBInstanceIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DeleteDBInstance", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier), args)); aws_config=aws_config)
+delete_dbinstance(DBInstanceIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DeleteDBInstance", Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier); aws_config=aws_config)
+delete_dbinstance(DBInstanceIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DeleteDBInstance", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier), args)); aws_config=aws_config)
 
 """
     DeleteDBInstanceAutomatedBackup()
 
-Deletes automated backups based on the source instance's DbiResourceId value or the restorable instance's resource ID.
+Deletes automated backups using the DbiResourceId value of the source DB instance or the Amazon Resource Name (ARN) of the automated backups.
 
-# Required Parameters
+# Optional Parameters
+- `DBInstanceAutomatedBackupsArn`: The Amazon Resource Name (ARN) of the automated backups to delete, for example, arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE.
 - `DbiResourceId`: The identifier for the source DB instance, which can't be changed and which is unique to an AWS Region.
-
 """
-delete_dbinstance_automated_backup(DbiResourceId; aws_config::AWSConfig=global_aws_config()) = rds("DeleteDBInstanceAutomatedBackup", Dict{String, Any}("DbiResourceId"=>DbiResourceId); aws_config=aws_config)
-delete_dbinstance_automated_backup(DbiResourceId, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DeleteDBInstanceAutomatedBackup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DbiResourceId"=>DbiResourceId), args)); aws_config=aws_config)
+delete_dbinstance_automated_backup(; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DeleteDBInstanceAutomatedBackup"; aws_config=aws_config)
+delete_dbinstance_automated_backup(args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DeleteDBInstanceAutomatedBackup", args; aws_config=aws_config)
 
 """
     DeleteDBParameterGroup()
@@ -661,8 +661,8 @@ Deletes a specified DB parameter group. The DB parameter group to be deleted can
 - `DBParameterGroupName`: The name of the DB parameter group. Constraints:   Must be the name of an existing DB parameter group   You can't delete a default DB parameter group   Can't be associated with any DB instances  
 
 """
-delete_dbparameter_group(DBParameterGroupName; aws_config::AWSConfig=global_aws_config()) = rds("DeleteDBParameterGroup", Dict{String, Any}("DBParameterGroupName"=>DBParameterGroupName); aws_config=aws_config)
-delete_dbparameter_group(DBParameterGroupName, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DeleteDBParameterGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBParameterGroupName"=>DBParameterGroupName), args)); aws_config=aws_config)
+delete_dbparameter_group(DBParameterGroupName; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DeleteDBParameterGroup", Dict{String, Any}("DBParameterGroupName"=>DBParameterGroupName); aws_config=aws_config)
+delete_dbparameter_group(DBParameterGroupName, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DeleteDBParameterGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBParameterGroupName"=>DBParameterGroupName), args)); aws_config=aws_config)
 
 """
     DeleteDBProxy()
@@ -673,8 +673,8 @@ Deletes an existing proxy.
 - `DBProxyName`: The name of the DB proxy to delete.
 
 """
-delete_dbproxy(DBProxyName; aws_config::AWSConfig=global_aws_config()) = rds("DeleteDBProxy", Dict{String, Any}("DBProxyName"=>DBProxyName); aws_config=aws_config)
-delete_dbproxy(DBProxyName, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DeleteDBProxy", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBProxyName"=>DBProxyName), args)); aws_config=aws_config)
+delete_dbproxy(DBProxyName; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DeleteDBProxy", Dict{String, Any}("DBProxyName"=>DBProxyName); aws_config=aws_config)
+delete_dbproxy(DBProxyName, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DeleteDBProxy", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBProxyName"=>DBProxyName), args)); aws_config=aws_config)
 
 """
     DeleteDBSecurityGroup()
@@ -685,8 +685,8 @@ Deletes a DB security group.  The specified DB security group must not be associ
 - `DBSecurityGroupName`: The name of the DB security group to delete.  You can't delete the default DB security group.  Constraints:   Must be 1 to 255 letters, numbers, or hyphens.   First character must be a letter   Can't end with a hyphen or contain two consecutive hyphens   Must not be \"Default\"  
 
 """
-delete_dbsecurity_group(DBSecurityGroupName; aws_config::AWSConfig=global_aws_config()) = rds("DeleteDBSecurityGroup", Dict{String, Any}("DBSecurityGroupName"=>DBSecurityGroupName); aws_config=aws_config)
-delete_dbsecurity_group(DBSecurityGroupName, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DeleteDBSecurityGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBSecurityGroupName"=>DBSecurityGroupName), args)); aws_config=aws_config)
+delete_dbsecurity_group(DBSecurityGroupName; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DeleteDBSecurityGroup", Dict{String, Any}("DBSecurityGroupName"=>DBSecurityGroupName); aws_config=aws_config)
+delete_dbsecurity_group(DBSecurityGroupName, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DeleteDBSecurityGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBSecurityGroupName"=>DBSecurityGroupName), args)); aws_config=aws_config)
 
 """
     DeleteDBSnapshot()
@@ -697,8 +697,8 @@ Deletes a DB snapshot. If the snapshot is being copied, the copy operation is te
 - `DBSnapshotIdentifier`: The DB snapshot identifier. Constraints: Must be the name of an existing DB snapshot in the available state.
 
 """
-delete_dbsnapshot(DBSnapshotIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("DeleteDBSnapshot", Dict{String, Any}("DBSnapshotIdentifier"=>DBSnapshotIdentifier); aws_config=aws_config)
-delete_dbsnapshot(DBSnapshotIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DeleteDBSnapshot", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBSnapshotIdentifier"=>DBSnapshotIdentifier), args)); aws_config=aws_config)
+delete_dbsnapshot(DBSnapshotIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DeleteDBSnapshot", Dict{String, Any}("DBSnapshotIdentifier"=>DBSnapshotIdentifier); aws_config=aws_config)
+delete_dbsnapshot(DBSnapshotIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DeleteDBSnapshot", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBSnapshotIdentifier"=>DBSnapshotIdentifier), args)); aws_config=aws_config)
 
 """
     DeleteDBSubnetGroup()
@@ -709,8 +709,8 @@ Deletes a DB subnet group.  The specified database subnet group must not be asso
 - `DBSubnetGroupName`: The name of the database subnet group to delete.  You can't delete the default subnet group.  Constraints: Constraints: Must match the name of an existing DBSubnetGroup. Must not be default. Example: mySubnetgroup 
 
 """
-delete_dbsubnet_group(DBSubnetGroupName; aws_config::AWSConfig=global_aws_config()) = rds("DeleteDBSubnetGroup", Dict{String, Any}("DBSubnetGroupName"=>DBSubnetGroupName); aws_config=aws_config)
-delete_dbsubnet_group(DBSubnetGroupName, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DeleteDBSubnetGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBSubnetGroupName"=>DBSubnetGroupName), args)); aws_config=aws_config)
+delete_dbsubnet_group(DBSubnetGroupName; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DeleteDBSubnetGroup", Dict{String, Any}("DBSubnetGroupName"=>DBSubnetGroupName); aws_config=aws_config)
+delete_dbsubnet_group(DBSubnetGroupName, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DeleteDBSubnetGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBSubnetGroupName"=>DBSubnetGroupName), args)); aws_config=aws_config)
 
 """
     DeleteEventSubscription()
@@ -721,8 +721,8 @@ Deletes an RDS event notification subscription.
 - `SubscriptionName`: The name of the RDS event notification subscription you want to delete.
 
 """
-delete_event_subscription(SubscriptionName; aws_config::AWSConfig=global_aws_config()) = rds("DeleteEventSubscription", Dict{String, Any}("SubscriptionName"=>SubscriptionName); aws_config=aws_config)
-delete_event_subscription(SubscriptionName, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DeleteEventSubscription", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("SubscriptionName"=>SubscriptionName), args)); aws_config=aws_config)
+delete_event_subscription(SubscriptionName; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DeleteEventSubscription", Dict{String, Any}("SubscriptionName"=>SubscriptionName); aws_config=aws_config)
+delete_event_subscription(SubscriptionName, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DeleteEventSubscription", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("SubscriptionName"=>SubscriptionName), args)); aws_config=aws_config)
 
 """
     DeleteGlobalCluster()
@@ -733,8 +733,8 @@ delete_event_subscription(SubscriptionName, args::AbstractDict{String, <:Any}; a
 - `GlobalClusterIdentifier`:  The cluster identifier of the global database cluster being deleted. 
 
 """
-delete_global_cluster(GlobalClusterIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("DeleteGlobalCluster", Dict{String, Any}("GlobalClusterIdentifier"=>GlobalClusterIdentifier); aws_config=aws_config)
-delete_global_cluster(GlobalClusterIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DeleteGlobalCluster", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("GlobalClusterIdentifier"=>GlobalClusterIdentifier), args)); aws_config=aws_config)
+delete_global_cluster(GlobalClusterIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DeleteGlobalCluster", Dict{String, Any}("GlobalClusterIdentifier"=>GlobalClusterIdentifier); aws_config=aws_config)
+delete_global_cluster(GlobalClusterIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DeleteGlobalCluster", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("GlobalClusterIdentifier"=>GlobalClusterIdentifier), args)); aws_config=aws_config)
 
 """
     DeleteInstallationMedia()
@@ -745,8 +745,8 @@ Deletes the installation medium for a DB engine that requires an on-premises cus
 - `InstallationMediaId`: The installation medium ID.
 
 """
-delete_installation_media(InstallationMediaId; aws_config::AWSConfig=global_aws_config()) = rds("DeleteInstallationMedia", Dict{String, Any}("InstallationMediaId"=>InstallationMediaId); aws_config=aws_config)
-delete_installation_media(InstallationMediaId, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DeleteInstallationMedia", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("InstallationMediaId"=>InstallationMediaId), args)); aws_config=aws_config)
+delete_installation_media(InstallationMediaId; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DeleteInstallationMedia", Dict{String, Any}("InstallationMediaId"=>InstallationMediaId); aws_config=aws_config)
+delete_installation_media(InstallationMediaId, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DeleteInstallationMedia", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("InstallationMediaId"=>InstallationMediaId), args)); aws_config=aws_config)
 
 """
     DeleteOptionGroup()
@@ -757,8 +757,8 @@ Deletes an existing option group.
 - `OptionGroupName`: The name of the option group to be deleted.  You can't delete default option groups. 
 
 """
-delete_option_group(OptionGroupName; aws_config::AWSConfig=global_aws_config()) = rds("DeleteOptionGroup", Dict{String, Any}("OptionGroupName"=>OptionGroupName); aws_config=aws_config)
-delete_option_group(OptionGroupName, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DeleteOptionGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("OptionGroupName"=>OptionGroupName), args)); aws_config=aws_config)
+delete_option_group(OptionGroupName; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DeleteOptionGroup", Dict{String, Any}("OptionGroupName"=>OptionGroupName); aws_config=aws_config)
+delete_option_group(OptionGroupName, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DeleteOptionGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("OptionGroupName"=>OptionGroupName), args)); aws_config=aws_config)
 
 """
     DeregisterDBProxyTargets()
@@ -773,8 +773,8 @@ Remove the association between one or more DBProxyTarget data structures and a D
 - `DBInstanceIdentifiers`: One or more DB instance identifiers.
 - `TargetGroupName`: The identifier of the DBProxyTargetGroup.
 """
-deregister_dbproxy_targets(DBProxyName; aws_config::AWSConfig=global_aws_config()) = rds("DeregisterDBProxyTargets", Dict{String, Any}("DBProxyName"=>DBProxyName); aws_config=aws_config)
-deregister_dbproxy_targets(DBProxyName, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DeregisterDBProxyTargets", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBProxyName"=>DBProxyName), args)); aws_config=aws_config)
+deregister_dbproxy_targets(DBProxyName; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DeregisterDBProxyTargets", Dict{String, Any}("DBProxyName"=>DBProxyName); aws_config=aws_config)
+deregister_dbproxy_targets(DBProxyName, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DeregisterDBProxyTargets", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBProxyName"=>DBProxyName), args)); aws_config=aws_config)
 
 """
     DescribeAccountAttributes()
@@ -782,8 +782,8 @@ deregister_dbproxy_targets(DBProxyName, args::AbstractDict{String, <:Any}; aws_c
 Lists all of the attributes for a customer account. The attributes include Amazon RDS quotas for the account, such as the number of DB instances allowed. The description for a quota includes the quota name, current usage toward that quota, and the quota's maximum value. This command doesn't take any parameters.
 
 """
-describe_account_attributes(; aws_config::AWSConfig=global_aws_config()) = rds("DescribeAccountAttributes"; aws_config=aws_config)
-describe_account_attributes(args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribeAccountAttributes", args; aws_config=aws_config)
+describe_account_attributes(; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeAccountAttributes"; aws_config=aws_config)
+describe_account_attributes(args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeAccountAttributes", args; aws_config=aws_config)
 
 """
     DescribeCertificates()
@@ -796,8 +796,8 @@ Lists the set of CA certificates provided by Amazon RDS for this AWS account.
 - `Marker`:  An optional pagination token provided by a previous DescribeCertificates request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. 
 - `MaxRecords`:  The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
 """
-describe_certificates(; aws_config::AWSConfig=global_aws_config()) = rds("DescribeCertificates"; aws_config=aws_config)
-describe_certificates(args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribeCertificates", args; aws_config=aws_config)
+describe_certificates(; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeCertificates"; aws_config=aws_config)
+describe_certificates(args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeCertificates", args; aws_config=aws_config)
 
 """
     DescribeCustomAvailabilityZones()
@@ -810,8 +810,8 @@ Returns information about custom Availability Zones (AZs). A custom AZ is an on-
 - `Marker`: An optional pagination token provided by a previous DescribeCustomAvailabilityZones request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords.
 - `MaxRecords`: The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so you can retrieve the remaining results. Default: 100 Constraints: Minimum 20, maximum 100.
 """
-describe_custom_availability_zones(; aws_config::AWSConfig=global_aws_config()) = rds("DescribeCustomAvailabilityZones"; aws_config=aws_config)
-describe_custom_availability_zones(args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribeCustomAvailabilityZones", args; aws_config=aws_config)
+describe_custom_availability_zones(; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeCustomAvailabilityZones"; aws_config=aws_config)
+describe_custom_availability_zones(args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeCustomAvailabilityZones", args; aws_config=aws_config)
 
 """
     DescribeDBClusterBacktracks()
@@ -827,8 +827,8 @@ Returns information about backtracks for a DB cluster. For more information on A
 - `Marker`:  An optional pagination token provided by a previous DescribeDBClusterBacktracks request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. 
 - `MaxRecords`: The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
 """
-describe_dbcluster_backtracks(DBClusterIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBClusterBacktracks", Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier); aws_config=aws_config)
-describe_dbcluster_backtracks(DBClusterIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBClusterBacktracks", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier), args)); aws_config=aws_config)
+describe_dbcluster_backtracks(DBClusterIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBClusterBacktracks", Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier); aws_config=aws_config)
+describe_dbcluster_backtracks(DBClusterIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBClusterBacktracks", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier), args)); aws_config=aws_config)
 
 """
     DescribeDBClusterEndpoints()
@@ -842,8 +842,8 @@ Returns information about endpoints for an Amazon Aurora DB cluster.  This actio
 - `Marker`:  An optional pagination token provided by a previous DescribeDBClusterEndpoints request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. 
 - `MaxRecords`: The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
 """
-describe_dbcluster_endpoints(; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBClusterEndpoints"; aws_config=aws_config)
-describe_dbcluster_endpoints(args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBClusterEndpoints", args; aws_config=aws_config)
+describe_dbcluster_endpoints(; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBClusterEndpoints"; aws_config=aws_config)
+describe_dbcluster_endpoints(args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBClusterEndpoints", args; aws_config=aws_config)
 
 """
     DescribeDBClusterParameterGroups()
@@ -856,8 +856,8 @@ describe_dbcluster_endpoints(args::AbstractDict{String, <:Any}; aws_config::AWSC
 - `Marker`:  An optional pagination token provided by a previous DescribeDBClusterParameterGroups request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. 
 - `MaxRecords`:  The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
 """
-describe_dbcluster_parameter_groups(; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBClusterParameterGroups"; aws_config=aws_config)
-describe_dbcluster_parameter_groups(args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBClusterParameterGroups", args; aws_config=aws_config)
+describe_dbcluster_parameter_groups(; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBClusterParameterGroups"; aws_config=aws_config)
+describe_dbcluster_parameter_groups(args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBClusterParameterGroups", args; aws_config=aws_config)
 
 """
     DescribeDBClusterParameters()
@@ -873,8 +873,8 @@ Returns the detailed parameter list for a particular DB cluster parameter group.
 - `MaxRecords`:  The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
 - `Source`:  A value that indicates to return only parameters for a specific source. Parameter sources can be engine, service, or customer. 
 """
-describe_dbcluster_parameters(DBClusterParameterGroupName; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBClusterParameters", Dict{String, Any}("DBClusterParameterGroupName"=>DBClusterParameterGroupName); aws_config=aws_config)
-describe_dbcluster_parameters(DBClusterParameterGroupName, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBClusterParameters", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterParameterGroupName"=>DBClusterParameterGroupName), args)); aws_config=aws_config)
+describe_dbcluster_parameters(DBClusterParameterGroupName; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBClusterParameters", Dict{String, Any}("DBClusterParameterGroupName"=>DBClusterParameterGroupName); aws_config=aws_config)
+describe_dbcluster_parameters(DBClusterParameterGroupName, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBClusterParameters", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterParameterGroupName"=>DBClusterParameterGroupName), args)); aws_config=aws_config)
 
 """
     DescribeDBClusterSnapshotAttributes()
@@ -885,8 +885,8 @@ Returns a list of DB cluster snapshot attribute names and values for a manual DB
 - `DBClusterSnapshotIdentifier`: The identifier for the DB cluster snapshot to describe the attributes for.
 
 """
-describe_dbcluster_snapshot_attributes(DBClusterSnapshotIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBClusterSnapshotAttributes", Dict{String, Any}("DBClusterSnapshotIdentifier"=>DBClusterSnapshotIdentifier); aws_config=aws_config)
-describe_dbcluster_snapshot_attributes(DBClusterSnapshotIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBClusterSnapshotAttributes", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterSnapshotIdentifier"=>DBClusterSnapshotIdentifier), args)); aws_config=aws_config)
+describe_dbcluster_snapshot_attributes(DBClusterSnapshotIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBClusterSnapshotAttributes", Dict{String, Any}("DBClusterSnapshotIdentifier"=>DBClusterSnapshotIdentifier); aws_config=aws_config)
+describe_dbcluster_snapshot_attributes(DBClusterSnapshotIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBClusterSnapshotAttributes", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterSnapshotIdentifier"=>DBClusterSnapshotIdentifier), args)); aws_config=aws_config)
 
 """
     DescribeDBClusterSnapshots()
@@ -903,8 +903,8 @@ Returns information about DB cluster snapshots. This API action supports paginat
 - `MaxRecords`: The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
 - `SnapshotType`: The type of DB cluster snapshots to be returned. You can specify one of the following values:    automated - Return all DB cluster snapshots that have been automatically taken by Amazon RDS for my AWS account.    manual - Return all DB cluster snapshots that have been taken by my AWS account.    shared - Return all manual DB cluster snapshots that have been shared to my AWS account.    public - Return all DB cluster snapshots that have been marked as public.   If you don't specify a SnapshotType value, then both automated and manual DB cluster snapshots are returned. You can include shared DB cluster snapshots with these results by enabling the IncludeShared parameter. You can include public DB cluster snapshots with these results by enabling the IncludePublic parameter. The IncludeShared and IncludePublic parameters don't apply for SnapshotType values of manual or automated. The IncludePublic parameter doesn't apply when SnapshotType is set to shared. The IncludeShared parameter doesn't apply when SnapshotType is set to public.
 """
-describe_dbcluster_snapshots(; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBClusterSnapshots"; aws_config=aws_config)
-describe_dbcluster_snapshots(args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBClusterSnapshots", args; aws_config=aws_config)
+describe_dbcluster_snapshots(; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBClusterSnapshots"; aws_config=aws_config)
+describe_dbcluster_snapshots(args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBClusterSnapshots", args; aws_config=aws_config)
 
 """
     DescribeDBClusters()
@@ -918,8 +918,8 @@ Returns information about provisioned Aurora DB clusters. This API supports pagi
 - `Marker`: An optional pagination token provided by a previous DescribeDBClusters request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. 
 - `MaxRecords`: The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
 """
-describe_dbclusters(; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBClusters"; aws_config=aws_config)
-describe_dbclusters(args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBClusters", args; aws_config=aws_config)
+describe_dbclusters(; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBClusters"; aws_config=aws_config)
+describe_dbclusters(args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBClusters", args; aws_config=aws_config)
 
 """
     DescribeDBEngineVersions()
@@ -938,8 +938,8 @@ Returns a list of the available DB engines.
 - `Marker`:  An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. 
 - `MaxRecords`:  The maximum number of records to include in the response. If more than the MaxRecords value is available, a pagination token called a marker is included in the response so you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
 """
-describe_dbengine_versions(; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBEngineVersions"; aws_config=aws_config)
-describe_dbengine_versions(args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBEngineVersions", args; aws_config=aws_config)
+describe_dbengine_versions(; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBEngineVersions"; aws_config=aws_config)
+describe_dbengine_versions(args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBEngineVersions", args; aws_config=aws_config)
 
 """
     DescribeDBInstanceAutomatedBackups()
@@ -947,14 +947,15 @@ describe_dbengine_versions(args::AbstractDict{String, <:Any}; aws_config::AWSCon
 Displays backups for both current and deleted instances. For example, use this operation to find details about automated backups for previously deleted instances. Current instances with retention periods greater than zero (0) are returned for both the DescribeDBInstanceAutomatedBackups and DescribeDBInstances operations. All parameters are optional.
 
 # Optional Parameters
+- `DBInstanceAutomatedBackupsArn`: The Amazon Resource Name (ARN) of the replicated automated backups, for example, arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE.
 - `DBInstanceIdentifier`: (Optional) The user-supplied instance identifier. If this parameter is specified, it must match the identifier of an existing DB instance. It returns information from the specific DB instance' automated backup. This parameter isn't case-sensitive. 
 - `DbiResourceId`: The resource ID of the DB instance that is the source of the automated backup. This parameter isn't case-sensitive. 
 - `Filters`: A filter that specifies which resources to return based on status. Supported filters are the following:    status     active - automated backups for current instances    retained - automated backups for deleted instances    creating - automated backups that are waiting for the first automated snapshot to be available      db-instance-id - Accepts DB instance identifiers and Amazon Resource Names (ARNs) for DB instances. The results list includes only information about the DB instance automated backupss identified by these ARNs.    dbi-resource-id - Accepts DB instance resource identifiers and DB Amazon Resource Names (ARNs) for DB instances. The results list includes only information about the DB instance resources identified by these ARNs.   Returns all resources by default. The status for each resource is specified in the response.
 - `Marker`: The pagination token provided in the previous request. If this parameter is specified the response includes only records beyond the marker, up to MaxRecords.
 - `MaxRecords`: The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.
 """
-describe_dbinstance_automated_backups(; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBInstanceAutomatedBackups"; aws_config=aws_config)
-describe_dbinstance_automated_backups(args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBInstanceAutomatedBackups", args; aws_config=aws_config)
+describe_dbinstance_automated_backups(; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBInstanceAutomatedBackups"; aws_config=aws_config)
+describe_dbinstance_automated_backups(args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBInstanceAutomatedBackups", args; aws_config=aws_config)
 
 """
     DescribeDBInstances()
@@ -967,8 +968,8 @@ Returns information about provisioned RDS instances. This API supports paginatio
 - `Marker`:  An optional pagination token provided by a previous DescribeDBInstances request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. 
 - `MaxRecords`:  The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
 """
-describe_dbinstances(; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBInstances"; aws_config=aws_config)
-describe_dbinstances(args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBInstances", args; aws_config=aws_config)
+describe_dbinstances(; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBInstances"; aws_config=aws_config)
+describe_dbinstances(args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBInstances", args; aws_config=aws_config)
 
 """
     DescribeDBLogFiles()
@@ -986,8 +987,8 @@ Returns a list of DB log files for the DB instance.
 - `Marker`: The pagination token provided in the previous request. If this parameter is specified the response includes only records beyond the marker, up to MaxRecords.
 - `MaxRecords`: The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
 """
-describe_dblog_files(DBInstanceIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBLogFiles", Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier); aws_config=aws_config)
-describe_dblog_files(DBInstanceIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBLogFiles", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier), args)); aws_config=aws_config)
+describe_dblog_files(DBInstanceIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBLogFiles", Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier); aws_config=aws_config)
+describe_dblog_files(DBInstanceIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBLogFiles", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier), args)); aws_config=aws_config)
 
 """
     DescribeDBParameterGroups()
@@ -1000,8 +1001,8 @@ describe_dblog_files(DBInstanceIdentifier, args::AbstractDict{String, <:Any}; aw
 - `Marker`:  An optional pagination token provided by a previous DescribeDBParameterGroups request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. 
 - `MaxRecords`:  The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
 """
-describe_dbparameter_groups(; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBParameterGroups"; aws_config=aws_config)
-describe_dbparameter_groups(args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBParameterGroups", args; aws_config=aws_config)
+describe_dbparameter_groups(; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBParameterGroups"; aws_config=aws_config)
+describe_dbparameter_groups(args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBParameterGroups", args; aws_config=aws_config)
 
 """
     DescribeDBParameters()
@@ -1017,8 +1018,8 @@ Returns the detailed parameter list for a particular DB parameter group.
 - `MaxRecords`:  The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
 - `Source`: The parameter types to return. Default: All parameter types returned Valid Values: user | system | engine-default 
 """
-describe_dbparameters(DBParameterGroupName; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBParameters", Dict{String, Any}("DBParameterGroupName"=>DBParameterGroupName); aws_config=aws_config)
-describe_dbparameters(DBParameterGroupName, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBParameters", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBParameterGroupName"=>DBParameterGroupName), args)); aws_config=aws_config)
+describe_dbparameters(DBParameterGroupName; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBParameters", Dict{String, Any}("DBParameterGroupName"=>DBParameterGroupName); aws_config=aws_config)
+describe_dbparameters(DBParameterGroupName, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBParameters", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBParameterGroupName"=>DBParameterGroupName), args)); aws_config=aws_config)
 
 """
     DescribeDBProxies()
@@ -1031,8 +1032,8 @@ Returns information about DB proxies.
 - `Marker`:  An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. 
 - `MaxRecords`: The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 """
-describe_dbproxies(; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBProxies"; aws_config=aws_config)
-describe_dbproxies(args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBProxies", args; aws_config=aws_config)
+describe_dbproxies(; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBProxies"; aws_config=aws_config)
+describe_dbproxies(args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBProxies", args; aws_config=aws_config)
 
 """
     DescribeDBProxyTargetGroups()
@@ -1048,8 +1049,8 @@ Returns information about DB proxy target groups, represented by DBProxyTargetGr
 - `MaxRecords`:  The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 - `TargetGroupName`: The identifier of the DBProxyTargetGroup to describe.
 """
-describe_dbproxy_target_groups(DBProxyName; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBProxyTargetGroups", Dict{String, Any}("DBProxyName"=>DBProxyName); aws_config=aws_config)
-describe_dbproxy_target_groups(DBProxyName, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBProxyTargetGroups", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBProxyName"=>DBProxyName), args)); aws_config=aws_config)
+describe_dbproxy_target_groups(DBProxyName; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBProxyTargetGroups", Dict{String, Any}("DBProxyName"=>DBProxyName); aws_config=aws_config)
+describe_dbproxy_target_groups(DBProxyName, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBProxyTargetGroups", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBProxyName"=>DBProxyName), args)); aws_config=aws_config)
 
 """
     DescribeDBProxyTargets()
@@ -1065,8 +1066,8 @@ Returns information about DBProxyTarget objects. This API supports pagination.
 - `MaxRecords`:  The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 - `TargetGroupName`: The identifier of the DBProxyTargetGroup to describe.
 """
-describe_dbproxy_targets(DBProxyName; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBProxyTargets", Dict{String, Any}("DBProxyName"=>DBProxyName); aws_config=aws_config)
-describe_dbproxy_targets(DBProxyName, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBProxyTargets", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBProxyName"=>DBProxyName), args)); aws_config=aws_config)
+describe_dbproxy_targets(DBProxyName; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBProxyTargets", Dict{String, Any}("DBProxyName"=>DBProxyName); aws_config=aws_config)
+describe_dbproxy_targets(DBProxyName, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBProxyTargets", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBProxyName"=>DBProxyName), args)); aws_config=aws_config)
 
 """
     DescribeDBSecurityGroups()
@@ -1079,8 +1080,8 @@ describe_dbproxy_targets(DBProxyName, args::AbstractDict{String, <:Any}; aws_con
 - `Marker`:  An optional pagination token provided by a previous DescribeDBSecurityGroups request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. 
 - `MaxRecords`:  The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
 """
-describe_dbsecurity_groups(; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBSecurityGroups"; aws_config=aws_config)
-describe_dbsecurity_groups(args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBSecurityGroups", args; aws_config=aws_config)
+describe_dbsecurity_groups(; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBSecurityGroups"; aws_config=aws_config)
+describe_dbsecurity_groups(args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBSecurityGroups", args; aws_config=aws_config)
 
 """
     DescribeDBSnapshotAttributes()
@@ -1091,8 +1092,8 @@ Returns a list of DB snapshot attribute names and values for a manual DB snapsho
 - `DBSnapshotIdentifier`: The identifier for the DB snapshot to describe the attributes for.
 
 """
-describe_dbsnapshot_attributes(DBSnapshotIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBSnapshotAttributes", Dict{String, Any}("DBSnapshotIdentifier"=>DBSnapshotIdentifier); aws_config=aws_config)
-describe_dbsnapshot_attributes(DBSnapshotIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBSnapshotAttributes", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBSnapshotIdentifier"=>DBSnapshotIdentifier), args)); aws_config=aws_config)
+describe_dbsnapshot_attributes(DBSnapshotIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBSnapshotAttributes", Dict{String, Any}("DBSnapshotIdentifier"=>DBSnapshotIdentifier); aws_config=aws_config)
+describe_dbsnapshot_attributes(DBSnapshotIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBSnapshotAttributes", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBSnapshotIdentifier"=>DBSnapshotIdentifier), args)); aws_config=aws_config)
 
 """
     DescribeDBSnapshots()
@@ -1110,8 +1111,8 @@ Returns information about DB snapshots. This API action supports pagination.
 - `MaxRecords`:  The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
 - `SnapshotType`: The type of snapshots to be returned. You can specify one of the following values:    automated - Return all DB snapshots that have been automatically taken by Amazon RDS for my AWS account.    manual - Return all DB snapshots that have been taken by my AWS account.    shared - Return all manual DB snapshots that have been shared to my AWS account.    public - Return all DB snapshots that have been marked as public.    awsbackup - Return the DB snapshots managed by the AWS Backup service. For information about AWS Backup, see the  AWS Backup Developer Guide.   The awsbackup type does not apply to Aurora.   If you don't specify a SnapshotType value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. You can include shared snapshots with these results by enabling the IncludeShared parameter. You can include public snapshots with these results by enabling the IncludePublic parameter. The IncludeShared and IncludePublic parameters don't apply for SnapshotType values of manual or automated. The IncludePublic parameter doesn't apply when SnapshotType is set to shared. The IncludeShared parameter doesn't apply when SnapshotType is set to public.
 """
-describe_dbsnapshots(; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBSnapshots"; aws_config=aws_config)
-describe_dbsnapshots(args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBSnapshots", args; aws_config=aws_config)
+describe_dbsnapshots(; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBSnapshots"; aws_config=aws_config)
+describe_dbsnapshots(args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBSnapshots", args; aws_config=aws_config)
 
 """
     DescribeDBSubnetGroups()
@@ -1124,8 +1125,8 @@ Returns a list of DBSubnetGroup descriptions. If a DBSubnetGroupName is specifie
 - `Marker`:  An optional pagination token provided by a previous DescribeDBSubnetGroups request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. 
 - `MaxRecords`:  The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
 """
-describe_dbsubnet_groups(; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBSubnetGroups"; aws_config=aws_config)
-describe_dbsubnet_groups(args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribeDBSubnetGroups", args; aws_config=aws_config)
+describe_dbsubnet_groups(; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBSubnetGroups"; aws_config=aws_config)
+describe_dbsubnet_groups(args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeDBSubnetGroups", args; aws_config=aws_config)
 
 """
     DescribeEngineDefaultClusterParameters()
@@ -1140,8 +1141,8 @@ Returns the default engine and system parameter information for the cluster data
 - `Marker`:  An optional pagination token provided by a previous DescribeEngineDefaultClusterParameters request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. 
 - `MaxRecords`:  The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
 """
-describe_engine_default_cluster_parameters(DBParameterGroupFamily; aws_config::AWSConfig=global_aws_config()) = rds("DescribeEngineDefaultClusterParameters", Dict{String, Any}("DBParameterGroupFamily"=>DBParameterGroupFamily); aws_config=aws_config)
-describe_engine_default_cluster_parameters(DBParameterGroupFamily, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribeEngineDefaultClusterParameters", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBParameterGroupFamily"=>DBParameterGroupFamily), args)); aws_config=aws_config)
+describe_engine_default_cluster_parameters(DBParameterGroupFamily; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeEngineDefaultClusterParameters", Dict{String, Any}("DBParameterGroupFamily"=>DBParameterGroupFamily); aws_config=aws_config)
+describe_engine_default_cluster_parameters(DBParameterGroupFamily, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeEngineDefaultClusterParameters", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBParameterGroupFamily"=>DBParameterGroupFamily), args)); aws_config=aws_config)
 
 """
     DescribeEngineDefaultParameters()
@@ -1156,8 +1157,8 @@ Returns the default engine and system parameter information for the specified da
 - `Marker`:  An optional pagination token provided by a previous DescribeEngineDefaultParameters request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. 
 - `MaxRecords`:  The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
 """
-describe_engine_default_parameters(DBParameterGroupFamily; aws_config::AWSConfig=global_aws_config()) = rds("DescribeEngineDefaultParameters", Dict{String, Any}("DBParameterGroupFamily"=>DBParameterGroupFamily); aws_config=aws_config)
-describe_engine_default_parameters(DBParameterGroupFamily, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribeEngineDefaultParameters", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBParameterGroupFamily"=>DBParameterGroupFamily), args)); aws_config=aws_config)
+describe_engine_default_parameters(DBParameterGroupFamily; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeEngineDefaultParameters", Dict{String, Any}("DBParameterGroupFamily"=>DBParameterGroupFamily); aws_config=aws_config)
+describe_engine_default_parameters(DBParameterGroupFamily, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeEngineDefaultParameters", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBParameterGroupFamily"=>DBParameterGroupFamily), args)); aws_config=aws_config)
 
 """
     DescribeEventCategories()
@@ -1168,8 +1169,8 @@ Displays a list of categories for all event source types, or, if specified, for 
 - `Filters`: This parameter isn't currently supported.
 - `SourceType`: The type of source that is generating the events. Valid values: db-instance | db-cluster | db-parameter-group | db-security-group | db-snapshot | db-cluster-snapshot 
 """
-describe_event_categories(; aws_config::AWSConfig=global_aws_config()) = rds("DescribeEventCategories"; aws_config=aws_config)
-describe_event_categories(args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribeEventCategories", args; aws_config=aws_config)
+describe_event_categories(; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeEventCategories"; aws_config=aws_config)
+describe_event_categories(args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeEventCategories", args; aws_config=aws_config)
 
 """
     DescribeEventSubscriptions()
@@ -1182,8 +1183,8 @@ Lists all the subscription descriptions for a customer account. The description 
 - `MaxRecords`:  The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
 - `SubscriptionName`: The name of the RDS event notification subscription you want to describe.
 """
-describe_event_subscriptions(; aws_config::AWSConfig=global_aws_config()) = rds("DescribeEventSubscriptions"; aws_config=aws_config)
-describe_event_subscriptions(args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribeEventSubscriptions", args; aws_config=aws_config)
+describe_event_subscriptions(; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeEventSubscriptions"; aws_config=aws_config)
+describe_event_subscriptions(args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeEventSubscriptions", args; aws_config=aws_config)
 
 """
     DescribeEvents()
@@ -1201,8 +1202,8 @@ Returns events related to DB instances, DB clusters, DB parameter groups, DB sec
 - `SourceType`: The event source to retrieve events for. If no value is specified, all events are returned.
 - `StartTime`:  The beginning of the time interval to retrieve events for, specified in ISO 8601 format. For more information about ISO 8601, go to the ISO8601 Wikipedia page.  Example: 2009-07-08T18:00Z
 """
-describe_events(; aws_config::AWSConfig=global_aws_config()) = rds("DescribeEvents"; aws_config=aws_config)
-describe_events(args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribeEvents", args; aws_config=aws_config)
+describe_events(; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeEvents"; aws_config=aws_config)
+describe_events(args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeEvents", args; aws_config=aws_config)
 
 """
     DescribeExportTasks()
@@ -1216,8 +1217,8 @@ Returns information about a snapshot export to Amazon S3. This API operation sup
 - `MaxRecords`:  The maximum number of records to include in the response. If more records exist than the specified value, a pagination token called a marker is included in the response. You can use the marker in a later DescribeExportTasks request to retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
 - `SourceArn`: The Amazon Resource Name (ARN) of the snapshot exported to Amazon S3.
 """
-describe_export_tasks(; aws_config::AWSConfig=global_aws_config()) = rds("DescribeExportTasks"; aws_config=aws_config)
-describe_export_tasks(args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribeExportTasks", args; aws_config=aws_config)
+describe_export_tasks(; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeExportTasks"; aws_config=aws_config)
+describe_export_tasks(args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeExportTasks", args; aws_config=aws_config)
 
 """
     DescribeGlobalClusters()
@@ -1230,8 +1231,8 @@ describe_export_tasks(args::AbstractDict{String, <:Any}; aws_config::AWSConfig=g
 - `Marker`:  An optional pagination token provided by a previous DescribeGlobalClusters request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. 
 - `MaxRecords`:  The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
 """
-describe_global_clusters(; aws_config::AWSConfig=global_aws_config()) = rds("DescribeGlobalClusters"; aws_config=aws_config)
-describe_global_clusters(args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribeGlobalClusters", args; aws_config=aws_config)
+describe_global_clusters(; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeGlobalClusters"; aws_config=aws_config)
+describe_global_clusters(args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeGlobalClusters", args; aws_config=aws_config)
 
 """
     DescribeInstallationMedia()
@@ -1244,8 +1245,8 @@ Describes the available installation media for a DB engine that requires an on-p
 - `Marker`: An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords.
 - `MaxRecords`: An optional pagination token provided by a previous DescribeInstallationMedia request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords.
 """
-describe_installation_media(; aws_config::AWSConfig=global_aws_config()) = rds("DescribeInstallationMedia"; aws_config=aws_config)
-describe_installation_media(args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribeInstallationMedia", args; aws_config=aws_config)
+describe_installation_media(; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeInstallationMedia"; aws_config=aws_config)
+describe_installation_media(args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeInstallationMedia", args; aws_config=aws_config)
 
 """
     DescribeOptionGroupOptions()
@@ -1261,8 +1262,8 @@ Describes all available options.
 - `Marker`: An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords.
 - `MaxRecords`:  The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
 """
-describe_option_group_options(EngineName; aws_config::AWSConfig=global_aws_config()) = rds("DescribeOptionGroupOptions", Dict{String, Any}("EngineName"=>EngineName); aws_config=aws_config)
-describe_option_group_options(EngineName, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribeOptionGroupOptions", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("EngineName"=>EngineName), args)); aws_config=aws_config)
+describe_option_group_options(EngineName; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeOptionGroupOptions", Dict{String, Any}("EngineName"=>EngineName); aws_config=aws_config)
+describe_option_group_options(EngineName, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeOptionGroupOptions", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("EngineName"=>EngineName), args)); aws_config=aws_config)
 
 """
     DescribeOptionGroups()
@@ -1277,8 +1278,8 @@ Describes the available option groups.
 - `MaxRecords`:  The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
 - `OptionGroupName`: The name of the option group to describe. Can't be supplied together with EngineName or MajorEngineVersion.
 """
-describe_option_groups(; aws_config::AWSConfig=global_aws_config()) = rds("DescribeOptionGroups"; aws_config=aws_config)
-describe_option_groups(args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribeOptionGroups", args; aws_config=aws_config)
+describe_option_groups(; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeOptionGroups"; aws_config=aws_config)
+describe_option_groups(args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeOptionGroups", args; aws_config=aws_config)
 
 """
     DescribeOrderableDBInstanceOptions()
@@ -1298,8 +1299,8 @@ Returns a list of orderable DB instance options for the specified engine.
 - `MaxRecords`:  The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
 - `Vpc`: A value that indicates whether to show only VPC or non-VPC offerings.
 """
-describe_orderable_dbinstance_options(Engine; aws_config::AWSConfig=global_aws_config()) = rds("DescribeOrderableDBInstanceOptions", Dict{String, Any}("Engine"=>Engine); aws_config=aws_config)
-describe_orderable_dbinstance_options(Engine, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribeOrderableDBInstanceOptions", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("Engine"=>Engine), args)); aws_config=aws_config)
+describe_orderable_dbinstance_options(Engine; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeOrderableDBInstanceOptions", Dict{String, Any}("Engine"=>Engine); aws_config=aws_config)
+describe_orderable_dbinstance_options(Engine, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeOrderableDBInstanceOptions", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("Engine"=>Engine), args)); aws_config=aws_config)
 
 """
     DescribePendingMaintenanceActions()
@@ -1312,8 +1313,8 @@ Returns a list of resources (for example, DB instances) that have at least one p
 - `MaxRecords`:  The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
 - `ResourceIdentifier`: The ARN of a resource to return pending maintenance actions for.
 """
-describe_pending_maintenance_actions(; aws_config::AWSConfig=global_aws_config()) = rds("DescribePendingMaintenanceActions"; aws_config=aws_config)
-describe_pending_maintenance_actions(args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribePendingMaintenanceActions", args; aws_config=aws_config)
+describe_pending_maintenance_actions(; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribePendingMaintenanceActions"; aws_config=aws_config)
+describe_pending_maintenance_actions(args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribePendingMaintenanceActions", args; aws_config=aws_config)
 
 """
     DescribeReservedDBInstances()
@@ -1333,8 +1334,8 @@ Returns information about reserved DB instances for this account, or about a spe
 - `ReservedDBInstanceId`: The reserved DB instance identifier filter value. Specify this parameter to show only the reservation that matches the specified reservation ID.
 - `ReservedDBInstancesOfferingId`: The offering identifier filter value. Specify this parameter to show only purchased reservations matching the specified offering identifier.
 """
-describe_reserved_dbinstances(; aws_config::AWSConfig=global_aws_config()) = rds("DescribeReservedDBInstances"; aws_config=aws_config)
-describe_reserved_dbinstances(args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribeReservedDBInstances", args; aws_config=aws_config)
+describe_reserved_dbinstances(; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeReservedDBInstances"; aws_config=aws_config)
+describe_reserved_dbinstances(args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeReservedDBInstances", args; aws_config=aws_config)
 
 """
     DescribeReservedDBInstancesOfferings()
@@ -1352,8 +1353,8 @@ Lists available reserved DB instance offerings.
 - `ProductDescription`: Product description filter value. Specify this parameter to show only the available offerings that contain the specified product description.  The results show offerings that partially match the filter value. 
 - `ReservedDBInstancesOfferingId`: The offering identifier filter value. Specify this parameter to show only the available offering that matches the specified reservation identifier. Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706 
 """
-describe_reserved_dbinstances_offerings(; aws_config::AWSConfig=global_aws_config()) = rds("DescribeReservedDBInstancesOfferings"; aws_config=aws_config)
-describe_reserved_dbinstances_offerings(args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribeReservedDBInstancesOfferings", args; aws_config=aws_config)
+describe_reserved_dbinstances_offerings(; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeReservedDBInstancesOfferings"; aws_config=aws_config)
+describe_reserved_dbinstances_offerings(args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeReservedDBInstancesOfferings", args; aws_config=aws_config)
 
 """
     DescribeSourceRegions()
@@ -1366,8 +1367,8 @@ Returns a list of the source AWS Regions where the current AWS Region can create
 - `MaxRecords`: The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
 - `RegionName`: The source AWS Region name. For example, us-east-1. Constraints:   Must specify a valid AWS Region name.  
 """
-describe_source_regions(; aws_config::AWSConfig=global_aws_config()) = rds("DescribeSourceRegions"; aws_config=aws_config)
-describe_source_regions(args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribeSourceRegions", args; aws_config=aws_config)
+describe_source_regions(; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeSourceRegions"; aws_config=aws_config)
+describe_source_regions(args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeSourceRegions", args; aws_config=aws_config)
 
 """
     DescribeValidDBInstanceModifications()
@@ -1378,8 +1379,8 @@ You can call DescribeValidDBInstanceModifications to learn what modifications yo
 - `DBInstanceIdentifier`: The customer identifier or the ARN of your DB instance. 
 
 """
-describe_valid_dbinstance_modifications(DBInstanceIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("DescribeValidDBInstanceModifications", Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier); aws_config=aws_config)
-describe_valid_dbinstance_modifications(DBInstanceIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DescribeValidDBInstanceModifications", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier), args)); aws_config=aws_config)
+describe_valid_dbinstance_modifications(DBInstanceIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeValidDBInstanceModifications", Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier); aws_config=aws_config)
+describe_valid_dbinstance_modifications(DBInstanceIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DescribeValidDBInstanceModifications", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier), args)); aws_config=aws_config)
 
 """
     DownloadDBLogFilePortion()
@@ -1394,8 +1395,8 @@ Downloads all or a portion of the specified log file, up to 1 MB in size.
 - `Marker`: The pagination token provided in the previous request or \"0\". If the Marker parameter is specified the response includes only records beyond the marker until the end of the file or up to NumberOfLines.
 - `NumberOfLines`: The number of lines to download. If the number of lines specified results in a file over 1 MB in size, the file is truncated at 1 MB in size. If the NumberOfLines parameter is specified, then the block of lines returned can be from the beginning or the end of the log file, depending on the value of the Marker parameter.   If neither Marker or NumberOfLines are specified, the entire log file is returned up to a maximum of 10000 lines, starting with the most recent log entries first.   If NumberOfLines is specified and Marker isn't specified, then the most recent lines from the end of the log file are returned.   If Marker is specified as \"0\", then the specified number of lines from the beginning of the log file are returned.   You can download the log file in blocks of lines by specifying the size of the block using the NumberOfLines parameter, and by specifying a value of \"0\" for the Marker parameter in your first request. Include the Marker value returned in the response as the Marker value for the next request, continuing until the AdditionalDataPending response element returns false.  
 """
-download_dblog_file_portion(DBInstanceIdentifier, LogFileName; aws_config::AWSConfig=global_aws_config()) = rds("DownloadDBLogFilePortion", Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier, "LogFileName"=>LogFileName); aws_config=aws_config)
-download_dblog_file_portion(DBInstanceIdentifier, LogFileName, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("DownloadDBLogFilePortion", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier, "LogFileName"=>LogFileName), args)); aws_config=aws_config)
+download_dblog_file_portion(DBInstanceIdentifier, LogFileName; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DownloadDBLogFilePortion", Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier, "LogFileName"=>LogFileName); aws_config=aws_config)
+download_dblog_file_portion(DBInstanceIdentifier, LogFileName, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("DownloadDBLogFilePortion", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier, "LogFileName"=>LogFileName), args)); aws_config=aws_config)
 
 """
     FailoverDBCluster()
@@ -1408,8 +1409,8 @@ Forces a failover for a DB cluster. A failover for a DB cluster promotes one of 
 # Optional Parameters
 - `TargetDBInstanceIdentifier`: The name of the instance to promote to the primary instance. You must specify the instance identifier for an Aurora Replica in the DB cluster. For example, mydbcluster-replica1.
 """
-failover_dbcluster(DBClusterIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("FailoverDBCluster", Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier); aws_config=aws_config)
-failover_dbcluster(DBClusterIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("FailoverDBCluster", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier), args)); aws_config=aws_config)
+failover_dbcluster(DBClusterIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("FailoverDBCluster", Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier); aws_config=aws_config)
+failover_dbcluster(DBClusterIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("FailoverDBCluster", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier), args)); aws_config=aws_config)
 
 """
     ImportInstallationMedia()
@@ -1424,8 +1425,8 @@ Imports the installation media for a DB engine that requires an on-premises cust
 - `OSInstallationMediaPath`: The path to the installation medium for the operating system associated with the specified DB engine. Example: WindowsISO/en_windows_server_2016_x64_dvd_9327751.iso 
 
 """
-import_installation_media(CustomAvailabilityZoneId, Engine, EngineInstallationMediaPath, EngineVersion, OSInstallationMediaPath; aws_config::AWSConfig=global_aws_config()) = rds("ImportInstallationMedia", Dict{String, Any}("CustomAvailabilityZoneId"=>CustomAvailabilityZoneId, "Engine"=>Engine, "EngineInstallationMediaPath"=>EngineInstallationMediaPath, "EngineVersion"=>EngineVersion, "OSInstallationMediaPath"=>OSInstallationMediaPath); aws_config=aws_config)
-import_installation_media(CustomAvailabilityZoneId, Engine, EngineInstallationMediaPath, EngineVersion, OSInstallationMediaPath, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("ImportInstallationMedia", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("CustomAvailabilityZoneId"=>CustomAvailabilityZoneId, "Engine"=>Engine, "EngineInstallationMediaPath"=>EngineInstallationMediaPath, "EngineVersion"=>EngineVersion, "OSInstallationMediaPath"=>OSInstallationMediaPath), args)); aws_config=aws_config)
+import_installation_media(CustomAvailabilityZoneId, Engine, EngineInstallationMediaPath, EngineVersion, OSInstallationMediaPath; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ImportInstallationMedia", Dict{String, Any}("CustomAvailabilityZoneId"=>CustomAvailabilityZoneId, "Engine"=>Engine, "EngineInstallationMediaPath"=>EngineInstallationMediaPath, "EngineVersion"=>EngineVersion, "OSInstallationMediaPath"=>OSInstallationMediaPath); aws_config=aws_config)
+import_installation_media(CustomAvailabilityZoneId, Engine, EngineInstallationMediaPath, EngineVersion, OSInstallationMediaPath, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ImportInstallationMedia", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("CustomAvailabilityZoneId"=>CustomAvailabilityZoneId, "Engine"=>Engine, "EngineInstallationMediaPath"=>EngineInstallationMediaPath, "EngineVersion"=>EngineVersion, "OSInstallationMediaPath"=>OSInstallationMediaPath), args)); aws_config=aws_config)
 
 """
     ListTagsForResource()
@@ -1438,8 +1439,8 @@ Lists all tags on an Amazon RDS resource. For an overview on tagging an Amazon R
 # Optional Parameters
 - `Filters`: This parameter isn't currently supported.
 """
-list_tags_for_resource(ResourceName; aws_config::AWSConfig=global_aws_config()) = rds("ListTagsForResource", Dict{String, Any}("ResourceName"=>ResourceName); aws_config=aws_config)
-list_tags_for_resource(ResourceName, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("ListTagsForResource", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("ResourceName"=>ResourceName), args)); aws_config=aws_config)
+list_tags_for_resource(ResourceName; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ListTagsForResource", Dict{String, Any}("ResourceName"=>ResourceName); aws_config=aws_config)
+list_tags_for_resource(ResourceName, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ListTagsForResource", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("ResourceName"=>ResourceName), args)); aws_config=aws_config)
 
 """
     ModifyCertificates()
@@ -1450,8 +1451,8 @@ Override the system-default Secure Sockets Layer/Transport Layer Security (SSL/T
 - `CertificateIdentifier`: The new default certificate identifier to override the current one with. To determine the valid values, use the describe-certificates AWS CLI command or the DescribeCertificates API operation.
 - `RemoveCustomerOverride`: A value that indicates whether to remove the override for the default certificate. If the override is removed, the default certificate is the system default.
 """
-modify_certificates(; aws_config::AWSConfig=global_aws_config()) = rds("ModifyCertificates"; aws_config=aws_config)
-modify_certificates(args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("ModifyCertificates", args; aws_config=aws_config)
+modify_certificates(; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ModifyCertificates"; aws_config=aws_config)
+modify_certificates(args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ModifyCertificates", args; aws_config=aws_config)
 
 """
     ModifyCurrentDBClusterCapacity()
@@ -1466,8 +1467,8 @@ Set the capacity of an Aurora Serverless DB cluster to a specific value. Aurora 
 - `SecondsBeforeTimeout`: The amount of time, in seconds, that Aurora Serverless tries to find a scaling point to perform seamless scaling before enforcing the timeout action. The default is 300.   Value must be from 10 through 600.  
 - `TimeoutAction`: The action to take when the timeout is reached, either ForceApplyCapacityChange or RollbackCapacityChange.  ForceApplyCapacityChange, the default, sets the capacity to the specified value as soon as possible.  RollbackCapacityChange ignores the capacity change if a scaling point isn't found in the timeout period.
 """
-modify_current_dbcluster_capacity(DBClusterIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("ModifyCurrentDBClusterCapacity", Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier); aws_config=aws_config)
-modify_current_dbcluster_capacity(DBClusterIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("ModifyCurrentDBClusterCapacity", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier), args)); aws_config=aws_config)
+modify_current_dbcluster_capacity(DBClusterIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ModifyCurrentDBClusterCapacity", Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier); aws_config=aws_config)
+modify_current_dbcluster_capacity(DBClusterIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ModifyCurrentDBClusterCapacity", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier), args)); aws_config=aws_config)
 
 """
     ModifyDBCluster()
@@ -1502,8 +1503,8 @@ Modify a setting for an Amazon Aurora DB cluster. You can change one or more dat
 - `ScalingConfiguration`: The scaling properties of the DB cluster. You can only modify scaling properties for DB clusters in serverless DB engine mode.
 - `VpcSecurityGroupIds`: A list of VPC security groups that the DB cluster will belong to.
 """
-modify_dbcluster(DBClusterIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("ModifyDBCluster", Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier); aws_config=aws_config)
-modify_dbcluster(DBClusterIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("ModifyDBCluster", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier), args)); aws_config=aws_config)
+modify_dbcluster(DBClusterIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ModifyDBCluster", Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier); aws_config=aws_config)
+modify_dbcluster(DBClusterIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ModifyDBCluster", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier), args)); aws_config=aws_config)
 
 """
     ModifyDBClusterEndpoint()
@@ -1518,8 +1519,8 @@ Modifies the properties of an endpoint in an Amazon Aurora DB cluster.  This act
 - `ExcludedMembers`: List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
 - `StaticMembers`: List of DB instance identifiers that are part of the custom endpoint group.
 """
-modify_dbcluster_endpoint(DBClusterEndpointIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("ModifyDBClusterEndpoint", Dict{String, Any}("DBClusterEndpointIdentifier"=>DBClusterEndpointIdentifier); aws_config=aws_config)
-modify_dbcluster_endpoint(DBClusterEndpointIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("ModifyDBClusterEndpoint", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterEndpointIdentifier"=>DBClusterEndpointIdentifier), args)); aws_config=aws_config)
+modify_dbcluster_endpoint(DBClusterEndpointIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ModifyDBClusterEndpoint", Dict{String, Any}("DBClusterEndpointIdentifier"=>DBClusterEndpointIdentifier); aws_config=aws_config)
+modify_dbcluster_endpoint(DBClusterEndpointIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ModifyDBClusterEndpoint", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterEndpointIdentifier"=>DBClusterEndpointIdentifier), args)); aws_config=aws_config)
 
 """
     ModifyDBClusterParameterGroup()
@@ -1533,8 +1534,8 @@ modify_dbcluster_endpoint(DBClusterEndpointIdentifier, args::AbstractDict{String
 # Optional Parameters
 - `Parameters`: A list of parameters in the DB cluster parameter group to modify.
 """
-modify_dbcluster_parameter_group(DBClusterParameterGroupName, Parameter; aws_config::AWSConfig=global_aws_config()) = rds("ModifyDBClusterParameterGroup", Dict{String, Any}("DBClusterParameterGroupName"=>DBClusterParameterGroupName, "Parameter"=>Parameter); aws_config=aws_config)
-modify_dbcluster_parameter_group(DBClusterParameterGroupName, Parameter, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("ModifyDBClusterParameterGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterParameterGroupName"=>DBClusterParameterGroupName, "Parameter"=>Parameter), args)); aws_config=aws_config)
+modify_dbcluster_parameter_group(DBClusterParameterGroupName, Parameter; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ModifyDBClusterParameterGroup", Dict{String, Any}("DBClusterParameterGroupName"=>DBClusterParameterGroupName, "Parameter"=>Parameter); aws_config=aws_config)
+modify_dbcluster_parameter_group(DBClusterParameterGroupName, Parameter, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ModifyDBClusterParameterGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterParameterGroupName"=>DBClusterParameterGroupName, "Parameter"=>Parameter), args)); aws_config=aws_config)
 
 """
     ModifyDBClusterSnapshotAttribute()
@@ -1549,8 +1550,8 @@ Adds an attribute and values to, or removes an attribute and values from, a manu
 - `ValuesToAdd`: A list of DB cluster snapshot attributes to add to the attribute specified by AttributeName. To authorize other AWS accounts to copy or restore a manual DB cluster snapshot, set this list to include one or more AWS account IDs, or all to make the manual DB cluster snapshot restorable by any AWS account. Do not add the all value for any manual DB cluster snapshots that contain private information that you don't want available to all AWS accounts.
 - `ValuesToRemove`: A list of DB cluster snapshot attributes to remove from the attribute specified by AttributeName. To remove authorization for other AWS accounts to copy or restore a manual DB cluster snapshot, set this list to include one or more AWS account identifiers, or all to remove authorization for any AWS account to copy or restore the DB cluster snapshot. If you specify all, an AWS account whose account ID is explicitly added to the restore attribute can still copy or restore a manual DB cluster snapshot.
 """
-modify_dbcluster_snapshot_attribute(AttributeName, DBClusterSnapshotIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("ModifyDBClusterSnapshotAttribute", Dict{String, Any}("AttributeName"=>AttributeName, "DBClusterSnapshotIdentifier"=>DBClusterSnapshotIdentifier); aws_config=aws_config)
-modify_dbcluster_snapshot_attribute(AttributeName, DBClusterSnapshotIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("ModifyDBClusterSnapshotAttribute", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("AttributeName"=>AttributeName, "DBClusterSnapshotIdentifier"=>DBClusterSnapshotIdentifier), args)); aws_config=aws_config)
+modify_dbcluster_snapshot_attribute(AttributeName, DBClusterSnapshotIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ModifyDBClusterSnapshotAttribute", Dict{String, Any}("AttributeName"=>AttributeName, "DBClusterSnapshotIdentifier"=>DBClusterSnapshotIdentifier); aws_config=aws_config)
+modify_dbcluster_snapshot_attribute(AttributeName, DBClusterSnapshotIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ModifyDBClusterSnapshotAttribute", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("AttributeName"=>AttributeName, "DBClusterSnapshotIdentifier"=>DBClusterSnapshotIdentifier), args)); aws_config=aws_config)
 
 """
     ModifyDBInstance()
@@ -1590,7 +1591,7 @@ Modifies settings for a DB instance. You can change one or more database configu
 - `MultiAZ`: A value that indicates whether the DB instance is a Multi-AZ deployment. Changing this parameter doesn't result in an outage and the change is applied during the next maintenance window unless the ApplyImmediately parameter is enabled for this request. 
 - `NewDBInstanceIdentifier`:  The new DB instance identifier for the DB instance when renaming a DB instance. When you change the DB instance identifier, an instance reboot occurs immediately if you enable ApplyImmediately, or will occur during the next maintenance window if you disable Apply Immediately. This value is stored as a lowercase string.  Constraints:   Must contain from 1 to 63 letters, numbers, or hyphens.   The first character must be a letter.   Can't end with a hyphen or contain two consecutive hyphens.   Example: mydbinstance 
 - `OptionGroupName`:  Indicates that the DB instance should be associated with the specified option group. Changing this parameter doesn't result in an outage except in the following case and the change is applied during the next maintenance window unless the ApplyImmediately parameter is enabled for this request. If the parameter change results in an option group that enables OEM, this change can cause a brief (sub-second) period during which new connections are rejected but existing connections are not interrupted.  Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group, and that option group can't be removed from a DB instance once it is associated with a DB instance
-- `PerformanceInsightsKMSKeyId`: The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon RDS uses your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region.
+- `PerformanceInsightsKMSKeyId`: The AWS KMS key identifier for encryption of Performance Insights data. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK). If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon RDS uses your default CMK. There is a default CMK for your AWS account. Your AWS account has a different default CMK for each AWS Region.
 - `PerformanceInsightsRetentionPeriod`: The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years). 
 - `PreferredBackupWindow`:  The daily time range during which automated backups are created if automated backups are enabled, as determined by the BackupRetentionPeriod parameter. Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible.   Amazon Aurora  Not applicable. The daily time range for creating automated backups is managed by the DB cluster. For more information, see ModifyDBCluster. Constraints:   Must be in the format hh24:mi-hh24:mi   Must be in Universal Time Coordinated (UTC)   Must not conflict with the preferred maintenance window   Must be at least 30 minutes  
 - `PreferredMaintenanceWindow`: The weekly time range (in UTC) during which system maintenance can occur, which might result in an outage. Changing this parameter doesn't result in an outage, except in the following situation, and the change is asynchronously applied as soon as possible. If there are pending actions that cause a reboot, and the maintenance window is changed to include the current time, then changing this parameter will cause a reboot of the DB instance. If moving this window to the current time, there must be at least 30 minutes between the current time and end of the window to ensure pending changes are applied. Default: Uses existing setting Format: ddd:hh24:mi-ddd:hh24:mi Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun Constraints: Must be at least 30 minutes
@@ -1604,8 +1605,8 @@ Modifies settings for a DB instance. You can change one or more database configu
 - `UseDefaultProcessorFeatures`: A value that indicates whether the DB instance class of the DB instance uses its default processor features.
 - `VpcSecurityGroupIds`: A list of EC2 VPC security groups to authorize on this DB instance. This change is asynchronously applied as soon as possible.  Amazon Aurora  Not applicable. The associated list of EC2 VPC security groups is managed by the DB cluster. For more information, see ModifyDBCluster. Constraints:   If supplied, must match existing VpcSecurityGroupIds.  
 """
-modify_dbinstance(DBInstanceIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("ModifyDBInstance", Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier); aws_config=aws_config)
-modify_dbinstance(DBInstanceIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("ModifyDBInstance", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier), args)); aws_config=aws_config)
+modify_dbinstance(DBInstanceIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ModifyDBInstance", Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier); aws_config=aws_config)
+modify_dbinstance(DBInstanceIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ModifyDBInstance", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier), args)); aws_config=aws_config)
 
 """
     ModifyDBParameterGroup()
@@ -1619,8 +1620,8 @@ modify_dbinstance(DBInstanceIdentifier, args::AbstractDict{String, <:Any}; aws_c
 # Optional Parameters
 - `Parameters`: An array of parameter names, values, and the apply method for the parameter update. At least one parameter name, value, and apply method must be supplied; later arguments are optional. A maximum of 20 parameters can be modified in a single request. Valid Values (for the application method): immediate | pending-reboot   You can use the immediate value with dynamic parameters only. You can use the pending-reboot value for both dynamic and static parameters, and changes are applied when you reboot the DB instance without failover. 
 """
-modify_dbparameter_group(DBParameterGroupName, Parameter; aws_config::AWSConfig=global_aws_config()) = rds("ModifyDBParameterGroup", Dict{String, Any}("DBParameterGroupName"=>DBParameterGroupName, "Parameter"=>Parameter); aws_config=aws_config)
-modify_dbparameter_group(DBParameterGroupName, Parameter, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("ModifyDBParameterGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBParameterGroupName"=>DBParameterGroupName, "Parameter"=>Parameter), args)); aws_config=aws_config)
+modify_dbparameter_group(DBParameterGroupName, Parameter; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ModifyDBParameterGroup", Dict{String, Any}("DBParameterGroupName"=>DBParameterGroupName, "Parameter"=>Parameter); aws_config=aws_config)
+modify_dbparameter_group(DBParameterGroupName, Parameter, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ModifyDBParameterGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBParameterGroupName"=>DBParameterGroupName, "Parameter"=>Parameter), args)); aws_config=aws_config)
 
 """
     ModifyDBProxy()
@@ -1639,8 +1640,8 @@ Changes the settings for an existing DB proxy.
 - `RoleArn`: The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
 - `SecurityGroups`: The new list of security groups for the DBProxy.
 """
-modify_dbproxy(DBProxyName; aws_config::AWSConfig=global_aws_config()) = rds("ModifyDBProxy", Dict{String, Any}("DBProxyName"=>DBProxyName); aws_config=aws_config)
-modify_dbproxy(DBProxyName, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("ModifyDBProxy", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBProxyName"=>DBProxyName), args)); aws_config=aws_config)
+modify_dbproxy(DBProxyName; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ModifyDBProxy", Dict{String, Any}("DBProxyName"=>DBProxyName); aws_config=aws_config)
+modify_dbproxy(DBProxyName, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ModifyDBProxy", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBProxyName"=>DBProxyName), args)); aws_config=aws_config)
 
 """
     ModifyDBProxyTargetGroup()
@@ -1655,8 +1656,8 @@ Modifies the properties of a DBProxyTargetGroup.
 - `ConnectionPoolConfig`: The settings that determine the size and behavior of the connection pool for the target group.
 - `NewName`: The new name for the modified DBProxyTarget. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
 """
-modify_dbproxy_target_group(DBProxyName, TargetGroupName; aws_config::AWSConfig=global_aws_config()) = rds("ModifyDBProxyTargetGroup", Dict{String, Any}("DBProxyName"=>DBProxyName, "TargetGroupName"=>TargetGroupName); aws_config=aws_config)
-modify_dbproxy_target_group(DBProxyName, TargetGroupName, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("ModifyDBProxyTargetGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBProxyName"=>DBProxyName, "TargetGroupName"=>TargetGroupName), args)); aws_config=aws_config)
+modify_dbproxy_target_group(DBProxyName, TargetGroupName; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ModifyDBProxyTargetGroup", Dict{String, Any}("DBProxyName"=>DBProxyName, "TargetGroupName"=>TargetGroupName); aws_config=aws_config)
+modify_dbproxy_target_group(DBProxyName, TargetGroupName, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ModifyDBProxyTargetGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBProxyName"=>DBProxyName, "TargetGroupName"=>TargetGroupName), args)); aws_config=aws_config)
 
 """
     ModifyDBSnapshot()
@@ -1670,8 +1671,8 @@ Updates a manual DB snapshot with a new engine version. The snapshot can be encr
 - `EngineVersion`: The engine version to upgrade the DB snapshot to.  The following are the database engines and engine versions that are available when you upgrade a DB snapshot.   MySQL     5.5.46 (supported for 5.1 DB snapshots)    Oracle     12.1.0.2.v8 (supported for 12.1.0.1 DB snapshots)    11.2.0.4.v12 (supported for 11.2.0.2 DB snapshots)    11.2.0.4.v11 (supported for 11.2.0.3 DB snapshots)    PostgreSQL  For the list of engine versions that are available for upgrading a DB snapshot, see  Upgrading the PostgreSQL DB Engine for Amazon RDS. 
 - `OptionGroupName`: The option group to identify with the upgraded DB snapshot.  You can specify this parameter when you upgrade an Oracle DB snapshot. The same option group considerations apply when upgrading a DB snapshot as when upgrading a DB instance. For more information, see Option Group Considerations in the Amazon RDS User Guide. 
 """
-modify_dbsnapshot(DBSnapshotIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("ModifyDBSnapshot", Dict{String, Any}("DBSnapshotIdentifier"=>DBSnapshotIdentifier); aws_config=aws_config)
-modify_dbsnapshot(DBSnapshotIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("ModifyDBSnapshot", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBSnapshotIdentifier"=>DBSnapshotIdentifier), args)); aws_config=aws_config)
+modify_dbsnapshot(DBSnapshotIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ModifyDBSnapshot", Dict{String, Any}("DBSnapshotIdentifier"=>DBSnapshotIdentifier); aws_config=aws_config)
+modify_dbsnapshot(DBSnapshotIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ModifyDBSnapshot", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBSnapshotIdentifier"=>DBSnapshotIdentifier), args)); aws_config=aws_config)
 
 """
     ModifyDBSnapshotAttribute()
@@ -1686,8 +1687,8 @@ Adds an attribute and values to, or removes an attribute and values from, a manu
 - `ValuesToAdd`: A list of DB snapshot attributes to add to the attribute specified by AttributeName. To authorize other AWS accounts to copy or restore a manual snapshot, set this list to include one or more AWS account IDs, or all to make the manual DB snapshot restorable by any AWS account. Do not add the all value for any manual DB snapshots that contain private information that you don't want available to all AWS accounts.
 - `ValuesToRemove`: A list of DB snapshot attributes to remove from the attribute specified by AttributeName. To remove authorization for other AWS accounts to copy or restore a manual snapshot, set this list to include one or more AWS account identifiers, or all to remove authorization for any AWS account to copy or restore the DB snapshot. If you specify all, an AWS account whose account ID is explicitly added to the restore attribute can still copy or restore the manual DB snapshot.
 """
-modify_dbsnapshot_attribute(AttributeName, DBSnapshotIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("ModifyDBSnapshotAttribute", Dict{String, Any}("AttributeName"=>AttributeName, "DBSnapshotIdentifier"=>DBSnapshotIdentifier); aws_config=aws_config)
-modify_dbsnapshot_attribute(AttributeName, DBSnapshotIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("ModifyDBSnapshotAttribute", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("AttributeName"=>AttributeName, "DBSnapshotIdentifier"=>DBSnapshotIdentifier), args)); aws_config=aws_config)
+modify_dbsnapshot_attribute(AttributeName, DBSnapshotIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ModifyDBSnapshotAttribute", Dict{String, Any}("AttributeName"=>AttributeName, "DBSnapshotIdentifier"=>DBSnapshotIdentifier); aws_config=aws_config)
+modify_dbsnapshot_attribute(AttributeName, DBSnapshotIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ModifyDBSnapshotAttribute", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("AttributeName"=>AttributeName, "DBSnapshotIdentifier"=>DBSnapshotIdentifier), args)); aws_config=aws_config)
 
 """
     ModifyDBSubnetGroup()
@@ -1702,8 +1703,8 @@ Modifies an existing DB subnet group. DB subnet groups must contain at least one
 - `DBSubnetGroupDescription`: The description for the DB subnet group.
 - `SubnetIds`: The EC2 subnet IDs for the DB subnet group.
 """
-modify_dbsubnet_group(DBSubnetGroupName, SubnetIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("ModifyDBSubnetGroup", Dict{String, Any}("DBSubnetGroupName"=>DBSubnetGroupName, "SubnetIdentifier"=>SubnetIdentifier); aws_config=aws_config)
-modify_dbsubnet_group(DBSubnetGroupName, SubnetIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("ModifyDBSubnetGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBSubnetGroupName"=>DBSubnetGroupName, "SubnetIdentifier"=>SubnetIdentifier), args)); aws_config=aws_config)
+modify_dbsubnet_group(DBSubnetGroupName, SubnetIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ModifyDBSubnetGroup", Dict{String, Any}("DBSubnetGroupName"=>DBSubnetGroupName, "SubnetIdentifier"=>SubnetIdentifier); aws_config=aws_config)
+modify_dbsubnet_group(DBSubnetGroupName, SubnetIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ModifyDBSubnetGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBSubnetGroupName"=>DBSubnetGroupName, "SubnetIdentifier"=>SubnetIdentifier), args)); aws_config=aws_config)
 
 """
     ModifyEventSubscription()
@@ -1719,8 +1720,8 @@ Modifies an existing RDS event notification subscription. You can't modify the s
 - `SnsTopicArn`: The Amazon Resource Name (ARN) of the SNS topic created for event notification. The ARN is created by Amazon SNS when you create a topic and subscribe to it.
 - `SourceType`: The type of source that is generating the events. For example, if you want to be notified of events generated by a DB instance, you would set this parameter to db-instance. If this value isn't specified, all events are returned. Valid values: db-instance | db-cluster | db-parameter-group | db-security-group | db-snapshot | db-cluster-snapshot 
 """
-modify_event_subscription(SubscriptionName; aws_config::AWSConfig=global_aws_config()) = rds("ModifyEventSubscription", Dict{String, Any}("SubscriptionName"=>SubscriptionName); aws_config=aws_config)
-modify_event_subscription(SubscriptionName, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("ModifyEventSubscription", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("SubscriptionName"=>SubscriptionName), args)); aws_config=aws_config)
+modify_event_subscription(SubscriptionName; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ModifyEventSubscription", Dict{String, Any}("SubscriptionName"=>SubscriptionName); aws_config=aws_config)
+modify_event_subscription(SubscriptionName, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ModifyEventSubscription", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("SubscriptionName"=>SubscriptionName), args)); aws_config=aws_config)
 
 """
     ModifyGlobalCluster()
@@ -1732,8 +1733,8 @@ modify_event_subscription(SubscriptionName, args::AbstractDict{String, <:Any}; a
 - `GlobalClusterIdentifier`:  The DB cluster identifier for the global cluster being modified. This parameter isn't case-sensitive.  Constraints:   Must match the identifier of an existing global database cluster.  
 - `NewGlobalClusterIdentifier`:  The new cluster identifier for the global database cluster when modifying a global database cluster. This value is stored as a lowercase string.  Constraints:   Must contain from 1 to 63 letters, numbers, or hyphens   The first character must be a letter   Can't end with a hyphen or contain two consecutive hyphens   Example: my-cluster2 
 """
-modify_global_cluster(; aws_config::AWSConfig=global_aws_config()) = rds("ModifyGlobalCluster"; aws_config=aws_config)
-modify_global_cluster(args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("ModifyGlobalCluster", args; aws_config=aws_config)
+modify_global_cluster(; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ModifyGlobalCluster"; aws_config=aws_config)
+modify_global_cluster(args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ModifyGlobalCluster", args; aws_config=aws_config)
 
 """
     ModifyOptionGroup()
@@ -1748,8 +1749,8 @@ Modifies an existing option group.
 - `OptionsToInclude`: Options in this list are added to the option group or, if already present, the specified configuration is used to update the existing configuration.
 - `OptionsToRemove`: Options in this list are removed from the option group.
 """
-modify_option_group(OptionGroupName; aws_config::AWSConfig=global_aws_config()) = rds("ModifyOptionGroup", Dict{String, Any}("OptionGroupName"=>OptionGroupName); aws_config=aws_config)
-modify_option_group(OptionGroupName, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("ModifyOptionGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("OptionGroupName"=>OptionGroupName), args)); aws_config=aws_config)
+modify_option_group(OptionGroupName; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ModifyOptionGroup", Dict{String, Any}("OptionGroupName"=>OptionGroupName); aws_config=aws_config)
+modify_option_group(OptionGroupName, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ModifyOptionGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("OptionGroupName"=>OptionGroupName), args)); aws_config=aws_config)
 
 """
     PromoteReadReplica()
@@ -1763,8 +1764,8 @@ Promotes a read replica DB instance to a standalone DB instance.    Backup durat
 - `BackupRetentionPeriod`: The number of days for which automated backups are retained. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups. Default: 1 Constraints:   Must be a value from 0 to 35.   Can't be set to 0 if the DB instance is a source to read replicas.  
 - `PreferredBackupWindow`:  The daily time range during which automated backups are created if automated backups are enabled, using the BackupRetentionPeriod parameter.   The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the time blocks available, see  Adjusting the Preferred Maintenance Window in the Amazon RDS User Guide.  Constraints:   Must be in the format hh24:mi-hh24:mi.   Must be in Universal Coordinated Time (UTC).   Must not conflict with the preferred maintenance window.   Must be at least 30 minutes.  
 """
-promote_read_replica(DBInstanceIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("PromoteReadReplica", Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier); aws_config=aws_config)
-promote_read_replica(DBInstanceIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("PromoteReadReplica", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier), args)); aws_config=aws_config)
+promote_read_replica(DBInstanceIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("PromoteReadReplica", Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier); aws_config=aws_config)
+promote_read_replica(DBInstanceIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("PromoteReadReplica", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier), args)); aws_config=aws_config)
 
 """
     PromoteReadReplicaDBCluster()
@@ -1775,8 +1776,8 @@ Promotes a read replica DB cluster to a standalone DB cluster.  This action only
 - `DBClusterIdentifier`: The identifier of the DB cluster read replica to promote. This parameter isn't case-sensitive.  Constraints:   Must match the identifier of an existing DB cluster read replica.   Example: my-cluster-replica1 
 
 """
-promote_read_replica_dbcluster(DBClusterIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("PromoteReadReplicaDBCluster", Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier); aws_config=aws_config)
-promote_read_replica_dbcluster(DBClusterIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("PromoteReadReplicaDBCluster", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier), args)); aws_config=aws_config)
+promote_read_replica_dbcluster(DBClusterIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("PromoteReadReplicaDBCluster", Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier); aws_config=aws_config)
+promote_read_replica_dbcluster(DBClusterIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("PromoteReadReplicaDBCluster", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier), args)); aws_config=aws_config)
 
 """
     PurchaseReservedDBInstancesOffering()
@@ -1791,8 +1792,8 @@ Purchases a reserved DB instance offering.
 - `ReservedDBInstanceId`: Customer-specified identifier to track this reservation. Example: myreservationID
 - `Tags`: 
 """
-purchase_reserved_dbinstances_offering(ReservedDBInstancesOfferingId; aws_config::AWSConfig=global_aws_config()) = rds("PurchaseReservedDBInstancesOffering", Dict{String, Any}("ReservedDBInstancesOfferingId"=>ReservedDBInstancesOfferingId); aws_config=aws_config)
-purchase_reserved_dbinstances_offering(ReservedDBInstancesOfferingId, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("PurchaseReservedDBInstancesOffering", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("ReservedDBInstancesOfferingId"=>ReservedDBInstancesOfferingId), args)); aws_config=aws_config)
+purchase_reserved_dbinstances_offering(ReservedDBInstancesOfferingId; aws_config::AbstractAWSConfig=global_aws_config()) = rds("PurchaseReservedDBInstancesOffering", Dict{String, Any}("ReservedDBInstancesOfferingId"=>ReservedDBInstancesOfferingId); aws_config=aws_config)
+purchase_reserved_dbinstances_offering(ReservedDBInstancesOfferingId, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("PurchaseReservedDBInstancesOffering", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("ReservedDBInstancesOfferingId"=>ReservedDBInstancesOfferingId), args)); aws_config=aws_config)
 
 """
     RebootDBInstance()
@@ -1805,8 +1806,8 @@ You might need to reboot your DB instance, usually for maintenance reasons. For 
 # Optional Parameters
 - `ForceFailover`:  A value that indicates whether the reboot is conducted through a Multi-AZ failover.  Constraint: You can't enable force failover if the instance isn't configured for Multi-AZ.
 """
-reboot_dbinstance(DBInstanceIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("RebootDBInstance", Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier); aws_config=aws_config)
-reboot_dbinstance(DBInstanceIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("RebootDBInstance", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier), args)); aws_config=aws_config)
+reboot_dbinstance(DBInstanceIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("RebootDBInstance", Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier); aws_config=aws_config)
+reboot_dbinstance(DBInstanceIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("RebootDBInstance", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier), args)); aws_config=aws_config)
 
 """
     RegisterDBProxyTargets()
@@ -1821,8 +1822,8 @@ Associate one or more DBProxyTarget data structures with a DBProxyTargetGroup.
 - `DBInstanceIdentifiers`: One or more DB instance identifiers.
 - `TargetGroupName`: The identifier of the DBProxyTargetGroup.
 """
-register_dbproxy_targets(DBProxyName; aws_config::AWSConfig=global_aws_config()) = rds("RegisterDBProxyTargets", Dict{String, Any}("DBProxyName"=>DBProxyName); aws_config=aws_config)
-register_dbproxy_targets(DBProxyName, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("RegisterDBProxyTargets", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBProxyName"=>DBProxyName), args)); aws_config=aws_config)
+register_dbproxy_targets(DBProxyName; aws_config::AbstractAWSConfig=global_aws_config()) = rds("RegisterDBProxyTargets", Dict{String, Any}("DBProxyName"=>DBProxyName); aws_config=aws_config)
+register_dbproxy_targets(DBProxyName, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("RegisterDBProxyTargets", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBProxyName"=>DBProxyName), args)); aws_config=aws_config)
 
 """
     RemoveFromGlobalCluster()
@@ -1833,8 +1834,8 @@ register_dbproxy_targets(DBProxyName, args::AbstractDict{String, <:Any}; aws_con
 - `DbClusterIdentifier`:  The Amazon Resource Name (ARN) identifying the cluster that was detached from the Aurora global database cluster. 
 - `GlobalClusterIdentifier`:  The cluster identifier to detach from the Aurora global database cluster. 
 """
-remove_from_global_cluster(; aws_config::AWSConfig=global_aws_config()) = rds("RemoveFromGlobalCluster"; aws_config=aws_config)
-remove_from_global_cluster(args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("RemoveFromGlobalCluster", args; aws_config=aws_config)
+remove_from_global_cluster(; aws_config::AbstractAWSConfig=global_aws_config()) = rds("RemoveFromGlobalCluster"; aws_config=aws_config)
+remove_from_global_cluster(args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("RemoveFromGlobalCluster", args; aws_config=aws_config)
 
 """
     RemoveRoleFromDBCluster()
@@ -1848,8 +1849,8 @@ Disassociates an AWS Identity and Access Management (IAM) role from an Amazon Au
 # Optional Parameters
 - `FeatureName`: The name of the feature for the DB cluster that the IAM role is to be disassociated from. For the list of supported feature names, see DBEngineVersion.
 """
-remove_role_from_dbcluster(DBClusterIdentifier, RoleArn; aws_config::AWSConfig=global_aws_config()) = rds("RemoveRoleFromDBCluster", Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier, "RoleArn"=>RoleArn); aws_config=aws_config)
-remove_role_from_dbcluster(DBClusterIdentifier, RoleArn, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("RemoveRoleFromDBCluster", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier, "RoleArn"=>RoleArn), args)); aws_config=aws_config)
+remove_role_from_dbcluster(DBClusterIdentifier, RoleArn; aws_config::AbstractAWSConfig=global_aws_config()) = rds("RemoveRoleFromDBCluster", Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier, "RoleArn"=>RoleArn); aws_config=aws_config)
+remove_role_from_dbcluster(DBClusterIdentifier, RoleArn, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("RemoveRoleFromDBCluster", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier, "RoleArn"=>RoleArn), args)); aws_config=aws_config)
 
 """
     RemoveRoleFromDBInstance()
@@ -1859,11 +1860,11 @@ Disassociates an AWS Identity and Access Management (IAM) role from a DB instanc
 # Required Parameters
 - `DBInstanceIdentifier`: The name of the DB instance to disassociate the IAM role from.
 - `FeatureName`: The name of the feature for the DB instance that the IAM role is to be disassociated from. For the list of supported feature names, see DBEngineVersion. 
-- `RoleArn`: The Amazon Resource Name (ARN) of the IAM role to disassociate from the DB instance, for example arn:aws:iam::123456789012:role/AccessRole.
+- `RoleArn`: The Amazon Resource Name (ARN) of the IAM role to disassociate from the DB instance, for example, arn:aws:iam::123456789012:role/AccessRole.
 
 """
-remove_role_from_dbinstance(DBInstanceIdentifier, FeatureName, RoleArn; aws_config::AWSConfig=global_aws_config()) = rds("RemoveRoleFromDBInstance", Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier, "FeatureName"=>FeatureName, "RoleArn"=>RoleArn); aws_config=aws_config)
-remove_role_from_dbinstance(DBInstanceIdentifier, FeatureName, RoleArn, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("RemoveRoleFromDBInstance", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier, "FeatureName"=>FeatureName, "RoleArn"=>RoleArn), args)); aws_config=aws_config)
+remove_role_from_dbinstance(DBInstanceIdentifier, FeatureName, RoleArn; aws_config::AbstractAWSConfig=global_aws_config()) = rds("RemoveRoleFromDBInstance", Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier, "FeatureName"=>FeatureName, "RoleArn"=>RoleArn); aws_config=aws_config)
+remove_role_from_dbinstance(DBInstanceIdentifier, FeatureName, RoleArn, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("RemoveRoleFromDBInstance", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier, "FeatureName"=>FeatureName, "RoleArn"=>RoleArn), args)); aws_config=aws_config)
 
 """
     RemoveSourceIdentifierFromSubscription()
@@ -1875,8 +1876,8 @@ Removes a source identifier from an existing RDS event notification subscription
 - `SubscriptionName`: The name of the RDS event notification subscription you want to remove a source identifier from.
 
 """
-remove_source_identifier_from_subscription(SourceIdentifier, SubscriptionName; aws_config::AWSConfig=global_aws_config()) = rds("RemoveSourceIdentifierFromSubscription", Dict{String, Any}("SourceIdentifier"=>SourceIdentifier, "SubscriptionName"=>SubscriptionName); aws_config=aws_config)
-remove_source_identifier_from_subscription(SourceIdentifier, SubscriptionName, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("RemoveSourceIdentifierFromSubscription", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("SourceIdentifier"=>SourceIdentifier, "SubscriptionName"=>SubscriptionName), args)); aws_config=aws_config)
+remove_source_identifier_from_subscription(SourceIdentifier, SubscriptionName; aws_config::AbstractAWSConfig=global_aws_config()) = rds("RemoveSourceIdentifierFromSubscription", Dict{String, Any}("SourceIdentifier"=>SourceIdentifier, "SubscriptionName"=>SubscriptionName); aws_config=aws_config)
+remove_source_identifier_from_subscription(SourceIdentifier, SubscriptionName, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("RemoveSourceIdentifierFromSubscription", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("SourceIdentifier"=>SourceIdentifier, "SubscriptionName"=>SubscriptionName), args)); aws_config=aws_config)
 
 """
     RemoveTagsFromResource()
@@ -1888,8 +1889,8 @@ Removes metadata tags from an Amazon RDS resource. For an overview on tagging an
 - `TagKeys`: The tag key (name) of the tag to be removed.
 
 """
-remove_tags_from_resource(ResourceName, TagKeys; aws_config::AWSConfig=global_aws_config()) = rds("RemoveTagsFromResource", Dict{String, Any}("ResourceName"=>ResourceName, "TagKeys"=>TagKeys); aws_config=aws_config)
-remove_tags_from_resource(ResourceName, TagKeys, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("RemoveTagsFromResource", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("ResourceName"=>ResourceName, "TagKeys"=>TagKeys), args)); aws_config=aws_config)
+remove_tags_from_resource(ResourceName, TagKeys; aws_config::AbstractAWSConfig=global_aws_config()) = rds("RemoveTagsFromResource", Dict{String, Any}("ResourceName"=>ResourceName, "TagKeys"=>TagKeys); aws_config=aws_config)
+remove_tags_from_resource(ResourceName, TagKeys, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("RemoveTagsFromResource", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("ResourceName"=>ResourceName, "TagKeys"=>TagKeys), args)); aws_config=aws_config)
 
 """
     ResetDBClusterParameterGroup()
@@ -1903,8 +1904,8 @@ remove_tags_from_resource(ResourceName, TagKeys, args::AbstractDict{String, <:An
 - `Parameters`: A list of parameter names in the DB cluster parameter group to reset to the default values. You can't use this parameter if the ResetAllParameters parameter is enabled.
 - `ResetAllParameters`: A value that indicates whether to reset all parameters in the DB cluster parameter group to their default values. You can't use this parameter if there is a list of parameter names specified for the Parameters parameter.
 """
-reset_dbcluster_parameter_group(DBClusterParameterGroupName; aws_config::AWSConfig=global_aws_config()) = rds("ResetDBClusterParameterGroup", Dict{String, Any}("DBClusterParameterGroupName"=>DBClusterParameterGroupName); aws_config=aws_config)
-reset_dbcluster_parameter_group(DBClusterParameterGroupName, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("ResetDBClusterParameterGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterParameterGroupName"=>DBClusterParameterGroupName), args)); aws_config=aws_config)
+reset_dbcluster_parameter_group(DBClusterParameterGroupName; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ResetDBClusterParameterGroup", Dict{String, Any}("DBClusterParameterGroupName"=>DBClusterParameterGroupName); aws_config=aws_config)
+reset_dbcluster_parameter_group(DBClusterParameterGroupName, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ResetDBClusterParameterGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterParameterGroupName"=>DBClusterParameterGroupName), args)); aws_config=aws_config)
 
 """
     ResetDBParameterGroup()
@@ -1918,8 +1919,8 @@ Modifies the parameters of a DB parameter group to the engine/system default val
 - `Parameters`: To reset the entire DB parameter group, specify the DBParameterGroup name and ResetAllParameters parameters. To reset specific parameters, provide a list of the following: ParameterName and ApplyMethod. A maximum of 20 parameters can be modified in a single request.  MySQL  Valid Values (for Apply method): immediate | pending-reboot  You can use the immediate value with dynamic parameters only. You can use the pending-reboot value for both dynamic and static parameters, and changes are applied when DB instance reboots.  MariaDB  Valid Values (for Apply method): immediate | pending-reboot  You can use the immediate value with dynamic parameters only. You can use the pending-reboot value for both dynamic and static parameters, and changes are applied when DB instance reboots.  Oracle  Valid Values (for Apply method): pending-reboot 
 - `ResetAllParameters`:  A value that indicates whether to reset all parameters in the DB parameter group to default values. By default, all parameters in the DB parameter group are reset to default values. 
 """
-reset_dbparameter_group(DBParameterGroupName; aws_config::AWSConfig=global_aws_config()) = rds("ResetDBParameterGroup", Dict{String, Any}("DBParameterGroupName"=>DBParameterGroupName); aws_config=aws_config)
-reset_dbparameter_group(DBParameterGroupName, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("ResetDBParameterGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBParameterGroupName"=>DBParameterGroupName), args)); aws_config=aws_config)
+reset_dbparameter_group(DBParameterGroupName; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ResetDBParameterGroup", Dict{String, Any}("DBParameterGroupName"=>DBParameterGroupName); aws_config=aws_config)
+reset_dbparameter_group(DBParameterGroupName, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("ResetDBParameterGroup", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBParameterGroupName"=>DBParameterGroupName), args)); aws_config=aws_config)
 
 """
     RestoreDBClusterFromS3()
@@ -1951,7 +1952,7 @@ Creates an Amazon Aurora DB cluster from MySQL data stored in an Amazon S3 bucke
 - `EnableCloudwatchLogsExports`: The list of logs that the restored DB cluster is to export to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide.
 - `EnableIAMDatabaseAuthentication`: A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled. For more information, see  IAM Database Authentication in the Amazon Aurora User Guide. 
 - `EngineVersion`: The version number of the database engine to use. To list all of the available engine versions for aurora (for MySQL 5.6-compatible Aurora), use the following command:  aws rds describe-db-engine-versions --engine aurora --query \"DBEngineVersions[].EngineVersion\"  To list all of the available engine versions for aurora-mysql (for MySQL 5.7-compatible Aurora), use the following command:  aws rds describe-db-engine-versions --engine aurora-mysql --query \"DBEngineVersions[].EngineVersion\"  To list all of the available engine versions for aurora-postgresql, use the following command:  aws rds describe-db-engine-versions --engine aurora-postgresql --query \"DBEngineVersions[].EngineVersion\"   Aurora MySQL  Example: 5.6.10a, 5.6.mysql_aurora.1.19.2, 5.7.12, 5.7.mysql_aurora.2.04.5   Aurora PostgreSQL  Example: 9.6.3, 10.7 
-- `KmsKeyId`: The AWS KMS key identifier for an encrypted DB cluster. The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a DB cluster with the same AWS account that owns the KMS encryption key used to encrypt the new DB cluster, then you can use the KMS key alias instead of the ARN for the KM encryption key. If the StorageEncrypted parameter is enabled, and you do not specify a value for the KmsKeyId parameter, then Amazon RDS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region.
+- `KmsKeyId`: The AWS KMS key identifier for an encrypted DB cluster. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK). To use a CMK in a different AWS account, specify the key ARN or alias ARN. If the StorageEncrypted parameter is enabled, and you do not specify a value for the KmsKeyId parameter, then Amazon RDS will use your default CMK. There is a default CMK for your AWS account. Your AWS account has a different default CMK for each AWS Region.
 - `OptionGroupName`: A value that indicates that the restored DB cluster should be associated with the specified option group. Permanent options can't be removed from an option group. An option group can't be removed from a DB cluster once it is associated with a DB cluster.
 - `Port`: The port number on which the instances in the restored DB cluster accept connections.  Default: 3306 
 - `PreferredBackupWindow`: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.  The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the time blocks available, see  Adjusting the Preferred Maintenance Window in the Amazon Aurora User Guide.  Constraints:   Must be in the format hh24:mi-hh24:mi.   Must be in Universal Coordinated Time (UTC).   Must not conflict with the preferred maintenance window.   Must be at least 30 minutes.  
@@ -1961,8 +1962,8 @@ Creates an Amazon Aurora DB cluster from MySQL data stored in an Amazon S3 bucke
 - `Tags`: 
 - `VpcSecurityGroupIds`: A list of EC2 VPC security groups to associate with the restored DB cluster.
 """
-restore_dbcluster_from_s3(DBClusterIdentifier, Engine, MasterUserPassword, MasterUsername, S3BucketName, S3IngestionRoleArn, SourceEngine, SourceEngineVersion; aws_config::AWSConfig=global_aws_config()) = rds("RestoreDBClusterFromS3", Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier, "Engine"=>Engine, "MasterUserPassword"=>MasterUserPassword, "MasterUsername"=>MasterUsername, "S3BucketName"=>S3BucketName, "S3IngestionRoleArn"=>S3IngestionRoleArn, "SourceEngine"=>SourceEngine, "SourceEngineVersion"=>SourceEngineVersion); aws_config=aws_config)
-restore_dbcluster_from_s3(DBClusterIdentifier, Engine, MasterUserPassword, MasterUsername, S3BucketName, S3IngestionRoleArn, SourceEngine, SourceEngineVersion, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("RestoreDBClusterFromS3", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier, "Engine"=>Engine, "MasterUserPassword"=>MasterUserPassword, "MasterUsername"=>MasterUsername, "S3BucketName"=>S3BucketName, "S3IngestionRoleArn"=>S3IngestionRoleArn, "SourceEngine"=>SourceEngine, "SourceEngineVersion"=>SourceEngineVersion), args)); aws_config=aws_config)
+restore_dbcluster_from_s3(DBClusterIdentifier, Engine, MasterUserPassword, MasterUsername, S3BucketName, S3IngestionRoleArn, SourceEngine, SourceEngineVersion; aws_config::AbstractAWSConfig=global_aws_config()) = rds("RestoreDBClusterFromS3", Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier, "Engine"=>Engine, "MasterUserPassword"=>MasterUserPassword, "MasterUsername"=>MasterUsername, "S3BucketName"=>S3BucketName, "S3IngestionRoleArn"=>S3IngestionRoleArn, "SourceEngine"=>SourceEngine, "SourceEngineVersion"=>SourceEngineVersion); aws_config=aws_config)
+restore_dbcluster_from_s3(DBClusterIdentifier, Engine, MasterUserPassword, MasterUsername, S3BucketName, S3IngestionRoleArn, SourceEngine, SourceEngineVersion, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("RestoreDBClusterFromS3", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier, "Engine"=>Engine, "MasterUserPassword"=>MasterUserPassword, "MasterUsername"=>MasterUsername, "S3BucketName"=>S3BucketName, "S3IngestionRoleArn"=>S3IngestionRoleArn, "SourceEngine"=>SourceEngine, "SourceEngineVersion"=>SourceEngineVersion), args)); aws_config=aws_config)
 
 """
     RestoreDBClusterFromSnapshot()
@@ -1988,15 +1989,15 @@ Creates a new DB cluster from a DB snapshot or DB cluster snapshot. This action 
 - `EnableIAMDatabaseAuthentication`: A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled. For more information, see  IAM Database Authentication in the Amazon Aurora User Guide. 
 - `EngineMode`: The DB engine mode of the DB cluster, either provisioned, serverless, parallelquery, global, or multimaster. For more information, see  CreateDBCluster.
 - `EngineVersion`: The version of the database engine to use for the new DB cluster. To list all of the available engine versions for aurora (for MySQL 5.6-compatible Aurora), use the following command:  aws rds describe-db-engine-versions --engine aurora --query \"DBEngineVersions[].EngineVersion\"  To list all of the available engine versions for aurora-mysql (for MySQL 5.7-compatible Aurora), use the following command:  aws rds describe-db-engine-versions --engine aurora-mysql --query \"DBEngineVersions[].EngineVersion\"  To list all of the available engine versions for aurora-postgresql, use the following command:  aws rds describe-db-engine-versions --engine aurora-postgresql --query \"DBEngineVersions[].EngineVersion\"   If you aren't using the default engine version, then you must specify the engine version.   Aurora MySQL  Example: 5.6.10a, 5.6.mysql_aurora.1.19.2, 5.7.12, 5.7.mysql_aurora.2.04.5   Aurora PostgreSQL  Example: 9.6.3, 10.7 
-- `KmsKeyId`: The AWS KMS key identifier to use when restoring an encrypted DB cluster from a DB snapshot or DB cluster snapshot. The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are restoring a DB cluster with the same AWS account that owns the KMS encryption key used to encrypt the new DB cluster, then you can use the KMS key alias instead of the ARN for the KMS encryption key. If you don't specify a value for the KmsKeyId parameter, then the following occurs:   If the DB snapshot or DB cluster snapshot in SnapshotIdentifier is encrypted, then the restored DB cluster is encrypted using the KMS key that was used to encrypt the DB snapshot or DB cluster snapshot.   If the DB snapshot or DB cluster snapshot in SnapshotIdentifier isn't encrypted, then the restored DB cluster isn't encrypted.  
+- `KmsKeyId`: The AWS KMS key identifier to use when restoring an encrypted DB cluster from a DB snapshot or DB cluster snapshot. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK). To use a CMK in a different AWS account, specify the key ARN or alias ARN. When you don't specify a value for the KmsKeyId parameter, then the following occurs:   If the DB snapshot or DB cluster snapshot in SnapshotIdentifier is encrypted, then the restored DB cluster is encrypted using the AWS KMS CMK that was used to encrypt the DB snapshot or DB cluster snapshot.   If the DB snapshot or DB cluster snapshot in SnapshotIdentifier isn't encrypted, then the restored DB cluster isn't encrypted.  
 - `OptionGroupName`: The name of the option group to use for the restored DB cluster.
 - `Port`: The port number on which the new DB cluster accepts connections. Constraints: This value must be 1150-65535  Default: The same port as the original DB cluster.
 - `ScalingConfiguration`: For DB clusters in serverless DB engine mode, the scaling properties of the DB cluster.
 - `Tags`: The tags to be assigned to the restored DB cluster.
 - `VpcSecurityGroupIds`: A list of VPC security groups that the new DB cluster will belong to.
 """
-restore_dbcluster_from_snapshot(DBClusterIdentifier, Engine, SnapshotIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("RestoreDBClusterFromSnapshot", Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier, "Engine"=>Engine, "SnapshotIdentifier"=>SnapshotIdentifier); aws_config=aws_config)
-restore_dbcluster_from_snapshot(DBClusterIdentifier, Engine, SnapshotIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("RestoreDBClusterFromSnapshot", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier, "Engine"=>Engine, "SnapshotIdentifier"=>SnapshotIdentifier), args)); aws_config=aws_config)
+restore_dbcluster_from_snapshot(DBClusterIdentifier, Engine, SnapshotIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("RestoreDBClusterFromSnapshot", Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier, "Engine"=>Engine, "SnapshotIdentifier"=>SnapshotIdentifier); aws_config=aws_config)
+restore_dbcluster_from_snapshot(DBClusterIdentifier, Engine, SnapshotIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("RestoreDBClusterFromSnapshot", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier, "Engine"=>Engine, "SnapshotIdentifier"=>SnapshotIdentifier), args)); aws_config=aws_config)
 
 """
     RestoreDBClusterToPointInTime()
@@ -2017,7 +2018,7 @@ Restores a DB cluster to an arbitrary point in time. Users can restore to any po
 - `DomainIAMRoleName`: Specify the name of the IAM role to be used when making API calls to the Directory Service.
 - `EnableCloudwatchLogsExports`: The list of logs that the restored DB cluster is to export to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide.
 - `EnableIAMDatabaseAuthentication`: A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled. For more information, see  IAM Database Authentication in the Amazon Aurora User Guide. 
-- `KmsKeyId`: The AWS KMS key identifier to use when restoring an encrypted DB cluster from an encrypted DB cluster. The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are restoring a DB cluster with the same AWS account that owns the KMS encryption key used to encrypt the new DB cluster, then you can use the KMS key alias instead of the ARN for the KMS encryption key. You can restore to a new DB cluster and encrypt the new DB cluster with a KMS key that is different than the KMS key used to encrypt the source DB cluster. The new DB cluster is encrypted with the KMS key identified by the KmsKeyId parameter. If you don't specify a value for the KmsKeyId parameter, then the following occurs:   If the DB cluster is encrypted, then the restored DB cluster is encrypted using the KMS key that was used to encrypt the source DB cluster.   If the DB cluster isn't encrypted, then the restored DB cluster isn't encrypted.   If DBClusterIdentifier refers to a DB cluster that isn't encrypted, then the restore request is rejected.
+- `KmsKeyId`: The AWS KMS key identifier to use when restoring an encrypted DB cluster from an encrypted DB cluster. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK). To use a CMK in a different AWS account, specify the key ARN or alias ARN. You can restore to a new DB cluster and encrypt the new DB cluster with a AWS KMS CMK that is different than the AWS KMS key used to encrypt the source DB cluster. The new DB cluster is encrypted with the AWS KMS CMK identified by the KmsKeyId parameter. If you don't specify a value for the KmsKeyId parameter, then the following occurs:   If the DB cluster is encrypted, then the restored DB cluster is encrypted using the AWS KMS CMK that was used to encrypt the source DB cluster.   If the DB cluster isn't encrypted, then the restored DB cluster isn't encrypted.   If DBClusterIdentifier refers to a DB cluster that isn't encrypted, then the restore request is rejected.
 - `OptionGroupName`: The name of the option group for the new DB cluster.
 - `Port`: The port number on which the new DB cluster accepts connections. Constraints: A value from 1150-65535.  Default: The default port for the engine.
 - `RestoreToTime`: The date and time to restore the DB cluster to. Valid Values: Value must be a time in Universal Coordinated Time (UTC) format Constraints:   Must be before the latest restorable time for the DB instance   Must be specified if UseLatestRestorableTime parameter isn't provided   Can't be specified if the UseLatestRestorableTime parameter is enabled   Can't be specified if the RestoreType parameter is copy-on-write    Example: 2015-03-07T23:45:00Z 
@@ -2026,13 +2027,13 @@ Restores a DB cluster to an arbitrary point in time. Users can restore to any po
 - `UseLatestRestorableTime`: A value that indicates whether to restore the DB cluster to the latest restorable backup time. By default, the DB cluster isn't restored to the latest restorable backup time.  Constraints: Can't be specified if RestoreToTime parameter is provided.
 - `VpcSecurityGroupIds`: A list of VPC security groups that the new DB cluster belongs to.
 """
-restore_dbcluster_to_point_in_time(DBClusterIdentifier, SourceDBClusterIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("RestoreDBClusterToPointInTime", Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier, "SourceDBClusterIdentifier"=>SourceDBClusterIdentifier); aws_config=aws_config)
-restore_dbcluster_to_point_in_time(DBClusterIdentifier, SourceDBClusterIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("RestoreDBClusterToPointInTime", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier, "SourceDBClusterIdentifier"=>SourceDBClusterIdentifier), args)); aws_config=aws_config)
+restore_dbcluster_to_point_in_time(DBClusterIdentifier, SourceDBClusterIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("RestoreDBClusterToPointInTime", Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier, "SourceDBClusterIdentifier"=>SourceDBClusterIdentifier); aws_config=aws_config)
+restore_dbcluster_to_point_in_time(DBClusterIdentifier, SourceDBClusterIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("RestoreDBClusterToPointInTime", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier, "SourceDBClusterIdentifier"=>SourceDBClusterIdentifier), args)); aws_config=aws_config)
 
 """
     RestoreDBInstanceFromDBSnapshot()
 
-Creates a new DB instance from a DB snapshot. The target database is created from the source database restore point with the most of original configuration with the default security group and the default DB parameter group. By default, the new DB instance is created as a single-AZ deployment except when the instance is a SQL Server instance that has an option group that is associated with mirroring; in this case, the instance becomes a mirrored AZ deployment and not a single-AZ deployment. If your intent is to replace your original DB instance with the new, restored DB instance, then rename your original DB instance before you call the RestoreDBInstanceFromDBSnapshot action. RDS doesn't allow two DB instances with the same name. Once you have renamed your original DB instance with a different identifier, then you can pass the original name of the DB instance as the DBInstanceIdentifier in the call to the RestoreDBInstanceFromDBSnapshot action. The result is that you will replace the original DB instance with the DB instance created from the snapshot. If you are restoring from a shared manual DB snapshot, the DBSnapshotIdentifier must be the ARN of the shared DB snapshot.  This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora, use RestoreDBClusterFromSnapshot. 
+Creates a new DB instance from a DB snapshot. The target database is created from the source database restore point with most of the source's original configuration, including the default security group and DB parameter group. By default, the new DB instance is created as a Single-AZ deployment, except when the instance is a SQL Server instance that has an option group associated with mirroring. In this case, the instance becomes a Multi-AZ deployment, not a Single-AZ deployment. If you want to replace your original DB instance with the new, restored DB instance, then rename your original DB instance before you call the RestoreDBInstanceFromDBSnapshot action. RDS doesn't allow two DB instances with the same name. After you have renamed your original DB instance with a different identifier, then you can pass the original name of the DB instance as the DBInstanceIdentifier in the call to the RestoreDBInstanceFromDBSnapshot action. The result is that you replace the original DB instance with the DB instance created from the snapshot. If you are restoring from a shared manual DB snapshot, the DBSnapshotIdentifier must be the ARN of the shared DB snapshot.  This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora, use RestoreDBClusterFromSnapshot. 
 
 # Required Parameters
 - `DBInstanceIdentifier`: Name of the DB instance to create from the DB snapshot. This parameter isn't case-sensitive. Constraints:   Must contain from 1 to 63 numbers, letters, or hyphens   First character must be a letter   Can't end with a hyphen or contain two consecutive hyphens   Example: my-snapshot-id 
@@ -2066,8 +2067,8 @@ Creates a new DB instance from a DB snapshot. The target database is created fro
 - `UseDefaultProcessorFeatures`: A value that indicates whether the DB instance class of the DB instance uses its default processor features.
 - `VpcSecurityGroupIds`:  A list of EC2 VPC security groups to associate with this DB instance.   Default: The default EC2 VPC security group for the DB subnet group's VPC. 
 """
-restore_dbinstance_from_dbsnapshot(DBInstanceIdentifier, DBSnapshotIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("RestoreDBInstanceFromDBSnapshot", Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier, "DBSnapshotIdentifier"=>DBSnapshotIdentifier); aws_config=aws_config)
-restore_dbinstance_from_dbsnapshot(DBInstanceIdentifier, DBSnapshotIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("RestoreDBInstanceFromDBSnapshot", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier, "DBSnapshotIdentifier"=>DBSnapshotIdentifier), args)); aws_config=aws_config)
+restore_dbinstance_from_dbsnapshot(DBInstanceIdentifier, DBSnapshotIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("RestoreDBInstanceFromDBSnapshot", Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier, "DBSnapshotIdentifier"=>DBSnapshotIdentifier); aws_config=aws_config)
+restore_dbinstance_from_dbsnapshot(DBInstanceIdentifier, DBSnapshotIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("RestoreDBInstanceFromDBSnapshot", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier, "DBSnapshotIdentifier"=>DBSnapshotIdentifier), args)); aws_config=aws_config)
 
 """
     RestoreDBInstanceFromS3()
@@ -2099,7 +2100,7 @@ Amazon Relational Database Service (Amazon RDS) supports importing MySQL databas
 - `EnablePerformanceInsights`: A value that indicates whether to enable Performance Insights for the DB instance.  For more information, see Using Amazon Performance Insights in the Amazon Relational Database Service User Guide. 
 - `EngineVersion`: The version number of the database engine to use. Choose the latest minor version of your database engine. For information about engine versions, see CreateDBInstance, or call DescribeDBEngineVersions. 
 - `Iops`: The amount of Provisioned IOPS (input/output operations per second) to allocate initially for the DB instance. For information about valid Iops values, see Amazon RDS Provisioned IOPS Storage to Improve Performance in the Amazon RDS User Guide. 
-- `KmsKeyId`: The AWS KMS key identifier for an encrypted DB instance.  The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a DB instance with the same AWS account that owns the KMS encryption key used to encrypt the new DB instance, then you can use the KMS key alias instead of the ARN for the KM encryption key.  If the StorageEncrypted parameter is enabled, and you do not specify a value for the KmsKeyId parameter, then Amazon RDS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region. 
+- `KmsKeyId`: The AWS KMS key identifier for an encrypted DB instance.  The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK). To use a CMK in a different AWS account, specify the key ARN or alias ARN. If the StorageEncrypted parameter is enabled, and you do not specify a value for the KmsKeyId parameter, then Amazon RDS will use your default CMK. There is a default CMK for your AWS account. Your AWS account has a different default CMK for each AWS Region. 
 - `LicenseModel`: The license model for this DB instance. Use general-public-license. 
 - `MasterUserPassword`: The password for the master user. The password can include any printable ASCII character except \"/\", \"\"\", or \"@\".  Constraints: Must contain from 8 to 41 characters.
 - `MasterUsername`: The name for the master user.  Constraints:    Must be 1 to 16 letters or numbers.   First character must be a letter.   Can't be a reserved word for the chosen database engine.  
@@ -2108,7 +2109,7 @@ Amazon Relational Database Service (Amazon RDS) supports importing MySQL databas
 - `MonitoringRoleArn`: The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon CloudWatch Logs. For example, arn:aws:iam:123456789012:role/emaccess. For information on creating a monitoring role, see Setting Up and Enabling Enhanced Monitoring in the Amazon RDS User Guide.  If MonitoringInterval is set to a value other than 0, then you must supply a MonitoringRoleArn value. 
 - `MultiAZ`: A value that indicates whether the DB instance is a Multi-AZ deployment. If the DB instance is a Multi-AZ deployment, you can't set the AvailabilityZone parameter. 
 - `OptionGroupName`: The name of the option group to associate with this DB instance. If this argument is omitted, the default option group for the specified engine is used. 
-- `PerformanceInsightsKMSKeyId`: The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), the KMS key identifier, or the KMS key alias for the KMS encryption key.  If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon RDS uses your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region.
+- `PerformanceInsightsKMSKeyId`: The AWS KMS key identifier for encryption of Performance Insights data. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK). If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon RDS uses your default CMK. There is a default CMK for your AWS account. Your AWS account has a different default CMK for each AWS Region.
 - `PerformanceInsightsRetentionPeriod`: The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years). 
 - `Port`: The port number on which the database accepts connections.  Type: Integer  Valid Values: 1150-65535  Default: 3306 
 - `PreferredBackupWindow`: The time range each day during which automated backups are created if automated backups are enabled. For more information, see The Backup Window in the Amazon RDS User Guide.  Constraints:   Must be in the format hh24:mi-hh24:mi.   Must be in Universal Coordinated Time (UTC).   Must not conflict with the preferred maintenance window.   Must be at least 30 minutes.  
@@ -2122,8 +2123,8 @@ Amazon Relational Database Service (Amazon RDS) supports importing MySQL databas
 - `UseDefaultProcessorFeatures`: A value that indicates whether the DB instance class of the DB instance uses its default processor features.
 - `VpcSecurityGroupIds`: A list of VPC security groups to associate with this DB instance. 
 """
-restore_dbinstance_from_s3(DBInstanceClass, DBInstanceIdentifier, Engine, S3BucketName, S3IngestionRoleArn, SourceEngine, SourceEngineVersion; aws_config::AWSConfig=global_aws_config()) = rds("RestoreDBInstanceFromS3", Dict{String, Any}("DBInstanceClass"=>DBInstanceClass, "DBInstanceIdentifier"=>DBInstanceIdentifier, "Engine"=>Engine, "S3BucketName"=>S3BucketName, "S3IngestionRoleArn"=>S3IngestionRoleArn, "SourceEngine"=>SourceEngine, "SourceEngineVersion"=>SourceEngineVersion); aws_config=aws_config)
-restore_dbinstance_from_s3(DBInstanceClass, DBInstanceIdentifier, Engine, S3BucketName, S3IngestionRoleArn, SourceEngine, SourceEngineVersion, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("RestoreDBInstanceFromS3", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBInstanceClass"=>DBInstanceClass, "DBInstanceIdentifier"=>DBInstanceIdentifier, "Engine"=>Engine, "S3BucketName"=>S3BucketName, "S3IngestionRoleArn"=>S3IngestionRoleArn, "SourceEngine"=>SourceEngine, "SourceEngineVersion"=>SourceEngineVersion), args)); aws_config=aws_config)
+restore_dbinstance_from_s3(DBInstanceClass, DBInstanceIdentifier, Engine, S3BucketName, S3IngestionRoleArn, SourceEngine, SourceEngineVersion; aws_config::AbstractAWSConfig=global_aws_config()) = rds("RestoreDBInstanceFromS3", Dict{String, Any}("DBInstanceClass"=>DBInstanceClass, "DBInstanceIdentifier"=>DBInstanceIdentifier, "Engine"=>Engine, "S3BucketName"=>S3BucketName, "S3IngestionRoleArn"=>S3IngestionRoleArn, "SourceEngine"=>SourceEngine, "SourceEngineVersion"=>SourceEngineVersion); aws_config=aws_config)
+restore_dbinstance_from_s3(DBInstanceClass, DBInstanceIdentifier, Engine, S3BucketName, S3IngestionRoleArn, SourceEngine, SourceEngineVersion, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("RestoreDBInstanceFromS3", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBInstanceClass"=>DBInstanceClass, "DBInstanceIdentifier"=>DBInstanceIdentifier, "Engine"=>Engine, "S3BucketName"=>S3BucketName, "S3IngestionRoleArn"=>S3IngestionRoleArn, "SourceEngine"=>SourceEngine, "SourceEngineVersion"=>SourceEngineVersion), args)); aws_config=aws_config)
 
 """
     RestoreDBInstanceToPointInTime()
@@ -2156,6 +2157,7 @@ Restores a DB instance to an arbitrary point in time. You can restore to any poi
 - `ProcessorFeatures`: The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
 - `PubliclyAccessible`: A value that indicates whether the DB instance is publicly accessible. When the DB instance is publicly accessible, its DNS endpoint resolves to the private IP address from within the DB instance's VPC, and to the public IP address from outside of the DB instance's VPC. Access to the DB instance is ultimately controlled by the security group it uses, and that public access is not permitted if the security group assigned to the DB instance doesn't permit it. When the DB instance isn't publicly accessible, it is an internal DB instance with a DNS name that resolves to a private IP address. For more information, see CreateDBInstance.
 - `RestoreTime`: The date and time to restore from. Valid Values: Value must be a time in Universal Coordinated Time (UTC) format Constraints:   Must be before the latest restorable time for the DB instance   Can't be specified if the UseLatestRestorableTime parameter is enabled   Example: 2009-09-07T23:45:00Z 
+- `SourceDBInstanceAutomatedBackupsArn`: The Amazon Resource Name (ARN) of the replicated automated backups from which to restore, for example, arn:aws:rds:useast-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE.
 - `SourceDBInstanceIdentifier`: The identifier of the source DB instance from which to restore. Constraints:   Must match the identifier of an existing DB instance.  
 - `SourceDbiResourceId`: The resource ID of the source DB instance from which to restore.
 - `StorageType`: Specifies the storage type to be associated with the DB instance.  Valid values: standard | gp2 | io1   If you specify io1, you must also include a value for the Iops parameter.   Default: io1 if the Iops parameter is specified, otherwise gp2 
@@ -2166,8 +2168,8 @@ Restores a DB instance to an arbitrary point in time. You can restore to any poi
 - `UseLatestRestorableTime`:  A value that indicates whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.  Constraints: Can't be specified if the RestoreTime parameter is provided.
 - `VpcSecurityGroupIds`:  A list of EC2 VPC security groups to associate with this DB instance.   Default: The default EC2 VPC security group for the DB subnet group's VPC. 
 """
-restore_dbinstance_to_point_in_time(TargetDBInstanceIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("RestoreDBInstanceToPointInTime", Dict{String, Any}("TargetDBInstanceIdentifier"=>TargetDBInstanceIdentifier); aws_config=aws_config)
-restore_dbinstance_to_point_in_time(TargetDBInstanceIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("RestoreDBInstanceToPointInTime", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("TargetDBInstanceIdentifier"=>TargetDBInstanceIdentifier), args)); aws_config=aws_config)
+restore_dbinstance_to_point_in_time(TargetDBInstanceIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("RestoreDBInstanceToPointInTime", Dict{String, Any}("TargetDBInstanceIdentifier"=>TargetDBInstanceIdentifier); aws_config=aws_config)
+restore_dbinstance_to_point_in_time(TargetDBInstanceIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("RestoreDBInstanceToPointInTime", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("TargetDBInstanceIdentifier"=>TargetDBInstanceIdentifier), args)); aws_config=aws_config)
 
 """
     RevokeDBSecurityGroupIngress()
@@ -2183,8 +2185,8 @@ Revokes ingress from a DBSecurityGroup for previously authorized IP ranges or EC
 - `EC2SecurityGroupName`:  The name of the EC2 security group to revoke access from. For VPC DB security groups, EC2SecurityGroupId must be provided. Otherwise, EC2SecurityGroupOwnerId and either EC2SecurityGroupName or EC2SecurityGroupId must be provided. 
 - `EC2SecurityGroupOwnerId`:  The AWS account number of the owner of the EC2 security group specified in the EC2SecurityGroupName parameter. The AWS access key ID isn't an acceptable value. For VPC DB security groups, EC2SecurityGroupId must be provided. Otherwise, EC2SecurityGroupOwnerId and either EC2SecurityGroupName or EC2SecurityGroupId must be provided. 
 """
-revoke_dbsecurity_group_ingress(DBSecurityGroupName; aws_config::AWSConfig=global_aws_config()) = rds("RevokeDBSecurityGroupIngress", Dict{String, Any}("DBSecurityGroupName"=>DBSecurityGroupName); aws_config=aws_config)
-revoke_dbsecurity_group_ingress(DBSecurityGroupName, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("RevokeDBSecurityGroupIngress", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBSecurityGroupName"=>DBSecurityGroupName), args)); aws_config=aws_config)
+revoke_dbsecurity_group_ingress(DBSecurityGroupName; aws_config::AbstractAWSConfig=global_aws_config()) = rds("RevokeDBSecurityGroupIngress", Dict{String, Any}("DBSecurityGroupName"=>DBSecurityGroupName); aws_config=aws_config)
+revoke_dbsecurity_group_ingress(DBSecurityGroupName, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("RevokeDBSecurityGroupIngress", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBSecurityGroupName"=>DBSecurityGroupName), args)); aws_config=aws_config)
 
 """
     StartActivityStream()
@@ -2192,15 +2194,15 @@ revoke_dbsecurity_group_ingress(DBSecurityGroupName, args::AbstractDict{String, 
 Starts a database activity stream to monitor activity on the database. For more information, see Database Activity Streams in the Amazon Aurora User Guide.
 
 # Required Parameters
-- `KmsKeyId`: The AWS KMS key identifier for encrypting messages in the database activity stream. The key identifier can be either a key ID, a key ARN, or a key alias.
+- `KmsKeyId`: The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).
 - `Mode`: Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. 
-- `ResourceArn`: The Amazon Resource Name (ARN) of the DB cluster, for example arn:aws:rds:us-east-1:12345667890:cluster:das-cluster.
+- `ResourceArn`: The Amazon Resource Name (ARN) of the DB cluster, for example, arn:aws:rds:us-east-1:12345667890:cluster:das-cluster.
 
 # Optional Parameters
 - `ApplyImmediately`: Specifies whether or not the database activity stream is to start as soon as possible, regardless of the maintenance window for the database.
 """
-start_activity_stream(KmsKeyId, Mode, ResourceArn; aws_config::AWSConfig=global_aws_config()) = rds("StartActivityStream", Dict{String, Any}("KmsKeyId"=>KmsKeyId, "Mode"=>Mode, "ResourceArn"=>ResourceArn); aws_config=aws_config)
-start_activity_stream(KmsKeyId, Mode, ResourceArn, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("StartActivityStream", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("KmsKeyId"=>KmsKeyId, "Mode"=>Mode, "ResourceArn"=>ResourceArn), args)); aws_config=aws_config)
+start_activity_stream(KmsKeyId, Mode, ResourceArn; aws_config::AbstractAWSConfig=global_aws_config()) = rds("StartActivityStream", Dict{String, Any}("KmsKeyId"=>KmsKeyId, "Mode"=>Mode, "ResourceArn"=>ResourceArn); aws_config=aws_config)
+start_activity_stream(KmsKeyId, Mode, ResourceArn, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("StartActivityStream", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("KmsKeyId"=>KmsKeyId, "Mode"=>Mode, "ResourceArn"=>ResourceArn), args)); aws_config=aws_config)
 
 """
     StartDBCluster()
@@ -2211,8 +2213,8 @@ Starts an Amazon Aurora DB cluster that was stopped using the AWS console, the s
 - `DBClusterIdentifier`: The DB cluster identifier of the Amazon Aurora DB cluster to be started. This parameter is stored as a lowercase string.
 
 """
-start_dbcluster(DBClusterIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("StartDBCluster", Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier); aws_config=aws_config)
-start_dbcluster(DBClusterIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("StartDBCluster", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier), args)); aws_config=aws_config)
+start_dbcluster(DBClusterIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("StartDBCluster", Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier); aws_config=aws_config)
+start_dbcluster(DBClusterIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("StartDBCluster", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier), args)); aws_config=aws_config)
 
 """
     StartDBInstance()
@@ -2223,8 +2225,24 @@ start_dbcluster(DBClusterIdentifier, args::AbstractDict{String, <:Any}; aws_conf
 - `DBInstanceIdentifier`:  The user-supplied instance identifier. 
 
 """
-start_dbinstance(DBInstanceIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("StartDBInstance", Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier); aws_config=aws_config)
-start_dbinstance(DBInstanceIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("StartDBInstance", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier), args)); aws_config=aws_config)
+start_dbinstance(DBInstanceIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("StartDBInstance", Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier); aws_config=aws_config)
+start_dbinstance(DBInstanceIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("StartDBInstance", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier), args)); aws_config=aws_config)
+
+"""
+    StartDBInstanceAutomatedBackupsReplication()
+
+Enables replication of automated backups to a different AWS Region. For more information, see  Replicating Automated Backups to Another AWS Region in the Amazon RDS User Guide. 
+
+# Required Parameters
+- `SourceDBInstanceArn`: The Amazon Resource Name (ARN) of the source DB instance for the replicated automated backups, for example, arn:aws:rds:us-west-2:123456789012:db:mydatabase.
+
+# Optional Parameters
+- `BackupRetentionPeriod`: The retention period for the replicated automated backups.
+- `KmsKeyId`: The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example, arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE.
+- `PreSignedUrl`: A URL that contains a Signature Version 4 signed request for the StartDBInstanceAutomatedBackupsReplication action to be called in the AWS Region of the source DB instance. The presigned URL must be a valid request for the StartDBInstanceAutomatedBackupsReplication API action that can be executed in the AWS Region that contains the source DB instance.
+"""
+start_dbinstance_automated_backups_replication(SourceDBInstanceArn; aws_config::AbstractAWSConfig=global_aws_config()) = rds("StartDBInstanceAutomatedBackupsReplication", Dict{String, Any}("SourceDBInstanceArn"=>SourceDBInstanceArn); aws_config=aws_config)
+start_dbinstance_automated_backups_replication(SourceDBInstanceArn, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("StartDBInstanceAutomatedBackupsReplication", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("SourceDBInstanceArn"=>SourceDBInstanceArn), args)); aws_config=aws_config)
 
 """
     StartExportTask()
@@ -2234,7 +2252,7 @@ Starts an export of a snapshot to Amazon S3. The provided IAM role must have acc
 # Required Parameters
 - `ExportTaskIdentifier`: A unique identifier for the snapshot export task. This ID isn't an identifier for the Amazon S3 bucket where the snapshot is to be exported to. 
 - `IamRoleArn`: The name of the IAM role to use for writing to the Amazon S3 bucket when exporting a snapshot. 
-- `KmsKeyId`: The ID of the AWS KMS key to use to encrypt the snapshot exported to Amazon S3. The KMS key ID is the Amazon Resource Name (ARN), the KMS key identifier, or the KMS key alias for the KMS encryption key. The caller of this operation must be authorized to execute the following operations. These can be set in the KMS key policy:    GrantOperation.Encrypt   GrantOperation.Decrypt   GrantOperation.GenerateDataKey   GrantOperation.GenerateDataKeyWithoutPlaintext   GrantOperation.ReEncryptFrom   GrantOperation.ReEncryptTo   GrantOperation.CreateGrant   GrantOperation.DescribeKey   GrantOperation.RetireGrant  
+- `KmsKeyId`: The ID of the AWS KMS customer master key (CMK) to use to encrypt the snapshot exported to Amazon S3. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK). The caller of this operation must be authorized to execute the following operations. These can be set in the AWS KMS key policy:    GrantOperation.Encrypt   GrantOperation.Decrypt   GrantOperation.GenerateDataKey   GrantOperation.GenerateDataKeyWithoutPlaintext   GrantOperation.ReEncryptFrom   GrantOperation.ReEncryptTo   GrantOperation.CreateGrant   GrantOperation.DescribeKey   GrantOperation.RetireGrant  
 - `S3BucketName`: The name of the Amazon S3 bucket to export the snapshot to.
 - `SourceArn`: The Amazon Resource Name (ARN) of the snapshot to export to Amazon S3.
 
@@ -2242,8 +2260,8 @@ Starts an export of a snapshot to Amazon S3. The provided IAM role must have acc
 - `ExportOnly`: The data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are the following:    database - Export all the data from a specified database.    database.table table-name - Export a table of the snapshot. This format is valid only for RDS for MySQL, RDS for MariaDB, and Aurora MySQL.    database.schema schema-name - Export a database schema of the snapshot. This format is valid only for RDS for PostgreSQL and Aurora PostgreSQL.    database.schema.table table-name - Export a table of the database schema. This format is valid only for RDS for PostgreSQL and Aurora PostgreSQL.  
 - `S3Prefix`: The Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
 """
-start_export_task(ExportTaskIdentifier, IamRoleArn, KmsKeyId, S3BucketName, SourceArn; aws_config::AWSConfig=global_aws_config()) = rds("StartExportTask", Dict{String, Any}("ExportTaskIdentifier"=>ExportTaskIdentifier, "IamRoleArn"=>IamRoleArn, "KmsKeyId"=>KmsKeyId, "S3BucketName"=>S3BucketName, "SourceArn"=>SourceArn); aws_config=aws_config)
-start_export_task(ExportTaskIdentifier, IamRoleArn, KmsKeyId, S3BucketName, SourceArn, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("StartExportTask", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("ExportTaskIdentifier"=>ExportTaskIdentifier, "IamRoleArn"=>IamRoleArn, "KmsKeyId"=>KmsKeyId, "S3BucketName"=>S3BucketName, "SourceArn"=>SourceArn), args)); aws_config=aws_config)
+start_export_task(ExportTaskIdentifier, IamRoleArn, KmsKeyId, S3BucketName, SourceArn; aws_config::AbstractAWSConfig=global_aws_config()) = rds("StartExportTask", Dict{String, Any}("ExportTaskIdentifier"=>ExportTaskIdentifier, "IamRoleArn"=>IamRoleArn, "KmsKeyId"=>KmsKeyId, "S3BucketName"=>S3BucketName, "SourceArn"=>SourceArn); aws_config=aws_config)
+start_export_task(ExportTaskIdentifier, IamRoleArn, KmsKeyId, S3BucketName, SourceArn, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("StartExportTask", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("ExportTaskIdentifier"=>ExportTaskIdentifier, "IamRoleArn"=>IamRoleArn, "KmsKeyId"=>KmsKeyId, "S3BucketName"=>S3BucketName, "SourceArn"=>SourceArn), args)); aws_config=aws_config)
 
 """
     StopActivityStream()
@@ -2256,8 +2274,8 @@ Stops a database activity stream that was started using the AWS console, the sta
 # Optional Parameters
 - `ApplyImmediately`: Specifies whether or not the database activity stream is to stop as soon as possible, regardless of the maintenance window for the database.
 """
-stop_activity_stream(ResourceArn; aws_config::AWSConfig=global_aws_config()) = rds("StopActivityStream", Dict{String, Any}("ResourceArn"=>ResourceArn); aws_config=aws_config)
-stop_activity_stream(ResourceArn, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("StopActivityStream", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("ResourceArn"=>ResourceArn), args)); aws_config=aws_config)
+stop_activity_stream(ResourceArn; aws_config::AbstractAWSConfig=global_aws_config()) = rds("StopActivityStream", Dict{String, Any}("ResourceArn"=>ResourceArn); aws_config=aws_config)
+stop_activity_stream(ResourceArn, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("StopActivityStream", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("ResourceArn"=>ResourceArn), args)); aws_config=aws_config)
 
 """
     StopDBCluster()
@@ -2268,8 +2286,8 @@ stop_activity_stream(ResourceArn, args::AbstractDict{String, <:Any}; aws_config:
 - `DBClusterIdentifier`: The DB cluster identifier of the Amazon Aurora DB cluster to be stopped. This parameter is stored as a lowercase string.
 
 """
-stop_dbcluster(DBClusterIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("StopDBCluster", Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier); aws_config=aws_config)
-stop_dbcluster(DBClusterIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("StopDBCluster", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier), args)); aws_config=aws_config)
+stop_dbcluster(DBClusterIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("StopDBCluster", Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier); aws_config=aws_config)
+stop_dbcluster(DBClusterIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("StopDBCluster", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBClusterIdentifier"=>DBClusterIdentifier), args)); aws_config=aws_config)
 
 """
     StopDBInstance()
@@ -2282,5 +2300,17 @@ stop_dbcluster(DBClusterIdentifier, args::AbstractDict{String, <:Any}; aws_confi
 # Optional Parameters
 - `DBSnapshotIdentifier`:  The user-supplied instance identifier of the DB Snapshot created immediately before the DB instance is stopped. 
 """
-stop_dbinstance(DBInstanceIdentifier; aws_config::AWSConfig=global_aws_config()) = rds("StopDBInstance", Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier); aws_config=aws_config)
-stop_dbinstance(DBInstanceIdentifier, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = rds("StopDBInstance", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier), args)); aws_config=aws_config)
+stop_dbinstance(DBInstanceIdentifier; aws_config::AbstractAWSConfig=global_aws_config()) = rds("StopDBInstance", Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier); aws_config=aws_config)
+stop_dbinstance(DBInstanceIdentifier, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("StopDBInstance", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("DBInstanceIdentifier"=>DBInstanceIdentifier), args)); aws_config=aws_config)
+
+"""
+    StopDBInstanceAutomatedBackupsReplication()
+
+Stops automated backup replication for a DB instance. For more information, see  Replicating Automated Backups to Another AWS Region in the Amazon RDS User Guide. 
+
+# Required Parameters
+- `SourceDBInstanceArn`: The Amazon Resource Name (ARN) of the source DB instance for which to stop replicating automated backups, for example, arn:aws:rds:us-west-2:123456789012:db:mydatabase.
+
+"""
+stop_dbinstance_automated_backups_replication(SourceDBInstanceArn; aws_config::AbstractAWSConfig=global_aws_config()) = rds("StopDBInstanceAutomatedBackupsReplication", Dict{String, Any}("SourceDBInstanceArn"=>SourceDBInstanceArn); aws_config=aws_config)
+stop_dbinstance_automated_backups_replication(SourceDBInstanceArn, args::AbstractDict{String, <:Any}; aws_config::AbstractAWSConfig=global_aws_config()) = rds("StopDBInstanceAutomatedBackupsReplication", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("SourceDBInstanceArn"=>SourceDBInstanceArn), args)); aws_config=aws_config)
