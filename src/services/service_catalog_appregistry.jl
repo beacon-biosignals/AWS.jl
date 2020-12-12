@@ -194,6 +194,44 @@ list_attribute_groups(; aws_config::AWSConfig=global_aws_config()) = service_cat
 list_attribute_groups(args::AbstractDict{String, Any}; aws_config::AWSConfig=global_aws_config()) = service_catalog_appregistry("GET", "/attribute-groups", args; aws_config=aws_config)
 
 """
+    ListTagsForResource()
+
+Lists all of the tags on the resource.
+
+# Required Parameters
+- `resourceArn`: The Amazon resource name (ARN) that specifies the resource.
+
+"""
+list_tags_for_resource(resourceArn; aws_config::AWSConfig=global_aws_config()) = service_catalog_appregistry("GET", "/tags/$(resourceArn)"; aws_config=aws_config)
+list_tags_for_resource(resourceArn, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = service_catalog_appregistry("GET", "/tags/$(resourceArn)", args; aws_config=aws_config)
+
+"""
+    TagResource()
+
+Assigns one or more tags (key-value pairs) to the specified resource. Each tag consists of a key and an optional value. If a tag with the same key is already associated with the resource, this action updates its value.
+
+# Required Parameters
+- `resourceArn`: The Amazon resource name (ARN) that specifies the resource.
+- `tags`: The new or modified tags for the resource.
+
+"""
+tag_resource(resourceArn, tags; aws_config::AWSConfig=global_aws_config()) = service_catalog_appregistry("POST", "/tags/$(resourceArn)", Dict{String, Any}("tags"=>tags); aws_config=aws_config)
+tag_resource(resourceArn, tags, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = service_catalog_appregistry("POST", "/tags/$(resourceArn)", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("tags"=>tags), args)); aws_config=aws_config)
+
+"""
+    UntagResource()
+
+Removes tags from a resource.
+
+# Required Parameters
+- `resourceArn`: The Amazon resource name (ARN) that specifies the resource.
+- `tagKeys`: A list of the tag keys to remove from the specified resource.
+
+"""
+untag_resource(resourceArn, tagKeys; aws_config::AWSConfig=global_aws_config()) = service_catalog_appregistry("DELETE", "/tags/$(resourceArn)", Dict{String, Any}("tagKeys"=>tagKeys); aws_config=aws_config)
+untag_resource(resourceArn, tagKeys, args::AbstractDict{String, <:Any}; aws_config::AWSConfig=global_aws_config()) = service_catalog_appregistry("DELETE", "/tags/$(resourceArn)", Dict{String, Any}(mergewith(_merge, Dict{String, Any}("tagKeys"=>tagKeys), args)); aws_config=aws_config)
+
+"""
     UpdateApplication()
 
 Updates an existing application with new attributes.
